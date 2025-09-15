@@ -1,0 +1,114 @@
+.shopee__top {
+    background: linear-gradient(-180deg, #f53d2d, #f63);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 119px;
+    width: 100%;
+    color: var(--white);
+}
+
+.navbar {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between; 
+    height: 34px;
+    font-size: 1.3rem;
+}
+
+.navbar__wrapper {
+    display: flex; 
+    align-items: center; 
+}
+
+.navbar__item {
+    padding: 0 0.4rem;
+    position: relative;
+    display: inline-block;
+    line-height: 34px;
+}
+
+.navbar:hover > .navbar__item {
+    opacity: 0.7;
+}
+
+.navbar__item:hover .sub-navbar,
+.sub-navbar:hover {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__item:not(:first-child)::before {
+    content: "|";
+    opacity: 0.5;
+    margin-right: 0.8rem;
+}
+
+.sub-navbar {
+    position: absolute;
+    left: 20px;
+    top: 34px;
+    background: #fff;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    display: none;
+    width: 190px;
+    border-radius: 0.4rem;
+    z-index: 1000;
+}
+
+.sub-navbar__img {
+    width: 70px;
+    display: inline-block;
+}
+
+.sub-navbar-dw .sub-navbar-dw__app {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 2rem 0.8rem;
+    border-radius: 8px;
+}
+
+.sub-navbar-dw__item-app {
+    height: 24px;
+}
+
+.navbar__social {
+    display: inline-block;
+    line-height: 3.4rem;
+    font-size: 1.7rem;
+}
+
+.navbar__link__item {
+    padding: 0 0.8rem;
+    position: relative;
+    display: inline-block;
+    line-height: 3.4rem;
+}
+
+.navbar__link__item .navbar__icon {
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-right: 0.2rem;
+    position: relative;
+    top: 2px;
+}
+
+.navbar__notification-icon {
+    font-size: 1.8rem;
+}
+
+.navbar__language .navbar__icon {
+    font-size: 1.4rem;
+}
+
+.navbar__sign-in::after {
+    content: "|";
+    opacity: 0.5;
+    margin-left: 0.8rem;
+}
+
+.navbar__authentication .navbar__link__item {
+    padding: 0 0.2rem;
+}
