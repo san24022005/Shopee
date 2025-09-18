@@ -32,7 +32,7 @@ html {
 }
 
 body { 
-    background: var(--secondary); 
+    background: #f8f8f8; 
     color: var(--text); 
 }
 
@@ -45,6 +45,10 @@ ul {
     list-style: none; 
     padding: 0; 
     margin: 0; 
+}
+
+.main {
+    height: 1000px;
 }
 
 /*  */
