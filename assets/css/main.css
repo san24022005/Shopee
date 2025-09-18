@@ -1,17 +1,22 @@
 .shopee__top {
     background: linear-gradient(-180deg, #f53d2d, #f63);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    height: 119px;
-    width: 100%;
+    height: 11.9rem;
     color: var(--white);
+}
+
+.shopee__top--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .navbar {
     display: flex; 
     align-items: center;
     justify-content: space-between; 
-    height: 34px;
     font-size: 1.3rem;
 }
 
@@ -24,10 +29,11 @@
     padding: 0 0.4rem;
     position: relative;
     display: inline-block;
-    line-height: 34px;
+    line-height: 3.4rem;
 }
 
-.navbar:hover > .navbar__item {
+.navbar__item:hover,
+.navbar__link-item:hover {
     opacity: 0.7;
 }
 
@@ -35,6 +41,7 @@
 .sub-navbar:hover {
     display: flex;
     flex-direction: column;
+    opacity: 2;
 }
 
 .navbar__item:not(:first-child)::before {
@@ -43,21 +50,25 @@
     margin-right: 0.8rem;
 }
 
+.navbar__item:not(:first-child)::before:hover {
+    opacity: 1;
+}
+
 .sub-navbar {
+    width: 19rem;
     position: absolute;
-    left: 20px;
-    top: 34px;
+    left: 2rem;
+    top: 3.4rem;
     background: #fff;
     color: var(--text);
     box-shadow: var(--shadow);
     display: none;
-    width: 190px;
     border-radius: 0.4rem;
     z-index: 1000;
 }
 
 .sub-navbar__img {
-    width: 70px;
+    width: 7rem;
     display: inline-block;
 }
 
@@ -66,12 +77,11 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 2rem 0.8rem;
-    border-radius: 8px;
+    padding: 0 1.5rem 0.8rem;
 }
 
 .sub-navbar-dw__item-app {
-    height: 24px;
+    height: 2.4rem;
 }
 
 .navbar__social {
@@ -80,19 +90,23 @@
     font-size: 1.7rem;
 }
 
-.navbar__link__item {
+.navbar__link-item {
     padding: 0 0.8rem;
     position: relative;
     display: inline-block;
     line-height: 3.4rem;
 }
 
-.navbar__link__item .navbar__icon {
+.shopee__top--logo {
+    padding-right: 4rem;
+}
+
+.navbar__link-item .navbar__icon {
     font-size: 1.6rem;
     display: inline-block;
     margin-right: 0.2rem;
     position: relative;
-    top: 2px;
+    top: 0.2rem;
 }
 
 .navbar__notification-icon {
@@ -109,6 +123,268 @@
     margin-left: 0.8rem;
 }
 
-.navbar__authentication .navbar__link__item {
+.navbar__authentication .navbar__link-item {
     padding: 0 0.2rem;
+}
+
+.header {
+    padding: 0.8rem 0;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8.5rem;
+}
+
+.header__logo {
+    width: 18rem;
+    height: 7.5rem;
+}
+
+.header__seacrh-wrapper {
+    width: 84rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.header__search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.header__search-form {
+    width: 100%;
+    position: relative;
+}
+
+.header__search-input {
+    width: 100%;
+    height: 4rem;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.header__input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.3);
+}
+
+.header__search-btn {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    bottom: 0.8rem;
+    width: 6rem;
+    border: none;
+    background: #fb5533;
+    color: var(--white);
+    border-radius: 0.2rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.header__search-btn:hover {
+    background: #fb6445;
+}
+
+.header__search-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 20px;
+    overflow: hidden;
+    font-size: 1.2rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.header__cart__wrapper {
+    width: 5.2rem;
+    height: 5.6rem;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.header__cart-icon {
+    font-size: 2.6rem;
+}
+
+/* BANNER HOMEPAGE */
+
+.slider {
+    position: relative;
+    width: 800px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    border: #ccc 1px solid;
+}
+
+.slider:hover .prev,
+.slider:hover .next {
+    display: block;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slider img {
+    width: 80rem;
+    height: 100%;
+    object-fit: cover;
+    min-width: 100%;
+    position: relative;
+}
+
+/* Nút điều hướng */
+.prev, .next {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.25);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    animation: fadein 0.5s ease;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+/* Dấu chấm */
+.dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.dot.active {
+    background: #ff5722;
+}
+
+.banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 11.9rem;
+    padding-top: 3rem;
+    background-color: #fff;
+}
+
+.banner__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+}
+
+.banner-secondary {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    gap: 0.4rem;
+}
+
+.banner-secondary .banner-secondary__item {
+    flex: 1;
+    width: 100%;
+}
+
+.banner-secondary .banner-secondary__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.4rem;
+}
+
+.other-banner {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 3rem;
+    justify-content: space-around;
+}
+
+.other-banner__item {
+    width: 15rem;
+    height: 10.8rem;
+}
+
+.other-banner__item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.other-banner__item:hover {
+    animation: toUp 0.3s ease;
+}
+
+.other-banner__item a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.other-banner__item img {
+    width: 4.5rem;
+    object-fit: cover;
+    border-radius: 0.4rem;
+}
+
+.other-banner__item p {
+    width: 15rem;
+    text-align: center;
+    font-size: 1.3rem;
+    white-space: pre-line;
+}
+
+@keyframes toUp {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+
 }

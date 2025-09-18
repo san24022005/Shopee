@@ -1,5 +1,5 @@
 <div class="shopee__top shopee__top--sticky">
-    <div class="container navbar">
+    <div class="grid navbar">
         <div class="navbar__wrapper">
             <a href="https://banhang.shopee.vn/" class="navbar__item">Kênh Người Bán</a>
             <a href="https://shopee.vn/seller/signup" class="navbar__item">Trở thành Người Bán Shopee</a>
@@ -31,43 +31,49 @@
             </div>
         </div>
         <div class="navbar__links">
-            <a href="" class="navbar__link__item">
+            <a href="" class="navbar__link-item">
                 <i class="navbar__icon ti-bell navbar__notification-icon"></i>
                 Thông Báo
             </a>
-            <a href="https://help.shopee.vn/portal/4/vn/s" class="navbar__link__item">
+            <a href="https://help.shopee.vn/portal/4/vn/s" class="navbar__link-item">
                 <i class="navbar__icon ti-help-alt"></i> 
                 Hỗ Trợ
             </a>
-            <a href="" class="navbar__link__item navbar__language">
+            <a href="" class="navbar__link-item navbar__language">
                 <i class="navbar__icon ti-world"></i>
                 Tiếng Việt
                 <i class="navbar__icon ti-angle-down .angle-down-icon"></i>
             </a>
-            <div class="navbar__authentication navbar__link__item">
-                <a href="" class="navbar__link__item navbar__sign-in">Đăng Ký</a>
-                <a href="" class="navbar__link__item navbar__log-in">Đăng Nhập</a>
+            <div class="navbar__authentication navbar__link-item not-hover">
+                <a href="" class="navbar__link-item navbar__sign-in">Đăng Ký</a>
+                <a href="" class="navbar__link-item navbar__log-in">Đăng Nhập</a>
             </div>           
         </div>
     </div>
-    <div class="cotainer header-with-search">
-        <div class="container__wrapper header-with-search__wrapper">
-            <a href="https://shopee.vn/" class="header-with-search__logo-link">
-                <img src="./assets/img/logo.png" alt="Shopee Logo" class="header-with-search__logo">
-            </a>
-            <div class="header-with-search__search">
-                <input type="text" class="header-with-search__input" placeholder="Tìm kiếm trên Shopee">
-                <button class="header-with-search__btn">
-                    <i class="header-with-search__icon ti-search"></i>
-                </button>
+    <div class="grid header">
+        <div class="header__wrapper">
+            <div class="header__item shopee__top--logo">
+                <a href="https://shopee.vn/" class="header__logo-link">
+                    <img src="./assets/img/logo.png" alt="Shopee Logo" class="header__logo">
+                </a>
             </div>
-            <div class="header-with-search__cart">
-                <i class="header-with-search__cart-icon ti-shopping-cart"></i>
-                <span class="header-with-search__cart-text">Giỏ Hàng</span>
-                <span class="header-with-search__cart-notice">0</span>
+            <div class="header__item header__seacrh-wrapper">
+                <div class="header__search">
+                    <form action="search.php" method="GET" class="header__search-form">
+                        <input type="text" id="keyword" name="keyword" class="header__search-input" placeholder="Tìm kiếm...">
+                        <button class="header__search-btn" type="submit">
+                            <i class="header__search-icon ti-search"></i>
+                        </button>
+                    </form>                  
+                </div>
+                <div class="header__search-items" id="searchItems"></div>
+            </div>
+            <div class="header__item header__cart__wrapper">
+                <a href="https://shopee.vn/cart" class="header__cart">
+                    <i class="header__cart-icon ti-shopping-cart"></i>
+                </a>
             </div>
         </div>
     </div>
-    
 </div>
-    
+<script src="../assets/js/items-search.js"></script>
