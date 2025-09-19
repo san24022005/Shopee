@@ -32,11 +32,6 @@
     line-height: 3.4rem;
 }
 
-.navbar__item:hover,
-.navbar__link-item:hover {
-    opacity: 0.7;
-}
-
 .navbar__item:hover .sub-navbar,
 .sub-navbar:hover {
     display: flex;
@@ -208,6 +203,10 @@
     width: 100%;
 }
 
+.header__search-item:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .header__cart__wrapper {
     width: 5.2rem;
     height: 5.6rem;
@@ -227,10 +226,10 @@
 .slider {
     position: relative;
     width: 800px;
-    height: 100%;
+    height: 300px;
     overflow: hidden;
     border-radius: 4px;
-    border: #ccc 1px solid;
+    border: 1px solid #ccc;
 }
 
 .slider:hover .prev,
@@ -245,12 +244,16 @@
     transition: transform 0.6s ease-in-out;
 }
 
-.slider img {
-    width: 80rem;
-    height: 100%;
-    object-fit: cover;
-    min-width: 100%;
-    position: relative;
+.slider-wrapper a {
+  flex: 0 0 100%; /* mỗi ảnh chiếm 100% khung */
+  height: 100%;
+}
+
+.slider-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Nút điều hướng */
@@ -357,7 +360,7 @@
 }
 
 .other-banner__item:hover {
-    animation: toUp 0.3s ease;
+    transform: translateY(-8px);
 }
 
 .other-banner__item a {
@@ -377,14 +380,4 @@
     text-align: center;
     font-size: 1.3rem;
     white-space: pre-line;
-}
-
-@keyframes toUp {
-    from {
-        transform: translateY(20px);
-    }
-    to {
-        transform: translateY(0);
-    }
-
 }

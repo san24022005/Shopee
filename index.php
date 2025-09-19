@@ -18,16 +18,14 @@
         ?>
         <div class="banner">
             <div class="banner__wrapper grid">
-                <a id="banner-link" href="#">
-                    <div class="slider">
-                        <img id="banner-img" src="" alt="banner">
+                <div class="slider">
+                    <div class="slider-wrapper" id="slider-wrapper"></div>
                         <!-- Nút prev/next -->
                         <button class="prev" onclick="prevBanner()">&#10094;</button>
                         <button class="next" onclick="nextBanner()">&#10095;</button>
                         <!-- Chấm tròn indicator -->
                         <div class="dots" id="dots"></div>
-                    </div>
-                </a>
+                </div>
                 <div class="banner-secondary">
                     <a href="#" class="banner-secondary__item">
                         <img src="./assets/img/banner/banner-secondary-1.jpg" alt="banner-secondary-1" class="banner-secondary__img">
