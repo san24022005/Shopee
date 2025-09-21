@@ -80,7 +80,34 @@
                 </div>
             </div>
         </div>
+
+        <div class="danhmuc grid">
+            <div class="danhmuc-tieude">DANH MỤC</div>
+            <div class="danhmuc-homepage grid">
+
+            </div>
+        </div>
+
+        <div class="flash-sale grid">
+            <div class="flash-sale__title">
+                <div class="flash-sale__wrap">
+                    <img src="./assets/img/flash-sale/title.jpg" class="flash-sale__icon">
+                    <div class="countdown">
+                        <span id="hours">00</span>
+                        <span id="minutes">00</span>
+                        <span id="seconds">00</span>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <span>Xem tất cả</span>
+                    <i class="ti-angle-right"></i>
+                </div>
+            </div>            
+        </div>
+       
     </div>
     <script src="./assets/js/banner-homepage.js"></script>
+    <script src="./assets/js/danhmuc-homepage.js"></script>
+    <script src="./assets/js/flash-sale.js"></script>
 </body>
 </html>

@@ -48,19 +48,19 @@ ul {
 }
 
 .main {
-    height: 1000px;
+    height: 100rem;
 }
 
 /*  */
 .not-hover {
     color: inherit;      
     opacity: 1 !important;       
-    background: inherit; 
+    background: inherit !important; 
     cursor: default; 
 }
 
 .grid {
-    width: 1200px;
+    width: 120rem;
     max-width: 100%;
     margin: 0 auto;
 }

@@ -381,3 +381,97 @@
     font-size: 1.3rem;
     white-space: pre-line;
 }
+
+.danhmuc {
+    overflow-y: auto;
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.danhmuc-tieude {
+    font-size: 1.6rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid #eee;
+    margin-left: 1.5rem;
+    color: #0000008A;
+}
+
+.danhmuc-homepage {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
+}
+
+.danhmuc-homepage-item {
+    width: 12rem;
+    height: 15rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.danhmuc-homepage-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.danhmuc-homepage-item-icon img {
+  width: 8.3rem;
+  height: 8.3rem;
+  object-fit: contain;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #f9f9f9;
+}
+
+.danhmuc-homepage-item-title {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #000c;
+}
+
+.flash-sale {
+    margin-top: 2rem;
+}
+
+.flash-sale__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    background: #fff;
+    padding: 1.5rem 2rem;
+}
+
+.flash-sale__wrap {
+    display: flex;
+    align-items: center;
+}
+
+.flash-sale img {
+    width: 13rem;
+    height: 3rem;
+    margin-right: 10px;
+}
+
+.countdown {
+  display: flex;
+  gap: 5px;
+}
+
+.countdown span {
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.view-all {
+    font-size: 1.4rem;
+    color: red;
+    font-weight: normal;
+}
