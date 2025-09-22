@@ -196,7 +196,7 @@
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    height: 20px;
+    height: 2.0rem;
     overflow: hidden;
     font-size: 1.2rem;
     gap: 1rem;
@@ -225,11 +225,11 @@
 
 .slider {
     position: relative;
-    width: 800px;
-    height: 300px;
+    width: 80rem;
+    height: 30.0rem;
     overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: .4rem;
+    border: .1rem solid #ccc;
 }
 
 .slider:hover .prev,
@@ -265,9 +265,9 @@
     background: rgba(0, 0, 0, 0.25);
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 2.4rem;
     cursor: pointer;
-    padding: 10px;
+    padding: 1.0rem;
     z-index: 10;
     animation: fadein 0.5s ease;
 }
@@ -287,16 +287,16 @@
 /* Dấu chấm */
 .dots {
     position: absolute;
-    bottom: 10px;
+    bottom: 1.0rem;
     width: 100%;
     text-align: center;
 }
 
 .dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin: 0 5px;
+    width: .8rem;
+    height: .8rem;
+    margin: 0 .5rem;
     background: #bbb;
     border-radius: 50%;
     cursor: pointer;
@@ -360,7 +360,7 @@
 }
 
 .other-banner__item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-.8rem);
 }
 
 .other-banner__item a {
@@ -380,4 +380,262 @@
     text-align: center;
     font-size: 1.3rem;
     white-space: pre-line;
+}
+
+.danhmuc {
+    overflow-y: auto;
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.danhmuc-tieude {
+    font-size: 1.6rem;
+    padding: 1.6rem 0;
+    border-bottom: .1rem solid #eee;
+    margin-left: 1.5rem;
+    color: #0000008A;
+}
+
+.danhmuc-homepage {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
+}
+
+.danhmuc-homepage-item {
+    width: 12rem;
+    height: 15rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.danhmuc-homepage-item:hover {
+    transform: translateY(-.4rem);
+    box-shadow: 0 .4rem 1.2rem rgba(0,0,0,0.08);
+    border-radius: .8rem;
+}
+
+.danhmuc-homepage-item-icon img {
+  width: 8.3rem;
+  height: 8.3rem;
+  object-fit: contain;
+  margin-bottom: .8rem;
+  border-radius: 50%;
+  background: #f9f9f9;
+}
+
+.danhmuc-homepage-item-title {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #000c;
+}
+
+.flash-sale {
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.flash-sale__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1.5rem 2rem;
+}
+
+.flash-sale-title__wrap {
+    display: flex;
+    align-items: center;
+}
+
+.flash-sale img {
+    width: 13rem;
+    height: 3rem;
+    margin-right: 1.0rem;
+}
+
+.countdown {
+    display: flex;
+    gap: .5rem;
+}
+
+.countdown span {
+    background: #000;
+    color: #fff;
+    border-radius: .4rem;
+    font-size: 1.4rem;
+    min-width: 2.0rem;
+    text-align: center;
+}
+
+.view-all {
+    font-size: 1.4rem;
+    color: red;
+    font-weight: normal;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.flash-sale__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.0rem, 1fr));
+    padding: 1rem;
+}
+
+.flash-sale__item {
+    border-radius: .8rem;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+    cursor: pointer;
+    padding: 0 1.5rem;
+}
+
+.flash-sale__item-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.flash-sale__item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flash-sale__item-type {
+    position: absolute;
+    top: .8rem;
+    left: .8rem;
+    background: #ff5722;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: .2rem .6rem;
+    border-radius: .4rem;
+}
+
+.flash-sale__item-sale {
+    position: absolute;
+    top: .8rem;
+    right: .8rem;
+    background: #ffd600;
+    color: #d32f2f;
+    font-size: 1.2rem;
+    padding: .2rem .6rem;
+    border-radius: .4rem;
+    font-weight: bold;
+}
+
+.flash-sale__item-price {
+    padding: 1.0rem;
+    text-align: center;
+}
+
+.flash-sale__item-current-price {
+    color: #d32f2f;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.flash-sale__item-original-price {
+    color: #999;
+    font-size: 1.2rem;
+    text-decoration: line-through;
+}
+
+.flash-sale__item-stock {
+    padding: 0 1.0rem 1.0rem;
+}
+
+.flash-sale__item-stock-bar {
+    width: 100%;
+    height: .8rem;
+    background: #f1f1f1;
+    border-radius: .4rem;
+    overflow: hidden;
+    margin-top: .6rem;
+    margin-bottom: .4rem;
+}
+
+.flash-sale__item-stock-fill {
+    height: 100%;
+    background: linear-gradient(to right, #ff5722, #ff9800);
+}
+
+.flash-sale__item-stock-text {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+}
+
+.mall-homepage {
+    background-color: #fff;
+    margin-top: 2rem; 
+}
+
+.mall-homepage__header,
+.mall-homepage__header-left,
+.mall-header__list {
+    display: flex;
+    justify-content: space-between;
+    height: 3.75rem;
+    align-items: center;
+}
+
+.mall-homepage__header {
+    padding: 0 2rem;
+    height: 6rem;
+}
+
+.mall-title {
+    font-size: 1.7rem;
+    color: #d0071b;
+}
+
+.mall-header__item:first-child::before {
+    content: "|";
+    opacity: 0.4;
+    color: #000;
+    margin: 0 1.6rem;
+}
+
+.mall-header__list {
+    gap: 1.6rem;
+}
+
+.mall-header__item {
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.mall-header__icon {
+    font-size: 1.6rem;
+    color: red;
+    margin-right: 0.6rem;
+}
+
+.mall-header__view-all {
+    font-size: 1.4rem;
+    color: red;
+    font-weight: bold;
+}
+
+.mall-header__view-all .mall-header__icon {
+    margin-left: 0.8rem;
+}
+
+.mall-wrap__main {
+    padding: 1rem 0 0 1rem;
+}
+
+.mall-wrap__main-img {
+    width: 39rem;
+    height: 46rem;
 }

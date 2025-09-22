@@ -80,7 +80,104 @@
                 </div>
             </div>
         </div>
+
+        <div class="danhmuc grid">
+            <div class="danhmuc-tieude">DANH MỤC</div>
+            <div class="danhmuc-homepage grid">
+
+            </div>
+        </div>
+
+        <div class="flash-sale grid">
+            <div class="flash-sale__title">
+                <div class="flash-sale-title__wrap">
+                    <img src="./assets/img/flash-sale/title.jpg" class="flash-sale__icon">
+                    <div class="countdown">
+                        <span id="hours">00</span>
+                        <span id="minutes">00</span>
+                        <span id="seconds">00</span>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <span>Xem tất cả</span>
+                    <i class="ti-angle-right"></i>
+                </div>
+            </div>
+            <div class="flash-sale__wrapper">
+
+            </div>            
+        </div>
+
+        <div class="mall-homepage grid">
+            <div class="mall-homepage__header">
+                <div class="mall-homepage__header-left">
+                    <a href="" class="mall-title">SHOPEE MALL</a>
+                    <div class="mall-header__list">
+                        <div class="mall-header__item">
+                            <i class="ti-back-left mall-header__icon"></i>
+                            Trả Hàng Miễn Phí 15 Ngày
+                        </div>
+                        <div class="mall-header__item">
+                            <i class="ti-check-box mall-header__icon"></i>
+                            Hàng Chính Hãng 100%
+                        </div>
+                        <div class="mall-header__item">
+                            <i class="ti-truck mall-header__icon"></i>
+                            Miễn Phí Vận Chuyển
+                        </div>
+                    </div>
+                </div>
+                <div class="mall-homepage__header-right">
+                    <a href="" class="mall-header__view-all">
+                        Xem Tất Cả
+                        <i class="ti-arrow-circle-right mall-header__icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mall-homepage__wrapper">
+                <div class="mall-wrap__main">
+                    <img src="./assets/img/MALL/mall-main.png" class="mall-wrap__main-img" alt="">
+                </div>
+                <div class="mall-wrap__list">
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <div class="mall-wrap__item">
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./assets/js/banner-homepage.js"></script>
+    <script src="./assets/js/danhmuc-homepage.js"></script>
+    <script src="./assets/js/flash-sale.js"></script>
+    <script src="./assets/js/flash-sale-item.js"></script>
 </body>
 </html>

@@ -1,39 +1,32 @@
 :root {
-  --primary: #ee4d2d;
-  --primary-dark: #d73211;
-  --secondary: #f5f5f5;
-  --text: #222;
-  --muted: #888;
-  --white: #fff;
-  --success: #16a34a;
-  --danger: #ef4444;
-  --font-sans: "Helvetica Neue", Arial, sans-serif;
+    --primary: #ee4d2d;
+    --primary-dark: #d73211;
+    --secondary: #f5f5f5;
+    --text: #222;
+    --muted: #888;
+    --white: #fff;
+    --success: #16a34a;
+    --danger: #ef4444;
+    --font-sans: "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Reset cơ bản */
-*::before,
-*::after { 
-    box-sizing: border-box;
-    margin: 0; 
-    padding: 0; 
+html {
+  font-size: 62.5%;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
 }
 
-* {
-    box-sizing: inherit;
-    margin: 0; 
-    padding: 0; 
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-html { 
-    font-size: 62.5%;
-    line-height: 1.5;
-    font-family: var(--font-sans);
-    box-sizing: border-box; 
-}
-
-body { 
-    background: #f8f8f8; 
-    color: var(--text); 
+body {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
 }
 
 a {
@@ -48,19 +41,19 @@ ul {
 }
 
 .main {
-    height: 1000px;
+    height: 300rem;
 }
 
 /*  */
 .not-hover {
     color: inherit;      
     opacity: 1 !important;       
-    background: inherit; 
+    background: inherit !important; 
     cursor: default; 
 }
 
 .grid {
-    width: 1200px;
+    width: 120rem;
     max-width: 100%;
     margin: 0 auto;
 }
