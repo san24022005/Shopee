@@ -1,4 +1,36 @@
+.slider-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.slider-item {
+  min-width: 100%; /* 1200px */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+
 /* Trong main.css */
+
+.fashion-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.fashion-item {
+  width: 200px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+}
+.fashion-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .shopee__top {
   background: linear-gradient(-180deg, #f53d2d, #f63);
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
@@ -226,8 +258,8 @@
 
 .slider {
   position: relative;
-  width: 80rem;
-  height: 30rem;
+  width: 120rem;
+  height: 36rem;
   overflow: hidden;
   border-radius: 0.4rem;
   border: 0.1rem solid #ccc;
@@ -318,7 +350,6 @@
   gap: 0.4rem;
   margin-top: 11.9rem;
   padding-top: 3rem;
-  background-color: #fff;
 }
 
 .banner__wrapper {
@@ -388,13 +419,13 @@
   white-space: pre-line;
 }
 
-.danhmuc {
+.shopeemall {
   overflow-y: auto;
   margin-top: 2rem;
   background: #fff;
 }
 
-.danhmuc-tieude {
+.shopeemall-tieude {
   font-size: 1.6rem;
   padding: 1.6rem 0;
   border-bottom: 0.1rem solid #eee;
@@ -402,12 +433,12 @@
   color: #0000008a;
 }
 
-.danhmuc-homepage {
+.shopeemall-homepage {
   display: grid;
   grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
 }
 
-.danhmuc-homepage-item {
+.shopee-homepage-item {
   width: 12rem;
   height: 15rem;
   text-align: center;
@@ -416,7 +447,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.danhmuc-homepage-item:hover {
+.shopee-homepage-item:hover {
   transform: translateY(-0.4rem);
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
   border-radius: 0.8rem;
@@ -628,51 +659,20 @@
 }
 
 .mall-header__view-all {
-    font-size: 1.4rem;
-    color: red;
-    font-weight: bold;
+  font-size: 1.4rem;
+  color: red;
+  font-weight: bold;
 }
 
 .mall-header__view-all .mall-header__icon {
-    margin-left: 0.8rem;
-}
-
-.mall-homepage__wrapper {
-    display: flex;
+  margin-left: 0.8rem;
 }
 
 .mall-wrap__main {
-    padding: 1rem 0 0 1rem;
+  padding: 1rem 0 0 1rem;
 }
 
 .mall-wrap__main-img {
-    width: 39rem;
-    height: 46rem;
-}
-
-.mall-wrap__list {
-    flex: 1;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-}
-
-.mall-wrap__item {
-    position: relative;
-    padding: 1rem;
-}
-
-.mall-wrap__item img {
-    width: 18rem;
-    height: 21.6rem;
-}
-
-.mall-wrap__item p {
-    position: absolute;
-    bottom: 1.6rem;
-    right: 0;
-    left: 0;
-    color: var(--color-text-mall-homepage);
-    font-size: 1.8rem;
-    text-align: center;
+  width: 39rem;
+  height: 46rem;
 }

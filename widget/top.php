@@ -1,6 +1,7 @@
 <div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
+            <a href="index.php" class="navbar__item">Trang chủ</a>
             <a href="https://banhang.shopee.vn/" class="navbar__item">Kênh Người Bán</a>
             <a href="https://shopee.vn/seller/signup" class="navbar__item">Trở thành Người Bán Shopee</a>
             <a href="https://shopee.vn/web" class="navbar__item">
@@ -36,7 +37,7 @@
                 Thông Báo
             </a>
             <a href="https://help.shopee.vn/portal/4/vn/s" class="navbar__link-item">
-                <i class="navbar__icon ti-help-alt"></i> 
+                <i class="navbar__icon ti-help-alt"></i>
                 Hỗ Trợ
             </a>
             <a href="" class="navbar__link-item navbar__language">
@@ -47,7 +48,7 @@
             <div class="navbar__authentication navbar__link-item not-hover">
                 <a href="" class="navbar__link-item navbar__sign-in">Đăng Ký</a>
                 <a href="" class="navbar__link-item navbar__log-in">Đăng Nhập</a>
-            </div>           
+            </div>
         </div>
     </div>
     <div class="grid header">
@@ -64,7 +65,7 @@
                         <button class="header__search-btn" type="submit">
                             <i class="header__search-icon ti-search"></i>
                         </button>
-                    </form>                  
+                    </form>
                 </div>
                 <div class="header__search-items" id="searchItems"></div>
             </div>
