@@ -628,13 +628,13 @@
 }
 
 .mall-header__view-all {
-  font-size: 1.4rem;
-  color: red;
-  font-weight: bold;
+    font-size: 1.4rem;
+    color: red;
+    font-weight: bold;
 }
 
 .mall-header__view-all .mall-header__icon {
-  margin-left: 0.8rem;
+    margin-left: 0.8rem;
 }
 
 .mall-wrap__main {
