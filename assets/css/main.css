@@ -631,6 +631,10 @@
     margin-left: 0.8rem;
 }
 
+.mall-homepage__wrapper {
+    display: flex;
+}
+
 .mall-wrap__main {
     padding: 1rem 0 0 1rem;
 }
@@ -638,4 +642,31 @@
 .mall-wrap__main-img {
     width: 39rem;
     height: 46rem;
+}
+
+.mall-wrap__list {
+    flex: 1;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.mall-wrap__item {
+    position: relative;
+    padding: 1rem;
+}
+
+.mall-wrap__item img {
+    width: 18rem;
+    height: 21.6rem;
+}
+
+.mall-wrap__item p {
+    position: absolute;
+    bottom: 1.6rem;
+    right: 0;
+    left: 0;
+    color: var(--color-text-mall-homepage);
+    font-size: 1.8rem;
+    text-align: center;
 }
