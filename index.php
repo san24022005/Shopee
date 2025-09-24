@@ -186,7 +186,6 @@
     <script src="./assets/js/danhmuc-homepage.js"></script>
     <script src="./assets/js/flash-sale.js"></script>
     <script src="./assets/js/flash-sale-item.js"></script>
-    <script src="./assets/js/banner-fashion-men.js"></script>
 </body>
 
 </html>
