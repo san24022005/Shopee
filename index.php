@@ -145,38 +145,7 @@
                     <img src="./assets/img/MALL/mall-main.png" class="mall-wrap__main-img" alt="">
                 </div>
                 <div class="mall-wrap__list">
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
+                    
                 </div>
 
             </div>
@@ -186,6 +155,7 @@
     <script src="./assets/js/danhmuc-homepage.js"></script>
     <script src="./assets/js/flash-sale.js"></script>
     <script src="./assets/js/flash-sale-item.js"></script>
+    <script src="./assets/js/mall-list-item.js"></script>
 </body>
 
 </html>
