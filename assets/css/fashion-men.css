@@ -1,3 +1,16 @@
+.slider-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.slider-item {
+  min-width: 100%; /* 1200px */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+
 /* Trong main.css */
 
 .fashion-wrapper {
@@ -245,8 +258,8 @@
 
 .slider {
   position: relative;
-  width: 80rem;
-  height: 30rem;
+  width: 120rem;
+  height: 36rem;
   overflow: hidden;
   border-radius: 0.4rem;
   border: 0.1rem solid #ccc;
@@ -337,7 +350,6 @@
   gap: 0.4rem;
   margin-top: 11.9rem;
   padding-top: 3rem;
-  background-color: #fff;
 }
 
 .banner__wrapper {
@@ -407,13 +419,13 @@
   white-space: pre-line;
 }
 
-.danhmuc {
+.shopeemall {
   overflow-y: auto;
   margin-top: 2rem;
   background: #fff;
 }
 
-.danhmuc-tieude {
+.shopeemall-tieude {
   font-size: 1.6rem;
   padding: 1.6rem 0;
   border-bottom: 0.1rem solid #eee;
@@ -421,12 +433,12 @@
   color: #0000008a;
 }
 
-.danhmuc-homepage {
+.shopeemall-homepage {
   display: grid;
   grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
 }
 
-.danhmuc-homepage-item {
+.shopee-homepage-item {
   width: 12rem;
   height: 15rem;
   text-align: center;
@@ -435,7 +447,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.danhmuc-homepage-item:hover {
+.shopee-homepage-item:hover {
   transform: translateY(-0.4rem);
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
   border-radius: 0.8rem;
