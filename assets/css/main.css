@@ -1,23 +1,4 @@
 /* Trong main.css */
-
-.fashion-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.fashion-item {
-  width: 200px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-  background: #fff;
-}
-.fashion-item img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
 .shopee__top {
   background: linear-gradient(-180deg, #f53d2d, #f63);
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
