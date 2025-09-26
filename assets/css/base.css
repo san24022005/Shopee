@@ -13,21 +13,21 @@
 
 /* Reset cơ bản */
 html {
-  font-size: 62.5%;
-  line-height: 1.5;
-  font-family: var(--font-sans);
-  box-sizing: border-box;
+    font-size: 62.5%;
+    line-height: 1.5;
+    font-family: var(--font-sans);
+    box-sizing: border-box;
 }
 
 *, *::before, *::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--text);
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text);
 }
 
 a {
