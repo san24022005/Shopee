@@ -1,7 +1,6 @@
 <div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
-            <a href="index.php" class="navbar__item">Trang chủ</a>
             <a href="https://banhang.shopee.vn/" class="navbar__item">Kênh Người Bán</a>
             <a href="https://shopee.vn/seller/signup" class="navbar__item">Trở thành Người Bán Shopee</a>
             <a href="https://shopee.vn/web" class="navbar__item">
