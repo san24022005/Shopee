@@ -1,4 +1,4 @@
-/* Trong main.css */
+/* TOP NAVBAR */
 .shopee__top {
     background: linear-gradient(-180deg, #f53d2d, #f63);
     box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
@@ -18,7 +18,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.3rem;
 }
 
 .navbar__wrapper {
@@ -83,7 +82,7 @@
 .navbar__social {
     display: inline-block;
     line-height: 3.4rem;
-    font-size: 1.7rem;
+    font-size: 1.7rem; /* icon mạng xã hội to hơn */
 }
 
 .navbar__link-item {
@@ -95,6 +94,11 @@
 
 .shopee__top--logo {
     padding-right: 4rem;
+}
+
+.shopee__top--logo img {
+    width: 100%;
+    height: 7.5rem;
 }
 
 .navbar__link-item .navbar__icon {
@@ -123,6 +127,7 @@
     padding: 0 0.2rem;
 }
 
+/* HEADER */
 .header {
     padding: 0.8rem 0;
 }
@@ -165,7 +170,7 @@
     border: none;
     border-radius: 0.2rem;
     padding: 0 1rem;
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* chữ input */
     margin-bottom: 0.6rem;
 }
 
@@ -199,7 +204,7 @@
     flex-wrap: wrap;
     height: 2rem;
     overflow: hidden;
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* chữ gợi ý nhỏ hơn */
     gap: 1rem;
     width: 100%;
 }
@@ -209,7 +214,7 @@
 }
 
 .header__cart__wrapper {
-    width: 5.2rem;
+    min-width: 10rem;
     height: 5.6rem;
     margin: 0 1rem;
     display: flex;
@@ -223,6 +228,9 @@
 }
 
 /* BANNER HOMEPAGE */
+.banner {
+    
+}
 
 .slider {
     position: relative;
@@ -275,21 +283,12 @@
 }
 
 @keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
-}
+.prev { left: 0; }
+.next { right: 0; }
 
 /* Dấu chấm */
 .dots {
@@ -320,6 +319,7 @@
     gap: 0.4rem;
     margin-top: 11.9rem;
     padding-top: 3rem;
+    padding-bottom: 1rem;
     background-color: #fff;
 }
 
@@ -358,11 +358,7 @@
 }
 
 .other-banner__item {
-    width: 15rem;
-    height: 10.8rem;
-}
-
-.other-banner__item {
+    flex: 1;
     text-align: center;
     cursor: pointer;
 }
@@ -378,18 +374,19 @@
 }
 
 .other-banner__item img {
-    width: 4.5rem;
+    width: 30%;
     object-fit: cover;
     border-radius: 0.4rem;
 }
 
 .other-banner__item p {
-    width: 15rem;
+    width: 100%;
     text-align: center;
     font-size: 1.3rem;
     white-space: pre-line;
 }
 
+/* DANH MỤC */
 .danhmuc {
     overflow-y: auto;
     margin-top: 2rem;
@@ -406,7 +403,7 @@
 
 .danhmuc-homepage {
     display: grid;
-    grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
+    grid-template-columns: repeat(14, 1fr);
 }
 
 .danhmuc-homepage-item {
@@ -439,6 +436,7 @@
     color: #000c;
 }
 
+/* FLASH SALE */
 .flash-sale {
     margin-top: 2rem;
     background: #fff;
@@ -583,6 +581,7 @@
     text-align: center;
 }
 
+/* MALL HOMEPAGE */
 .mall-homepage {
     background-color: #fff;
     margin-top: 2rem;
@@ -677,4 +676,25 @@
     color: var(--color-text-mall-homepage);
     font-size: 1.8rem;
     text-align: center;
+}
+
+.mall-wrap__item .view-all__wrap {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.view-all__icon {
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.mall-homepage__header .view-all__icon {
+    font-size: 1.8rem;
+}
+
+.mall-wrap__item .view-all__icon {
+    font-size: 2.2rem;
 }

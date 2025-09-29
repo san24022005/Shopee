@@ -42,7 +42,8 @@ ul {
 }
 
 .main {
-    height: 300rem;
+    height: 100%;
+    width: 100%;
 }
 
 /*  */
@@ -54,7 +55,7 @@ ul {
 }
 
 .grid {
-    width: 120rem;
+    width: 1200px;
     max-width: 100%;
     margin: 0 auto;
 }
