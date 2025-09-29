@@ -129,7 +129,7 @@
                 <div class="mall-homepage__header-right">
                     <a href="" class="mall-header__view-all">
                         Xem Tất Cả
-                        <i class="ti-arrow-circle-right mall-header__icon"></i>
+                        <i class="ti-arrow-circle-right view-all__icon"></i>
                     </a>
                 </div>
             </div>
