@@ -32,6 +32,11 @@
     line-height: 3.4rem;
 }
 
+.navbar__item span,
+.navbar__link-item span {
+    font-size: 1.3rem;
+}
+
 .navbar__item:hover .sub-navbar,
 .sub-navbar:hover {
     display: flex;
@@ -234,7 +239,7 @@
 
 .slider {
     position: relative;
-    width: 80rem;
+    width: 66.66%;
     height: 30rem;
     overflow: hidden;
     border-radius: 0.4rem;

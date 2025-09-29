@@ -40,23 +40,9 @@ ul {
     padding: 0; 
     margin: 0; 
 }
-
-.main {
-    height: 100%;
-    width: 100%;
-}
-
 /*  */
-.not-hover {
-    color: inherit;      
-    opacity: 1 !important;       
-    background: inherit !important; 
-    cursor: default; 
-}
-
 .grid {
     width: 1200px;
-    max-width: 100%;
     margin: 0 auto;
 }
 
