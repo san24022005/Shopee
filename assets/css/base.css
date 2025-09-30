@@ -14,9 +14,11 @@
 /* Reset cơ bản */
 html {
     font-size: 62.5%;
-    line-height: 1.5;
+    line-height: 1.2;
     font-family: var(--font-sans);
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    min-width: 124rem;
 }
 
 *, *::before, *::after {
@@ -42,20 +44,11 @@ ul {
 }
 
 .main {
-    height: 100%;
-    width: 100%;
+    min-width: 124rem;
 }
-
 /*  */
-.not-hover {
-    color: inherit;      
-    opacity: 1 !important;       
-    background: inherit !important; 
-    cursor: default; 
-}
-
 .grid {
-    width: 1200px;
+    width: 120rem;
     max-width: 100%;
     margin: 0 auto;
 }

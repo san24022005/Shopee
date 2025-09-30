@@ -6,7 +6,7 @@ Dự án giúp các thành viên rèn luyện kỹ năng làm việc nhóm, qu�
 
 ## ⚙️ Công nghệ sử dụng
 - HTML, CSS, JavaScript (giao diện người dùng)  
-- PHP (xử lý logic phía server)  
+- PHP (truy vẫn dữ liệu, xử lý logic phía server)  
 - MySQL (cơ sở dữ liệu)
 - NoSQL
 - Express.js, React.js, Node.js

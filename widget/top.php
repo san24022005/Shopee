@@ -1,10 +1,14 @@
-<div class="shopee__top shopee__top--sticky grid__full-width">
+<div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
-            <a href="/index.php" class="navbar__item">Kênh Người Bán</a>
-            <a href="https://shopee.vn/seller/signup" class="navbar__item">Trở thành Người Bán Shopee</a>
+            <a href="#" class="navbar__item">
+                <span>Kênh Người Bán</span>
+            </a>
+            <a href="./seller/signup.php" class="navbar__item">
+                <span>Trở thành Người Bán Shopee</span>
+            </a>
             <a href="https://shopee.vn/web" class="navbar__item">
-                Tải ứng dụng
+                <span>Tải ứng dụng</span>
                 <div class="sub-navbar sub-navbar-dw">
                     <img src="./assets/img/qr_code.png" alt="QR Code" class="sub-navbar-dw__qr">
                     <div class="sub-navbar-dw__app">
@@ -20,7 +24,9 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="navbar__item not-hover">Kết nối</a>
+            <a href="" class="navbar__item">
+                Kết nối
+            </a>
             <div class="navbar__social">
                 <a href="https://www.facebook.com/ShopeeVN" class="navbar__social-link">
                     <i class="fab fa-facebook"></i>
@@ -33,15 +39,15 @@
         <div class="navbar__links">
             <a href="" class="navbar__link-item">
                 <i class="navbar__icon ti-bell navbar__notification-icon"></i>
-                Thông Báo
+                <span>Thông Báo</span>                
             </a>
             <a href="https://help.shopee.vn/portal/4/vn/s" class="navbar__link-item">
                 <i class="navbar__icon ti-help-alt"></i>
-                Hỗ Trợ
+                <span>Hỗ Trợ</span>
             </a>
             <a href="" class="navbar__link-item navbar__language">
                 <i class="navbar__icon ti-world"></i>
-                Tiếng Việt
+                <span>Tiếng Việt</span>
                 <i class="navbar__icon ti-angle-down .angle-down-icon"></i>
             </a>
             <div class="navbar__authentication navbar__link-item not-hover">
@@ -53,7 +59,7 @@
     <div class="grid header">
         <div class="header__wrapper">
             <div class="header__item shopee__top--logo">
-                <a href="https://shopee.vn/" class="header__logo-link">
+                <a href="/index.php" class="header__logo-link">
                     <img src="./assets/img/logo.png" alt="Shopee Logo" class="header__logo">
                 </a>
             </div>
