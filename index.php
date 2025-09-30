@@ -80,11 +80,18 @@
             </div>
         </div>
 
+            <!-- Nút điều hướng -->
         <div class="danhmuc grid">
             <div class="danhmuc-tieude">DANH MỤC</div>
-            <div class="danhmuc-homepage grid">
 
+            <div class="danhmuc-wrapper">
+                <div class="danhmuc-homepage">
+                <!-- JS sẽ render các item vào đây -->
+                </div>
             </div>
+
+            <button id="danhmuc__prevBtn" class="danhmuc__prevBtn">&#10094;</button>
+            <button id="danhmuc__nextBtn" class="danhmuc__nextBtn">&#10095;</button>
         </div>
 
         <div class="flash-sale grid">

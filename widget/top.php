@@ -1,7 +1,7 @@
-<div class="shopee__top shopee__top--sticky grid__full-width">
+<div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
-            <a href="/index.php" class="navbar__item">
+            <a href="#" class="navbar__item">
                 <span>Kênh Người Bán</span>
             </a>
             <a href="./seller/signup.php" class="navbar__item">
@@ -25,7 +25,7 @@
                 </div>
             </a>
             <a href="" class="navbar__item">
-                <span>Kết nối</span>
+                Kết nối
             </a>
             <div class="navbar__social">
                 <a href="https://www.facebook.com/ShopeeVN" class="navbar__social-link">
@@ -59,7 +59,7 @@
     <div class="grid header">
         <div class="header__wrapper">
             <div class="header__item shopee__top--logo">
-                <a href="https://shopee.vn/" class="header__logo-link">
+                <a href="/index.php" class="header__logo-link">
                     <img src="./assets/img/logo.png" alt="Shopee Logo" class="header__logo">
                 </a>
             </div>
