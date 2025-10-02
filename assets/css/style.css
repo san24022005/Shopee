@@ -1,0 +1,199 @@
+/* style.css - phong cách giống Shopee (tông cam, khung trắng) */
+:root{
+  --orange:#ee4d2d;
+  --orange-dark:#d74224;
+  --muted:#6b6b6b;
+  --bg:#f15b3a; /* background chính */
+  --card-bg:#ffffff;
+  --container-width:1100px;
+  --radius:8px;
+  --shadow:0 6px 20px rgba(0,0,0,0.08);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#f26a43);color:#222}
+.top-header{background:#fff;padding:12px 0;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+.header-inner{max-width:var(--container-width);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 18px}
+.logo-left{display:flex;align-items:center;gap:10px}
+.logo-img{width:36px;height:36px;object-fit:contain}
+.site-title{font-weight:700;color:var(--orange);font-size:20px}
+.help-link{color:var(--orange);text-decoration:none}
+
+/* trang chính - bố cục 2 cột */
+.main-wrap{max-width:var(--container-width);margin:40px auto;display:flex;gap:30px;padding:0 18px}
+.left-panel{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.left-panel .logo-big{width:260px;height:260px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);margin-bottom:20px}
+.left-panel h1{font-size:28px;margin:8px 0;font-weight:700}
+.left-panel p{opacity:0.95;color:#fff;margin:6px 0}
+
+/* khung đăng nhập / đăng ký */
+.auth-card{width:420px;background:var(--card-bg);padding:22px;border-radius:10px;box-shadow:var(--shadow)}
+.auth-card h2{margin:0 0 12px 0;color:#222;font-size:20px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.input{width:100%;padding:12px 14px;border-radius:6px;border:1px solid #e6e6e6;font-size:15px;background:#fff}
+.btn{display:inline-block;width:100%;padding:12px;border-radius:8px;border:none;background:var(--orange);color:#fff;font-weight:700;cursor:pointer;margin-top:8px}
+.small-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:13px;color:var(--muted)}
+.link{color:var(--orange);text-decoration:none}
+
+/* social buttons */
+.socials{display:flex;gap:12px;margin-top:12px}
+.socials .btn-social{flex:1;padding:10px;border-radius:8px;border:1px solid #eaeaea;background:#fff;color:#333;display:flex;align-items:center;justify-content:center;gap:10px}
+
+/* responsive */
+@media (max-width:900px){
+  .main-wrap{flex-direction:column;padding:12px;margin:20px auto}
+  .left-panel{order:2}
+  .auth-card{order:1;margin:auto}
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ee4d2d;
+  
+  
+}
+.left-section {
+    color: #fff;   /* tất cả chữ trong left-section màu trắng */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.header {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 100px;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+  height: 32px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.help {
+  color: #ee4d2d;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ee4d2d;
+  height: calc(100vh - 60px);
+}
+
+.left {
+  color: #fff;
+  text-align: center;
+  margin-right: 80px;
+}
+.left img {
+  height: 120px;
+}
+.left h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+.left p {
+  font-size: 16px;
+}
+
+.right .form-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 350px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-box h3 {
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ee4d2d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.form-box button:hover {
+  background: #d7381f;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+  position: relative;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+}
+.social-login button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+.fb { color: #1877f2; }
+.gg { color: #db4437; }
+
+.note {
+  font-size: 12px;
+  margin-top: 15px;
+  color: #666;
+}
+.note a {
+  color: #ee4d2d;
+}
+
+.login {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.login a {
+  color: #ee4d2d;
+  font-weight: bold;
+}
