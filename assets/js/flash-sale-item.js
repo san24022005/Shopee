@@ -43,7 +43,7 @@ var flashSaleItem = [
     }
 ];
 
-var flashSaleWrapper = document.querySelector('.flash-sale__wrapper');
+var flashSaleWrapper = document.querySelector('.flash-sale__list');
 
 function renderFlashSaleItem() {
     flashSaleItem.forEach(function(item) {
@@ -53,7 +53,10 @@ function renderFlashSaleItem() {
             <div class="flash-sale__item-img">
                 <img src="${item.img}" alt="Flash Sale Item">
                 <div class="flash-sale__item-type">${item.type}</div>
-                <div class="flash-sale__item-sale">Giảm ${item.sale}</div>
+                <div class="flash-sale__item-sale">
+                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                    -${item.sale}
+                </div>
             </div>
             <div class="flash-sale__item-price">
                 <div class="flash-sale__item-current-price">${item.price.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'})}</div>

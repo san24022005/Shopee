@@ -18,7 +18,6 @@ html {
     font-family: var(--font-sans);
     box-sizing: border-box;
     scroll-behavior: smooth;
-    min-width: 124rem;
 }
 
 *, *::before, *::after {
@@ -49,7 +48,7 @@ ul {
 /*  */
 .grid {
     width: 120rem;
-    max-width: 100%;
+    max-width: 95%;
     margin: 0 auto;
 }
 

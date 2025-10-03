@@ -2,13 +2,13 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Shopee Việt Nam | Mua và Bán</title>
+    <title>Shopee Việt Nam | Mua Sắm Online</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.jpg">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 </head>
 <body>
     <div class="main">
@@ -110,8 +110,12 @@
                 </div>
             </div>
             <div class="flash-sale__wrapper">
+                <div class="flash-sale__list">
 
+                </div>
             </div>
+            <button id="sale__prevBtn" class="sale__prevBtn">&#10094;</button>
+            <button id="sale__nextBtn" class="sale__nextBtn">&#10095;</button>
         </div>
 
         <div class="mall-homepage grid">
