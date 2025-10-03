@@ -591,20 +591,13 @@
 }
 
 .flash-sale__item-price {
-    padding: 1rem;
+    padding: 1rem 1rem 0;
     text-align: center;
 }
 
 .flash-sale__item-current-price {
     color: #d32f2f;
     font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.flash-sale__item-original-price {
-    color: #999;
-    font-size: 1.2rem;
-    text-decoration: line-through;
 }
 
 .flash-sale__item-stock {
@@ -613,9 +606,9 @@
 
 .flash-sale__item-stock-bar {
     width: 100%;
-    height: 0.8rem;
+    height: 1.4rem;
     background: #f1f1f1;
-    border-radius: 0.4rem;
+    border-radius: 0.8rem;
     overflow: hidden;
     margin-top: 0.6rem;
     margin-bottom: 0.4rem;
