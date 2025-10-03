@@ -60,13 +60,12 @@ function renderFlashSaleItem() {
             </div>
             <div class="flash-sale__item-price">
                 <div class="flash-sale__item-current-price">${item.price.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'})}</div>
-                <div class="flash-sale__item-original-price">${(item.price / (1 - parseInt(item.sale) / 100)).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'})}</div>
             </div>
             <div class="flash-sale__item-stock">
                 <div class="flash-sale__item-stock-bar">
                     <div class="flash-sale__item-stock-fill" style="width: ${(item.soLuong / 30) * 100}%"></div>
+                    <i class="fas fa-fire"></i>
                 </div>
-                <div class="flash-sale__item-stock-text">Đã bán ${60 - item.soLuong}</div>
             </div>
         `;
         flashSaleWrapper.appendChild(itemDiv);
