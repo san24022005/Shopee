@@ -159,10 +159,11 @@ window.addEventListener("DOMContentLoaded", function () {
     // Xử lý nút next / prev
     var danhmuc__nextBtn = document.getElementById("danhmuc__nextBtn");
     var danhmuc__prevBtn = document.getElementById("danhmuc__prevBtn");
+    var soLuong_danhmuc = danmuc.length;
     var currentTranslate = 0;
 
     danhmuc__nextBtn.addEventListener("click", function () {
-        currentTranslate = -40; // -40%
+        currentTranslate = -((soLuong_danhmuc/2).toFixed(0) - 10)*10;
         danmuc_homepage.style.transform = "translateX(" + currentTranslate + "%)";
         danhmuc__nextBtn.style.display = "none";
         danhmuc__prevBtn.style.display = "inline-block";
