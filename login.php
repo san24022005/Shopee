@@ -1,109 +1,125 @@
 <?php
-session_start(); 
+// login.php
 
-$servername = "localhost";
-$username   = "root";
-$password   = "123456";
-$dbname     = "shopee_clone";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) die("Kết nối thất bại: " . $conn->connect_error);
+// 1. Cài đặt kết nối cơ sở dữ liệu
+$host = "localhost";
+$user = "root";
+$pass = "123456";
+$dbname = "banhang";
 
-$errors = [];
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $phone_email = trim($_POST['phone_email'] ?? '');
-    $password    = $_POST['password'] ?? '';
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
 
-    if ($phone_email === '' || $password === '') {
-        $errors[] = "Vui lòng nhập đầy đủ thông tin.";
+// Khởi tạo biến thông báo lỗi
+$error = "";
+$success_message = "";
+
+// 2. Xử lý khi người dùng gửi form
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $sdt = trim($_POST["sdt"] ?? "");
+    $matkhau_raw = $_POST["matkhau"] ?? "";
+
+    if ($sdt === "" || $matkhau_raw === "") {
+        $error = "Vui lòng nhập số điện thoại và mật khẩu.";
     } else {
-        $stmt = $conn->prepare("SELECT id, password_hash, display_name FROM users WHERE phone_or_email = ?");
-        $stmt->bind_param("s", $phone_email);
+        // 3. Kiểm tra người dùng tồn tại
+        $stmt = $conn->prepare("SELECT MaTK, MatKhau FROM taikhoan WHERE TenDangNhap = ?");
+        $stmt->bind_param("s", $sdt);
         $stmt->execute();
-        $res = $stmt->get_result();
-        if ($res->num_rows === 1) {
-            $row = $res->fetch_assoc();
-            if (password_verify($password, $row['password_hash'])) {
-                $_SESSION['user_id']   = $row['id'];
-                $_SESSION['user_name'] = $row['display_name'] ?: $phone_email;
-                header("Location: dashboard.php");
-                exit;
-            } else $errors[] = "Mật khẩu không đúng.";
-        } else $errors[] = "Không tìm thấy tài khoản.";
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+            $hashed_password = $row['MatKhau'];
+
+            // 4. Xác minh mật khẩu
+            if (password_verify($matkhau_raw, $hashed_password)) {
+                // Đăng nhập thành công!
+                // Trong ứng dụng thực tế, bạn sẽ dùng session_start() và lưu thông tin người dùng vào session
+                $success_message = "Đăng nhập thành công! Chào mừng bạn, " . htmlspecialchars($sdt) . ".";
+                
+                // Ví dụ: header("Location: index.php"); 
+                // exit;
+            } else {
+                // Sai mật khẩu
+                $error = "Sai mật khẩu.";
+            }
+        } else {
+            // Tên đăng nhập không tồn tại
+            $error = "Số điện thoại chưa được đăng ký.";
+        }
+        $stmt->close();
     }
 }
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đăng nhập Shopee</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập Shopee | 10.10 Đại Tiệc Thương Hiệu</title>
+    <link rel="stylesheet" href="./assets/css/login.css">
 </head>
 <body>
-
-<!-- Header -->
-<div class="header">
-  <div class="header-left">
-    <img src="assets/img/logo.png" alt="Shopee Logo" class="logo-small">
-    <span class="page-title">Đăng nhập</span>
-  </div>
-  <div class="header-right">
-    <a href="#">Bạn cần giúp đỡ?</a>
-  </div>
-</div>
-
-<!-- Main content -->
-<div class="main">
-  <!-- Left side -->
-  <div class="main-left">
-    <img src="assets/img/logo-big.png" alt="Shopee Logo" class="logo-big">
-    <h1>Shopee</h1>
-    <p>Nền tảng thương mại điện tử yêu thích ở Đông Nam Á &amp;Đài Loan</p>
-  </div>
-
-  <!-- Right side: Login form -->
-  <div class="main-right">
-    <div class="form-card">
-      <h2>Đăng nhập</h2>
-
-      <?php if ($errors): ?>
-        <div class="alert-error">
-          <?php foreach($errors as $e) echo "<div>- ".htmlspecialchars($e)."</div>"; ?>
+    <header class="shopee-header">
+        <div class="header-content">
+            <span class="logo">Shopee</span>
+            <span class="page-title">Đăng nhập</span>
         </div>
-      <?php endif; ?>
-
-      <form method="post">
-        <input type="text" name="phone_email" placeholder="Số điện thoại hoặc Email" class="input" required>
-        <input type="password" name="password" placeholder="Mật khẩu" class="input" required>
-
-        <button type="submit" class="btn-submit">ĐĂNG NHẬP</button>
-
-        <div class="divider"><span>HOẶC</span></div>
-
-        <div class="socials">
-          <button type="button" class="btn-social fb">
-            <i class="fa-brands fa-facebook-f"></i> Facebook
-          </button>
-          
-          <button type="button" class="btn-social google">
-            <i class="fa-brands fa-google"></i> Google
-          </button>
+        <div class="header-help">
+            <a href="#">Bạn cần giúp đỡ?</a>
         </div>
-
-        <p class="policy">
-          Bằng việc đăng nhập, bạn đã đồng ý với Shopee về<br>
-          <a href="#">Điều khoản dịch vụ</a> & <a href="#">Chính sách bảo mật</a>
-        </p>
-
-        <p class="switch">
-          Bạn mới biết đến Shopee? <a href="register.php">Đăng ký</a>
-        </p>
-      </form>
-    </div>
-  </div>
-</div>
+    </header>
+    <main class="shopee-main">
+        <div class="content-left">
+            <img src="./assets/img/background.png" alt="10.10 Đại tiệc Thương Hiệu" class="promo-banner-image">
+        </div>
+        <div class="content-right">
+            <div class="login-box">
+                <div class="login-header">
+                    <h2>Đăng nhập</h2>
+                    <div class="qr-login">
+                        <span class="qr-text">Đăng nhập với mã QR</span>
+                        <img src="./assets/img/QR.png" alt="QR Code" class="qr-image">
+                        <span class="qr-icon-square">□</span>
+                    </div>
+                </div>
+                <form class="login-form">
+                    <input type="text" placeholder="Email/Số điện thoại/Tên đăng nhập" required>
+                    <div class="password-group">
+                        <input type="password" placeholder="Mật khẩu" required>
+                        <span class="eye-icon">👁</span>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">ĐĂNG NHẬP</button>
+                    <a href="#" class="forgot-password">Quên Mật Khẩu</a>
+                </form>
+                
+                <div class="divider">
+                    <span class="or-text">HOẶC</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="btn-social facebook">
+                         <img src="./assets/img/fb.png" alt="facebook Icon" class="social-icon">
+                        
+                        Facebook
+                    </button>
+                    <button class="btn-social google">
+                        <img src="./assets/img/gg.png" alt="Google Icon" class="social-icon">
+                        Google
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    Bạn mới biết đến Shopee? <a href="#">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>

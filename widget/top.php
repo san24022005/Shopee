@@ -51,8 +51,8 @@
                 <i class="navbar__icon ti-angle-down .angle-down-icon"></i>
             </a>
             <div class="navbar__authentication navbar__link-item not-hover">
-                <a href="" class="navbar__link-item navbar__sign-in">Đăng Ký</a>
-                <a href="" class="navbar__link-item navbar__log-in">Đăng Nhập</a>
+                <a href="./register.php" class="navbar__link-item navbar__sign-in">Đăng Ký</a>
+                <a href="./login.php" class="navbar__link-item navbar__log-in">Đăng Nhập</a>
             </div>
         </div>
     </div>
