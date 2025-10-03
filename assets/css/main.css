@@ -454,18 +454,19 @@
     top: 55%;
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 1);
+    width: 2.5rem;
+    height: 2.5rem;
     font-size: 1.6rem;
     cursor: pointer;
     border: none;
-    padding: 0.4rem 0.8rem;
     border-radius: 50%;
     box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.15);
     z-index: 10;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.danhmuc__prevBtn:hover,
-.danhmuc__nextBtn:hover {
+.danhmuc:hover .danhmuc__prevBtn,
+.danhmuc:hover .danhmuc__nextBtn {
     background: #f5f5f5;
     transform: translateY(-50%) scale(2);
 }
@@ -484,6 +485,7 @@
 .flash-sale {
     margin-top: 2rem;
     background: #fff;
+    position: relative;
 }
 
 .flash-sale__title {
@@ -533,9 +535,13 @@
 }
 
 .flash-sale__wrapper {
+    padding: 1rem;
+    overflow-x: hidden;
+}
+
+.flash-sale__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    padding: 1rem;
 }
 
 .flash-sale__item {
@@ -624,6 +630,38 @@
     font-size: 1.2rem;
     color: #555;
     text-align: center;
+}
+
+.sale__prevBtn,
+.sale__nextBtn {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 1);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sale__prevBtn {
+    left: -1rem;
+    display: none;
+}
+
+.sale__nextBtn {
+    right: -1rem;
+}
+
+.flash-sale:hover .sale__prevBtn,
+.flash-sale:hover .sale__nextBtn {
+    background: #f5f5f5;
+    transform: translateY(-50%) scale(2);
 }
 
 /* MALL HOMEPAGE */
