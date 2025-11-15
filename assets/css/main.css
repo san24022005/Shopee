@@ -37,6 +37,11 @@
     font-size: 1.3rem;
 }
 
+.navbar__item p {
+    display: inline-block;
+    font-size: 1.3rem;
+}
+
 .navbar__item span:hover ,
 .navbar__link-item span:hover {
     opacity: 0.5;
@@ -535,13 +540,12 @@
 }
 
 .flash-sale__wrapper {
-    padding: 1rem;
     overflow-x: hidden;
 }
 
 .flash-sale__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-columns: repeat(15, 24rem);
 }
 
 .flash-sale__item {
@@ -565,6 +569,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.flash-sale__overlay {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;      /* phủ toàn bộ */
+    height: 100%;     /* phủ toàn bộ */
+    object-fit: contain; /* nếu bạn muốn giữ tỉ lệ PNG */
+    pointer-events: none; /* để không chặn click vào sản phẩm */
 }
 
 .flash-sale__item-type {
@@ -591,7 +605,7 @@
 }
 
 .flash-sale__item-price {
-    padding: 1rem 1rem 0;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -605,13 +619,12 @@
 }
 
 .flash-sale__item-stock-bar {
-    width: 100%;
+    width: 85%;
     height: 1.4rem;
     background: #f1f1f1;
     border-radius: 0.8rem;
     overflow: hidden;
-    margin-top: 0.6rem;
-    margin-bottom: 0.4rem;
+    margin: 0 auto;
 }
 
 .flash-sale__item-stock-fill {
@@ -640,6 +653,7 @@
     box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.15);
     z-index: 10;
     transition: background 0.2s ease, transform 0.2s ease;
+    animation: fadein 1s ease;
 }
 
 .sale__prevBtn {
@@ -756,10 +770,20 @@
 }
 
 .mall-wrap__item .view-all__wrap {
-    height: 100%;
+    height: 1.6rem;
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
+}
+
+.mall-wrap__list .view-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-all__wrap span {
+    line-height: 1.2;
 }
 
 .view-all__icon {
@@ -770,8 +794,12 @@
 
 .mall-homepage__header .view-all__icon {
     font-size: 1.8rem;
+    position: relative;
+    top: 0.15rem;
 }
 
 .mall-wrap__item .view-all__icon {
     font-size: 2.2rem;
+    position: relative;
+    top: 0.3rem;
 }

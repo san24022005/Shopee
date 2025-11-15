@@ -25,7 +25,7 @@
                 </div>
             </a>
             <a href="" class="navbar__item">
-                Kết nối
+                <p>Kết nối</p>
             </a>
             <div class="navbar__social">
                 <a href="https://www.facebook.com/ShopeeVN" class="navbar__social-link">
@@ -51,8 +51,12 @@
                 <i class="navbar__icon ti-angle-down .angle-down-icon"></i>
             </a>
             <div class="navbar__authentication navbar__link-item not-hover">
-                <a href="./register.php" class="navbar__link-item navbar__sign-in">Đăng Ký</a>
-                <a href="./login.php" class="navbar__link-item navbar__log-in">Đăng Nhập</a>
+                <a href="./register.php" class="navbar__link-item navbar__sign-in">
+                    <span>Đăng Ký</span>
+                </a>
+                <a href="./login.php" class="navbar__link-item navbar__log-in">
+                    <span>Đăng Nhập</span>
+                </a>
             </div>
         </div>
     </div>
