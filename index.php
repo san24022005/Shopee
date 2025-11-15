@@ -160,5 +160,6 @@
     <script src="./assets/js/flash-sale.js"></script>
     <script src="./assets/js/flash-sale-item.js"></script>
     <script src="./assets/js/mall-list-item.js"></script>
+    <script src="./assets/js/slider-sale.js"></script>
 </body>
 </html>
