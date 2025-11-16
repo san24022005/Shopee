@@ -6,7 +6,7 @@ Dự án giúp các thành viên rèn luyện kỹ năng làm việc nhóm, qu�
 
 ## ⚙️ Công nghệ sử dụng
 - HTML, CSS, JavaScript (giao diện người dùng)  
-- PHP (truy vẫn dữ liệu, xử lý logic phía server)  
+- PHP (truy vấn dữ liệu, xử lý logic phía server)  
 - MySQL (cơ sở dữ liệu)
 - NoSQL
 - Express.js, React.js, Node.js
@@ -16,7 +16,8 @@ Dự án giúp các thành viên rèn luyện kỹ năng làm việc nhóm, qu�
 - Chức năng đăng nhập, đăng ký tài khoản  
 - Thêm sản phẩm vào giỏ hàng  
 - Thanh toán cơ bản (mô phỏng)  
-- Quản lý sản phẩm  
+- Quản lý sản phẩm
+- Quản lý mua hàng  
 
 ## 👨‍💻 Thành viên nhóm
 - 4651050224 - Siu San - **Leader team**

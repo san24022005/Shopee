@@ -91,7 +91,7 @@ mallItems.forEach(function(item) {
 mallHTML +=`
     <div class="mall-wrap__item view-all">
         <a href="shopee-mall.php" class="view-all__wrap">
-            <p>Xem tất cả</p>
+            <span>Xem tất cả</span>
             <i class="ti-arrow-circle-right view-all__icon"></i>
         </a>
     </div>
