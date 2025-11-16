@@ -1,10 +1,10 @@
 <div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
-            <a href="#" class="navbar__item">
+            <a href="https://accounts.shopee.vn/seller/login?next=https%3A%2F%2Fbanhang.shopee.vn%2F" class="navbar__item">
                 <span>Kênh Người Bán</span>
             </a>
-            <a href="./seller/signup.php" class="navbar__item">
+            <a href="https://accounts.shopee.vn/seller/signup" class="navbar__item">
                 <span>Trở thành Người Bán Shopee</span>
             </a>
             <a href="https://shopee.vn/web" class="navbar__item">
