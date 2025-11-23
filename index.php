@@ -7,7 +7,6 @@
     <title>Shopee Việt Nam | Mua và Bán</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/fashion-men.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -178,7 +177,6 @@
                         <p></p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

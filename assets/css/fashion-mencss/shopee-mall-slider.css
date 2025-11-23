@@ -1,0 +1,580 @@
+/* ===================== WRAPPER & TRACK ===================== */
+.logo-slider-item {
+  width: 1200px; /* viewport 6 cột * 200px */
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-slider-wrapper {
+  width: 1200px;
+  height: 226px; /* 2 hàng x 113px */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  /* Giữ viền dưới, bỏ viền trên */
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none; /* viền phải do <li> tạo */
+}
+
+#logo-list-track {
+  height: 100%;
+}
+
+.logo-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ===================== CỘT LOGO ===================== */
+.logo-pair-item {
+  width: 200px;
+  height: 226px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee; /* chia cột */
+}
+
+/* ===================== LINK LOGO ===================== */
+.logo-link {
+  width: 100%;
+  height: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* đường chia hàng */
+}
+
+.logo-link.bottom-logo {
+  border-bottom: none;
+}
+
+.logo-list img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===================== ITEM “XEM TẤT CẢ” ===================== */
+.view-all-item .view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ee4d2d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none; /* bỏ viền ngang dọc thừa */
+}
+.view-all-item {
+  border-right: none; /* cột cuối bỏ viền phải */
+}
+
+/* ===================== NÚT ĐIỀU HƯỚNG ===================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.prev-btn {
+  left: 5px;
+  padding-right: 5px;
+}
+.next-btn {
+  right: 5px;
+  padding-left: 5px;
+}
+/* ===================== WRAPPER & TRACK ===================== */
+.logo-slider-item {
+  width: 1200px; /* viewport 6 cột * 200px */
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-slider-wrapper {
+  width: 1200px;
+  height: 226px; /* 2 hàng x 113px */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  /* Giữ viền dưới, bỏ viền trên */
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none; /* viền phải do <li> tạo */
+}
+
+#logo-list-track {
+  height: 100%;
+}
+
+.logo-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ===================== CỘT LOGO ===================== */
+.logo-pair-item {
+  width: 200px;
+  height: 226px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee; /* chia cột */
+}
+
+/* ===================== LINK LOGO ===================== */
+.logo-link {
+  width: 100%;
+  height: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* đường chia hàng */
+}
+
+.logo-link.bottom-logo {
+  border-bottom: none;
+}
+
+.logo-list img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===================== ITEM “XEM TẤT CẢ” ===================== */
+.view-all-item .view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ee4d2d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none; /* bỏ viền ngang dọc thừa */
+}
+.view-all-item {
+  border-right: none; /* cột cuối bỏ viền phải */
+}
+
+/* ===================== NÚT ĐIỀU HƯỚNG ===================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.prev-btn {
+  left: 5px;
+  padding-right: 5px;
+}
+.next-btn {
+  right: 5px;
+  padding-left: 5px;
+}
+/* ===================== WRAPPER & TRACK ===================== */
+.logo-slider-item {
+  width: 1200px; /* viewport 6 cột * 200px */
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-slider-wrapper {
+  width: 1200px;
+  height: 226px; /* 2 hàng x 113px */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  /* Giữ viền dưới, bỏ viền trên */
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none; /* viền phải do <li> tạo */
+}
+
+#logo-list-track {
+  height: 100%;
+}
+
+.logo-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ===================== CỘT LOGO ===================== */
+.logo-pair-item {
+  width: 200px;
+  height: 226px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee; /* chia cột */
+}
+
+/* ===================== LINK LOGO ===================== */
+.logo-link {
+  width: 100%;
+  height: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* đường chia hàng */
+}
+
+.logo-link.bottom-logo {
+  border-bottom: none;
+}
+
+.logo-list img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===================== ITEM “XEM TẤT CẢ” ===================== */
+.view-all-item .view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ee4d2d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none; /* bỏ viền ngang dọc thừa */
+}
+.view-all-item {
+  border-right: none; /* cột cuối bỏ viền phải */
+}
+
+/* ===================== NÚT ĐIỀU HƯỚNG ===================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.prev-btn {
+  left: 5px;
+  padding-right: 5px;
+}
+.next-btn {
+  right: 5px;
+  padding-left: 5px;
+}
+/* ===================== WRAPPER & TRACK ===================== */
+.logo-slider-item {
+  width: 1200px; /* viewport 6 cột * 200px */
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-slider-wrapper {
+  width: 1200px;
+  height: 226px; /* 2 hàng x 113px */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  /* Giữ viền dưới, bỏ viền trên */
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none; /* viền phải do <li> tạo */
+}
+
+#logo-list-track {
+  height: 100%;
+}
+
+.logo-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ===================== CỘT LOGO ===================== */
+.logo-pair-item {
+  width: 200px;
+  height: 226px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee; /* chia cột */
+}
+
+/* ===================== LINK LOGO ===================== */
+.logo-link {
+  width: 100%;
+  height: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* đường chia hàng */
+}
+
+.logo-link.bottom-logo {
+  border-bottom: none;
+}
+
+.logo-list img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===================== ITEM “XEM TẤT CẢ” ===================== */
+.view-all-item .view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ee4d2d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none; /* bỏ viền ngang dọc thừa */
+}
+.view-all-item {
+  border-right: none; /* cột cuối bỏ viền phải */
+}
+
+/* ===================== NÚT ĐIỀU HƯỚNG ===================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.prev-btn {
+  left: 5px;
+  padding-right: 5px;
+}
+.next-btn {
+  right: 5px;
+  padding-left: 5px;
+}
+/* ===================== WRAPPER & TRACK ===================== */
+.logo-slider-item {
+  width: 1200px; /* viewport 6 cột * 200px */
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-slider-wrapper {
+  width: 1200px;
+  height: 226px; /* 2 hàng x 113px */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  /* Giữ viền dưới, bỏ viền trên */
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none; /* viền phải do <li> tạo */
+}
+
+#logo-list-track {
+  height: 100%;
+}
+
+.logo-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ===================== CỘT LOGO ===================== */
+.logo-pair-item {
+  width: 200px;
+  height: 226px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee; /* chia cột */
+}
+
+/* ===================== LINK LOGO ===================== */
+.logo-link {
+  width: 100%;
+  height: 113px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid #eee; /* đường chia hàng */
+}
+
+.logo-link.bottom-logo {
+  border-bottom: none;
+}
+
+.logo-list img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===================== ITEM “XEM TẤT CẢ” ===================== */
+.view-all-item .view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ee4d2d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none; /* bỏ viền ngang dọc thừa */
+}
+.view-all-item {
+  border-right: none; /* cột cuối bỏ viền phải */
+}
+
+/* ===================== NÚT ĐIỀU HƯỚNG ===================== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.prev-btn {
+  left: 5px;
+  padding-right: 5px;
+}
+.next-btn {
+  right: 5px;
+  padding-left: 5px;
+}
+.logo-list {
+  display: grid;
+  grid-template-columns: repeat(12, 200px);
+  grid-auto-rows: auto;
+  gap: 0;
+}
+
+.logo-pair-item {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* trên/dưới */
+  justify-items: center;
+  align-items: center;
+}
+
+.logo-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.view-all-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+  color: red;
+  font-size: 1.6rem;
+}
