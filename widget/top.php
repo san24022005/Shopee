@@ -1,18 +1,13 @@
 <div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
-<<<<<<< HEAD
-            
-            <a href="https://banhang.shopee.vn/" class="navbar__item">Kênh Người Bán</a>
-            <a href="https://shopee.vn/seller/signup" class="navbar__item">Trở thành Người Bán Shopee</a>
-=======
             <a href="https://accounts.shopee.vn/seller/login?next=https%3A%2F%2Fbanhang.shopee.vn%2F" class="navbar__item">
                 <span>Kênh Người Bán</span>
             </a>
             <a href="https://accounts.shopee.vn/seller/signup" class="navbar__item">
                 <span>Trở thành Người Bán Shopee</span>
             </a>
->>>>>>> cfe126db052ea4e22932c3589d1554a2055db123
+
             <a href="https://shopee.vn/web" class="navbar__item">
                 <span>Tải ứng dụng</span>
                 <div class="sub-navbar sub-navbar-dw">
