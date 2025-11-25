@@ -151,12 +151,11 @@
                 <div class="mall-wrap__list">
                     
                 </div>
-<<<<<<< HEAD
 
                 <button id="mall__prevBtn" class="mall__prevBtn">&#10094;</button>
                 <button id="mall__nextBtn" class="mall__nextBtn">&#10095;</button>
-=======
->>>>>>> 396cdef08336bd833c6d82b94c4ff11af901ec28
+
+
             </div>
         </div>
     </div>
