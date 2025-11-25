@@ -1,0 +1,234 @@
+/* Thiết lập cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* ------------------------------------------- */
+/* NỀN TRANG WEB & CĂN CHỈNH TỶ LỆ HÌNH ẢNH */
+/* ------------------------------------------- */
+.main-container {
+    min-height: 100vh;
+    width: 100%;
+    /* Màu nền dự phòng nếu ảnh lỗi (màu đỏ Shopee) */
+    background-color: #c21610; 
+    
+    /* ⭐ CHỖ ĐIỀN HÌNH ẢNH NỀN ĐỎ LỚN CỦA BẠN ⭐ */
+
+    
+    /* ⭐ PHẦN CHỈNH TỈ LỆ HÌNH ẢNH (background-size) ⭐
+       *Chúng ta dùng 'cover' để đảm bảo không bị trống hai bên như yêu cầu.*
+    */
+    background-size: contain; 
+    background-position: left center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ------------------------------------------- */
+/* HEADER - ĐÃ CẬP NHẬT NỀN TRẮNG & MÀU CHỮ CAM */
+/* ------------------------------------------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%; 
+    /* ⭐ ĐIỀU CHỈNH: NỀN TRẮNG ⭐ */
+    background-color: white; 
+    /* Thêm bóng đổ nhẹ phía dưới header */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.logo-area {
+    display: flex;
+    align-items: flex-end; /* Căn chỉnh Logo và chữ "Đăng ký" */
+}
+
+.shopee-logo {
+    width: 100px; 
+    margin-right: 10px;
+    /* (Đảm bảo Logo Shopee bạn dùng là ảnh màu cam/đen, không phải trắng) */
+}
+
+.header-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #0e0d0d; /* Chữ "Đăng ký" màu cam */
+    padding-bottom: 3px; 
+}
+
+.help-link {
+    color: #ff5722; /* Chữ "Bạn cần giúp đỡ?" màu cam */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ------------------------------------------- */
+/* MAIN CONTENT LAYOUT */
+/* ------------------------------------------- */
+.content-area {
+    display: flex;
+    flex-grow: 1; 
+    align-items: center;
+    justify-content: center; 
+    padding-top: 50px; 
+    padding-bottom: 50px;
+}
+
+/* ------------------------------------------- */
+/* KHU VỰC KHUYẾN MÃI (BÊN TRÁI) */
+/* ------------------------------------------- */
+.promotion-area {
+    width: 50%;
+    max-width: 600px;
+    height: 500px; 
+    margin-right: 50px;
+}
+
+.promo-image-mock {
+    width: 100%;
+    height: 100%;
+    
+    /* ⭐ CĂN CHỈNH ẢNH ĐỒ HỌA 10+10 ⭐ */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ------------------------------------------- */
+/* FORM ĐĂNG KÝ (BÊN PHẢI) - ĐÃ TĂNG KÍCH THƯỚC */
+/* ------------------------------------------- */
+.registration-form-wrapper {
+    /* ⭐ ĐIỀU CHỈNH: Tăng kích thước form ⭐ */
+    width: 440px; 
+    height: 520px; 
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Input và Buttons */
+input[type="text"] {
+    width: 100%;
+    /* Tăng padding và cỡ chữ cho input */
+    padding: 12px 15px;
+    margin-bottom: 25px; 
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+    outline: none;
+}
+
+.next-button {
+    width: 100%;
+    padding: 12px; /* Tăng padding nút */
+    background-color: #e96037; 
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; 
+}
+
+/* Divider HOẶC */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.divider:not(:empty)::before {
+    margin-right: 15px;
+}
+
+.divider:not(:empty)::after {
+    margin-left: 15px;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    gap: 15px; /* Tăng khoảng cách */
+    margin-bottom: 30px;
+}
+
+.social-button {
+    flex: 1;
+    padding: 10px 0; /* Tăng padding nút social */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Đảm bảo chữ và icon màu cam */
+}
+/* Trong styles.css, thêm hoặc chỉnh sửa các phần này: */
+
+/* Định dạng Icon hình ảnh trong nút Social */
+.social-icon {
+    width: 20px; /* Đặt kích thước cho icon */
+    height: 20px;
+    margin-right: 10px; /* Tạo khoảng cách giữa icon và chữ */
+}
+
+/* Đảm bảo nút social căn giữa */
+.social-button {
+    /* ... (các thuộc tính cũ) ... */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Đảm bảo icon và chữ căn giữa */
+}
+
+.social-button:hover { border-color: #ff5722; color: #ff5722; }
+
+/* Điều khoản & Đăng nhập */
+.terms-text, .login-prompt {
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+    line-height: 1.5;
+}
+
+.terms-text a, .login-link {
+    color: #ff5722;
+    text-decoration: none;
+}
+
+.login-prompt {
+    margin-top: 20px;
+}

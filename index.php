@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
     <meta charset="UTF-8">
-    <title>Shopee Việt Nam | Mua và Bán</title>
+    <title>Shopee Việt Nam | Mua Sắm Online</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 </head>
-
-
 <body>
-
     <div class="main">
         <?php
-        require './widget/top.php';
+            require './widget/top.php';
         ?>
         <div class="banner">
             <div class="banner__wrapper grid">
@@ -86,11 +80,18 @@
             </div>
         </div>
 
+            <!-- Nút điều hướng -->
         <div class="danhmuc grid">
             <div class="danhmuc-tieude">DANH MỤC</div>
-            <div class="danhmuc-homepage grid">
 
+            <div class="danhmuc-wrapper">
+                <div class="danhmuc-homepage">
+                <!-- JS sẽ render các item vào đây -->
+                </div>
             </div>
+
+            <button id="danhmuc__prevBtn" class="danhmuc__prevBtn">&#10094;</button>
+            <button id="danhmuc__nextBtn" class="danhmuc__nextBtn">&#10095;</button>
         </div>
 
         <div class="flash-sale grid">
@@ -109,8 +110,12 @@
                 </div>
             </div>
             <div class="flash-sale__wrapper">
+                <div class="flash-sale__list">
 
+                </div>
             </div>
+            <button id="sale__prevBtn" class="sale__prevBtn">&#10094;</button>
+            <button id="sale__nextBtn" class="sale__nextBtn">&#10095;</button>
         </div>
 
         <div class="mall-homepage grid">
@@ -135,7 +140,7 @@
                 <div class="mall-homepage__header-right">
                     <a href="" class="mall-header__view-all">
                         Xem Tất Cả
-                        <i class="ti-arrow-circle-right mall-header__icon"></i>
+                        <i class="ti-arrow-circle-right view-all__icon"></i>
                     </a>
                 </div>
             </div>
@@ -144,38 +149,7 @@
                     <img src="./assets/img/MALL/mall-main.png" class="mall-wrap__main-img" alt="">
                 </div>
                 <div class="mall-wrap__list">
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
-                    <div class="mall-wrap__item">
-                        <img src="" alt="">
-                        <p></p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -184,6 +158,7 @@
     <script src="./assets/js/danhmuc-homepage.js"></script>
     <script src="./assets/js/flash-sale.js"></script>
     <script src="./assets/js/flash-sale-item.js"></script>
+    <script src="./assets/js/mall-list-item.js"></script>
+    <script src="./assets/js/slider-sale.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,222 @@
+/* =========================
+   CATEGORY SIDEBAR (LEFT)
+   ========================= */
+.category {
+  padding: 16px 12px;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #ebe9e9;
+}
+
+.category-heading {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-group {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 16px;
+}
+
+.category-group-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.category-group-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.category-group-item {
+  font-size: 1.25rem;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-group-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-group-filter-input {
+  width: 80px;
+  padding: 6px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.category-group-filter-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* =========================
+   HOME FILTER (TOP BAR)
+   ========================= */
+.home-filter {
+  height: 60px;
+  background: #ededed;
+  border-radius: 2px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-filter-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-filter-title {
+  font-size: 1.35rem;
+  color: #555;
+}
+
+.home-filter-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 1.3rem;
+  padding: 8px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn--primary.home-filter-btn {
+  color: #fff;
+  background: #ee4d2d;
+  border-color: #ee4d2d;
+}
+
+/* Sort */
+.home-filter-sort {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.home-filter-sort-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  background: #fff;
+  border: 1px solid #ddd;
+  z-index: 5;
+}
+
+.home-filter-sort:hover .home-filter-sort-list {
+  display: block;
+}
+
+.home-filter-sort-item-link {
+  display: block;
+  padding: 10px;
+  font-size: 1.3rem;
+}
+
+.home-filter-sort-item-link:hover {
+  background: #fafafa;
+  color: #ee4d2d;
+}
+
+/* PAGE CONTROL */
+.home-filter-page {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================
+   PRODUCT GRID
+   ========================= */
+.product-item {
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #f3f3f3;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.product-item-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-item-name {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 10px;
+  height: 36px;
+  overflow: hidden;
+}
+
+.product-item-price {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  gap: 6px;
+}
+
+.product-item-price-now {
+  font-size: 1.45rem;
+  color: #ee4d2d;
+  font-weight: 600;
+}
+
+.product-item-sold {
+  font-size: 1.2rem;
+  color: #777;
+  margin: 10px;
+}
+
+/* BADGE */
+.product-item-favourite {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  background: #ee4d2d;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 4px 8px;
+}
+
+.product-item-sale-off {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #ffd839;
+  width: 42px;
+  height: 38px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.product-item-sale-off-percent {
+  color: #ee4d2d;
+  font-weight: 600;
+}

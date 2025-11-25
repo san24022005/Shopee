@@ -1,0 +1,274 @@
+/* Thiết lập chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5; 
+}
+
+/* Header */
+.shopee-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    color: #ee4d2d; 
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.page-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.header-help a {
+    color: #ee4d2d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Main Content - Cần màu nền đỏ đồng nhất */
+.shopee-main {
+    background-color: #c21610; 
+    min-height: calc(100vh - 61px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    position: relative; 
+}
+
+/* Content Left - Phần chứa ảnh banner */
+.content-left {
+    /* Đã điều chỉnh chiều rộng để ảnh không bị quá lớn/nhỏ */
+    width: 600px; 
+    padding: 0 50px;
+    /* Dịch chuyển ảnh banner sang trái một chút để cân xứng với form */
+    transform: translateX(-50px); 
+}
+
+/* CSS cho ảnh banner 10.10 */
+.promo-banner-image {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của content-left */
+    height: auto;
+    display: block;
+}
+.qr-login::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; 
+    right: 0;
+    border-width: 0 10px 10px 0; 
+    border-style: solid;
+    border-color: transparent #ece96c transparent transparent;
+    transform: rotate(45deg) translateX(4px) translateY(-4px); /* Dùng transform */
+}
+/* PHẦN ĐÃ CHỈNH SỬA TRONG style.css */
+.qr-login::after {
+    content: '';
+    position: absolute;
+    /* Đặt tam giác ở góc dưới bên phải của box */
+    top: 100%; 
+    right: 15px; 
+    width: 0;
+    height: 0;
+    /* Dùng border để tạo tam giác */
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #f1dc87; /* Màu cam Shopee */
+    /* Dịch chuyển tam giác lên một chút để chỉ vào đúng vị trí */
+    transform: translateY(-1px); 
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); /* Thêm bóng mờ cho đẹp */
+}
+
+/* Login Box */
+.content-right {
+    padding: 0 50px;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 30px;
+    width: 380px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; 
+    z-index: 10;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.qr-login {
+    display: flex;
+    align-items: center;
+    border: 1px solid #FFBF00;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    background-color: #fff; 
+}
+
+.qr-login::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: transparent #FFBF00 transparent transparent;
+}
+
+.qr-text {
+    font-size: 12px;
+    color: #FFBF00;
+    margin-right: 5px;
+}
+
+.qr-icon {
+    font-size: 16px;
+    color: #FFBF00;
+    transform: rotate(90deg);
+}
+
+
+/* Login Form */
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.password-group {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.btn-login {
+    background-color: #ff8b73; 
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    color: #0045f0; 
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #eee;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.or-text {
+    background-color: #fff;
+    padding: 0 10px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-social {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.btn-social .icon {
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.facebook .icon { color: #3b5998; }
+
+.social-icon {
+    width: 18px; 
+    height: 18px;
+    margin-right: 5px;
+}
+
+
+/* Signup Link */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-link a {
+    color: #ee4d2d;
+    text-decoration: none;
+    font-weight: 500;
+}

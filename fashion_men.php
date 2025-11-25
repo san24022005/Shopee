@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Thời trang nam | Mua và Bán</title>
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/fashion-mencss/fashion-men.css">
-    <link rel="stylesheet" href="./assets/css/fashion-mencss/shopee-mall-slider.css">
-    <link rel="stylesheet" href="./assets/css/fashion-mencss/shopthinhhanh.css">
+    <link rel="stylesheet" href="./fashion-men_assets/css/fashion-men.css">
+    <link rel="stylesheet" href="./fashion-men_assets/css/shopee-mall-slider.css">
+    <link rel="stylesheet" href="./fashion-men_assets/css/shopthinhhanh.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,10 +87,10 @@
             <div></div>
         </div>
     </div>
-    <script src="./assets/js/fashion-menjs/banner-fashion-men.js"></script>
-    <script src="./assets/js/fashion-menjs/carourel-logo.js"></script>
-    <script src="./assets/js/fashion-menjs/curated-image-list.js"></script>
-    <script src="./assets/js/fashion-menjs/curated-kieucach.js"></script>
+    <script src="./fashion-men_assets/js/banner-fashion-men.js"></script>
+    <script src="./fashion-men_assets/js/carourel-logo.js"></script>
+    <script src="./fashion-men_assets/js/curated-image-list.js"></script>
+    <script src="./fashion-men_assets/js/curated-kieucach.js"></script>
 </body>
 
 </html>
