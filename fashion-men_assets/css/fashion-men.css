@@ -39,13 +39,6 @@
   color: var(--white);
 }
 
-.shopee__top--sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
 .navbar {
   display: flex;
   align-items: center;
@@ -348,7 +341,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin-top: 11.9rem;
+
   padding-top: 3rem;
 }
 
@@ -421,21 +414,16 @@
 
 .shopeemall {
   overflow-y: auto;
-  margin-top: 2rem;
-  background: #fff;
-}
 
-.shopeemall-tieude {
+  display: flex;
+  color: #d0011b;
+
   font-size: 1.6rem;
-  padding: 1.6rem 0;
-  border-bottom: 0.1rem solid #eee;
-  margin-left: 1.5rem;
-  color: #0000008a;
-}
 
-.shopeemall-homepage {
-  display: grid;
-  grid-template-columns: repeat(14, 1fr); /* 10 cột mỗi hàng */
+  font-weight: 500;
+
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .shopee-homepage-item {
@@ -453,36 +441,21 @@
   border-radius: 0.8rem;
 }
 
-.danhmuc-homepage-item-icon img {
-  width: 8.3rem;
-  height: 8.3rem;
-  object-fit: contain;
-  margin-bottom: 0.8rem;
-  border-radius: 50%;
-  background: #f9f9f9;
-}
-
-.danhmuc-homepage-item-title {
-  font-size: 1.4rem;
-  line-height: 1.4;
-  color: #000c;
-}
-
-.flash-sale {
-  margin-top: 2rem;
+.brand {
+  margin-top: 3rem;
   background: #fff;
 }
 
-.flash-sale__title {
+.brand__title {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  padding: 1.5rem 2rem;
+  padding: 0 5px 10px;
+  align-items: center;
+  height: 7rem;
+  display: flex;
 }
 
-.flash-sale-title__wrap {
+.brand-title__wrap {
   display: flex;
   align-items: center;
 }
@@ -516,100 +489,6 @@
 .view-all:hover {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.flash-sale__wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  padding: 1rem;
-}
-
-.flash-sale__item {
-  border-radius: 0.8rem;
-  background: #fff;
-  overflow: hidden;
-  position: relative;
-  transition: 0.3s;
-  cursor: pointer;
-  padding: 0 1.5rem;
-}
-
-.flash-sale__item-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-}
-
-.flash-sale__item-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.flash-sale__item-type {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-  background: #ff5722;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 0.4rem;
-}
-
-.flash-sale__item-sale {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  background: #ffd600;
-  color: #d32f2f;
-  font-size: 1.2rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 0.4rem;
-  font-weight: bold;
-}
-
-.flash-sale__item-price {
-  padding: 1rem;
-  text-align: center;
-}
-
-.flash-sale__item-current-price {
-  color: #d32f2f;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.flash-sale__item-original-price {
-  color: #999;
-  font-size: 1.2rem;
-  text-decoration: line-through;
-}
-
-.flash-sale__item-stock {
-  padding: 0 1rem 1rem;
-}
-
-.flash-sale__item-stock-bar {
-  width: 100%;
-  height: 0.8rem;
-  background: #f1f1f1;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  margin-top: 0.6rem;
-  margin-bottom: 0.4rem;
-}
-
-.flash-sale__item-stock-fill {
-  height: 100%;
-  background: linear-gradient(to right, #ff5722, #ff9800);
-}
-
-.flash-sale__item-stock-text {
-  font-size: 1.2rem;
-  color: #555;
-  text-align: center;
 }
 
 .mall-homepage {

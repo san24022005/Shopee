@@ -1,11 +1,11 @@
 var Banner = [
   {
-    img: "./assets/img/fashion-men/banner-men.png",
+    img: "./fashion-men_assets/img/banner-men.png",
     title: "Thời trang nam banner 1",
     link: "#",
   },
   {
-    img: "./assets/img/fashion-men/banner-men1.jpg",
+    img: "./fashion-men_assets/img/banner-men1.jpg",
     title: "Thời trang nam banner 2",
     link: "",
   },
