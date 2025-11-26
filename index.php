@@ -151,6 +151,11 @@
                 <div class="mall-wrap__list">
                     
                 </div>
+
+                <button id="mall__prevBtn" class="mall__prevBtn">&#10094;</button>
+                <button id="mall__nextBtn" class="mall__nextBtn">&#10095;</button>
+
+
             </div>
         </div>
     </div>
