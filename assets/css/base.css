@@ -62,3 +62,26 @@ ul {
     flex-wrap: wrap;
     margin: 0 1.5rem;
 }
+
+.prev, .next {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 1);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.2s ease;
+    animation: fadein 1s ease;
+}
+
+.prev:hover, .next:hover {
+    background: #f5f5f5;
+    transform: translateY(-50%) scale(2);
+}
+

@@ -20,8 +20,8 @@
                 <div class="slider">
                     <div class="slider-wrapper" id="slider-wrapper"></div>
                     <!-- Nút prev/next -->
-                    <button class="prev" onclick="prevBanner()">&#10094;</button>
-                    <button class="next" onclick="nextBanner()">&#10095;</button>
+                    <button class="banner-prev" onclick="prevBanner()">&#10094;</button>
+                    <button class="banner-next" onclick="nextBanner()">&#10095;</button>
                     <!-- Chấm tròn indicator -->
                     <div class="dots" id="dots"></div>
                 </div>
@@ -90,8 +90,8 @@
                 </div>
             </div>
 
-            <button id="danhmuc__prevBtn" class="danhmuc__prevBtn">&#10094;</button>
-            <button id="danhmuc__nextBtn" class="danhmuc__nextBtn">&#10095;</button>
+            <button id="danhmuc__prevBtn" class="danhmuc__prevBtn prev">&#10094;</button>
+            <button id="danhmuc__nextBtn" class="danhmuc__nextBtn next">&#10095;</button>
         </div>
 
         <div class="flash-sale grid">
@@ -114,8 +114,8 @@
 
                 </div>
             </div>
-            <button id="sale__prevBtn" class="sale__prevBtn">&#10094;</button>
-            <button id="sale__nextBtn" class="sale__nextBtn">&#10095;</button>
+            <button id="sale__prevBtn" class="sale__prevBtn prev">&#10094;</button>
+            <button id="sale__nextBtn" class="sale__nextBtn next">&#10095;</button>
         </div>
 
         <div class="mall-homepage grid">
@@ -144,18 +144,43 @@
                     </a>
                 </div>
             </div>
-            <div class="mall-homepage__wrapper">
-                <div class="mall-wrap__main">
+            <div class="mall-homepage__main">
+                <div class="mall-wrap__banner">
                     <img src="./assets/img/MALL/mall-main.png" class="mall-wrap__main-img" alt="">
                 </div>
-                <div class="mall-wrap__list">
+                <div class="malls">
+                    <div class="mall-homepage__wrapper">
+                        <div class="mall-wrap__list">
                     
+                        </div>
+                    </div>
+
+                    <button id="mall__prevBtn" class="mall__prevBtn prev">&#10094;</button>
+                    <button id="mall__nextBtn" class="mall__nextBtn next">&#10095;</button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="top-products grid">
+            <div class="top-products__header">
+                <div class="top-products__title">
+                    <h3>TÌM KIẾM HÀNG ĐẦU</h3>
+                </div>
+                <div class="top-products__view-all">
+                    <span>Xem tất cả</span>
+                    <i class="ti-angle-right"></i>
+                </div>
+            </div>
+            <div class="top-products__main">
+                <div class="top-products__wrapper">
+                    <div class="top-products__list">
+
+                    </div>
                 </div>
 
-                <button id="mall__prevBtn" class="mall__prevBtn">&#10094;</button>
-                <button id="mall__nextBtn" class="mall__nextBtn">&#10095;</button>
-
-
+                <button id="top-products__prevBtn" class="top-products__prevBtn prev">&#10094;</button>
+                <button id="top-products__nextBtn" class="top-products__nextBtn next">&#10095;</button>
             </div>
         </div>
     </div>
@@ -165,5 +190,8 @@
     <script src="./assets/js/flash-sale-item.js"></script>
     <script src="./assets/js/mall-list-item.js"></script>
     <script src="./assets/js/slider-sale.js"></script>
+    <script src="./assets/js/mall-slider.js"></script>
+    <script src="./assets/js/top-products-item.js"></script>
+    <script src="./assets/js/top-products-slider.js"></script>
 </body>
 </html>

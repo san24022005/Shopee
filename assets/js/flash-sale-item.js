@@ -122,8 +122,6 @@ var flashSaleItem = [
 ];
 
 var flashSaleWrapper = document.querySelector('.flash-sale__list');
-var prevBtn = document.getElementById('sale__prevBtn');
-var nextBtn = document.getElementById('sale__nextBtn');
 
 function renderFlashSaleItem() {
     flashSaleItem.forEach(function(item) {
