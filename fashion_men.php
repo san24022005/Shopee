@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Thời trang nam | Mua và Bán</title>
+    <link rel="stylesheet" href="./fashion-men_assets/assets/css/foder.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./fashion-men_assets/css/fashion-men.css">
     <link rel="stylesheet" href="./fashion-men_assets/css/shopee-mall-slider.css">
@@ -78,19 +79,15 @@
         </div>
 
         <div class="container acg">
-            <div class="shopee-filter-panel">
-                <div class="shopee-category-list">
-                    <a href=""></a>
 
-                </div>
-            </div>
-            <div></div>
         </div>
+    </div>
     </div>
     <script src="./fashion-men_assets/js/banner-fashion-men.js"></script>
     <script src="./fashion-men_assets/js/carourel-logo.js"></script>
     <script src="./fashion-men_assets/js/curated-image-list.js"></script>
     <script src="./fashion-men_assets/js/curated-kieucach.js"></script>
+    <script src="./js/product.js"></script>
 </body>
 
 </html>
