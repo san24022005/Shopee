@@ -528,7 +528,7 @@
 
 .flash-sale__list {
     display: grid;
-    grid-template-columns: repeat(15, 24rem);
+    grid-template-columns: repeat(18, 20rem);
 }
 
 .flash-sale__item {
@@ -886,4 +886,30 @@
 .top-products__main:hover .top-products__nextBtn {
     background: #f5f5f5;
     transform: translateY(-50%) scale(2);
+}
+
+/* DAILY DISCOVER */
+
+.daily-discover {
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.daily-discover__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    height: 6rem;
+    border-bottom: 0.3rem solid #ee4d2d;
+}
+
+.daily-discover__title p {
+    font-size: 1.6rem;
+    color: #ee4d2d;
+    font-weight: 500;
+}
+
+.daily-discover__wrapper {
+    padding-top: 0.5rem;
 }
