@@ -1,3 +1,39 @@
+<?php
+require './connect.php';
+
+$limit  = 16;
+$offset = 0;
+
+// Chuẩn bị statement
+$stmt = $conn->prepare("
+    SELECT sanpham_id, sanpham_name, sanpham_gia, sanpham_sale, 
+           sanpham_mainimg, sanpham_tag, sanpham_tagsale
+    FROM sanpham 
+    WHERE sanpham_mainimg IS NOT NULL 
+      AND sanpham_mainimg != ''
+    ORDER BY sanpham_storeview DESC, sanpham_id DESC
+    LIMIT ? OFFSET ?
+");
+
+// Kiểu dữ liệu: LIMIT = int, OFFSET = int → "ii"
+$stmt->bind_param("ii", $limit, $offset);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+$products = $result->fetch_all(MYSQLI_ASSOC);
+
+// ---- Tổng số trang ----
+$sqlTotal = "
+    SELECT COUNT(*) 
+    FROM sanpham 
+    WHERE sanpham_mainimg IS NOT NULL 
+      AND sanpham_mainimg != ''
+";
+
+$total = $conn->query($sqlTotal)->fetch_row()[0];
+$totalPages = ceil($total / $limit);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -181,6 +217,44 @@
 
                 <button id="top-products__prevBtn" class="top-products__prevBtn prev">&#10094;</button>
                 <button id="top-products__nextBtn" class="top-products__nextBtn next">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="daily-discover grid">
+            <div class="daily-discover__title">
+                <p>GỢI Ý HÔM NAY</p>
+            </div>
+
+            <div class="daily-discover__wrapper">
+                <div class="daily-discover__list">
+                    <?php foreach ($products as $product): ?>
+                        <div class="product-item">
+
+                            <div class="product-img">
+                                <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
+                                <span class="product__sale"><?php echo $product['sale']; ?></span>
+                            </div>
+
+                            <div class="product-info">
+                                <div class="product__tag">
+                                    <?php echo $product['sanpham_tag']; ?>
+                                </div>
+                                <h3 class="product-name">
+                                    <?php echo $product['sanpham_name']; ?>
+                                </h3>
+                            </div>
+
+                            <div class="product-tagsale">
+                                <p><?php echo $product['sanpham_tagsale']; ?></p>
+                            </div>
+
+                            <div class="product-price">
+                                <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
+                                <span class="product__daBan">40k+ đã bán</span>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
