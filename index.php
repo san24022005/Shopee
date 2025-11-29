@@ -11,7 +11,7 @@ $stmt = $conn->prepare("
     FROM sanpham 
     WHERE sanpham_mainimg IS NOT NULL 
       AND sanpham_mainimg != ''
-    ORDER BY sanpham_storeview DESC, sanpham_id DESC
+    ORDER BY sanpham_id ASC
     LIMIT ? OFFSET ?
 ");
 
@@ -230,27 +230,25 @@ $totalPages = ceil($total / $limit);
                     <?php foreach ($products as $product): ?>
                         <div class="product-item">
 
-                            <div class="product-img">
+                            <div class="product__img">
                                 <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
-                                <span class="product__sale"><?php echo $product['sale']; ?></span>
+                                <span class="product__sale">-<?php echo $product['sanpham_sale']; ?>%</span>
                             </div>
 
-                            <div class="product-info">
-                                <div class="product__tag">
-                                    <?php echo $product['sanpham_tag']; ?>
-                                </div>
-                                <h3 class="product-name">
+                            <div class="product__info">
+                                <p class="product__name">
                                     <?php echo $product['sanpham_name']; ?>
-                                </h3>
-                            </div>
+                                </p>
 
-                            <div class="product-tagsale">
-                                <p><?php echo $product['sanpham_tagsale']; ?></p>
-                            </div>
+                                <div class="product__tagsale">
+                                    <p class="tagsale"><?php echo $product['sanpham_tagsale']; ?></p>
+                                    <p class="tag"><?php echo $product['sanpham_tag']; ?></p>
+                                </div>
 
-                            <div class="product-price">
-                                <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
-                                <span class="product__daBan">40k+ đã bán</span>
+                                <div class="product__price">
+                                    <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
+                                    <span class="product__daBan">40k+ đã bán</span>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
