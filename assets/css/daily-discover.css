@@ -1,0 +1,162 @@
+.daily-discover {
+    margin-top: 2rem;
+    background: #fff;
+}
+
+.daily-discover__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    height: 6rem;
+    border-bottom: 0.3rem solid var(--text-color-red);
+}
+
+.daily-discover__title p {
+    font-size: 1.6rem;
+    color: var(--text-color-red);
+    font-weight: 500;
+}
+
+.daily-discover__wrapper {
+    padding-top: 0.5rem;
+    height: 34rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.daily-discover__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.product-item {
+    position: relative;
+    width: 19rem;
+    height: 30.8rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    z-index: 1;                    /* tạo stacking context */
+    overflow: visible !important;  /* cho phép phần tử con tràn ra ngoài */
+    transform: translateZ(0);
+}
+
+.product__img {
+    position: relative;
+}
+
+.product__img img {
+    width: 100%;
+    height: auto;
+}
+
+.product__sale {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    background: rgba(254, 238, 234, 1);
+    color: rgba(238, 77, 45);
+    font-size: 1.2rem;
+    border-radius: 0 0 0 0.6rem;
+    padding: 0.2rem 0.4rem;
+}
+
+.product__info {
+    height: 11rem;
+    padding: 0.8rem;
+    border-top: none;
+}
+
+.product__name {
+    height: 4rem;
+    font-size: 1.4rem;          /* kích thước chữ */
+    line-height: 2rem;        /* chiều cao 1 dòng */
+    display: -webkit-box;        /* cần cho line-clamp */
+    -webkit-box-orient: vertical;/* hướng box theo chiều dọc */
+    -webkit-line-clamp: 2;       /* giới hạn 2 dòng */
+    overflow: hidden;            /* ẩn phần tràn */
+    text-overflow: ellipsis;     /* dấu … khi tràn */
+    word-break: break-word;      /* xuống dòng khi chữ quá dài */
+}
+
+.product__tagsale {
+    display: flex;
+    gap: 0.8rem;
+    height: 2.4rem;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem;
+}
+
+.product__tagsale .tagsale,
+.product__tagsale .tag {
+    font-size: 1rem;
+    color: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+}
+
+.product__tagsale .tagsale {
+    background-color: #d73211aa;
+}
+
+.product__tagsale .tag {
+    border: var(--text-color-red) 1px solid;
+    color: var(--text-color-red);
+    background-color: rgba(234, 235, 175, 0);
+}
+
+.product__price {
+    height: 3.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.current-price {
+    font-size: 1.6rem;
+    color: var(--text-color-red);
+}
+
+.product__daBan {
+    font-size: 1.2rem;
+    color: #000000de;
+}
+
+.sreach-product {
+    display: none;
+    width: 19rem;
+    position: absolute;
+    top: 100%;
+    height: 3rem;
+    background-color: var(--text-color-red);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.2s ease;
+    animation: fadein 0.2s ease;
+}
+
+.sreach-product__title {
+    font-size: 1.4rem;
+}
+
+.product-item:hover .sreach-product {
+    display: flex;
+}
+
+.product-item:hover {
+    border: 1px solid var(--primary-dark);
+    transform: translateY(-0.2rem);
+    z-index: 10;                   /* khi hover thì đẩy lên trên cùng */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.product-item:hover .sreach-product {
+    display: flex;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

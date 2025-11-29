@@ -1,7 +1,7 @@
 <?php
 require './connect.php';
 
-$limit  = 16;
+$limit  = 24;
 $offset = 0;
 
 // Chuẩn bị statement
@@ -41,6 +41,7 @@ $totalPages = ceil($total / $limit);
     <title>Shopee Việt Nam | Mua Sắm Online</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/daily-discover.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -242,13 +243,16 @@ $totalPages = ceil($total / $limit);
 
                                 <div class="product__tagsale">
                                     <p class="tagsale"><?php echo $product['sanpham_tagsale']; ?></p>
-                                    <p class="tag"><?php echo $product['sanpham_tag']; ?></p>
                                 </div>
 
                                 <div class="product__price">
                                     <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
                                     <span class="product__daBan">40k+ đã bán</span>
                                 </div>
+                            </div>
+
+                            <div class="sreach-product">
+                                <p class="sreach-product__title">Tìm sản phẩm tương tự</p>
                             </div>
                         </div>
                     <?php endforeach; ?>
