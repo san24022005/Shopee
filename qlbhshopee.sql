@@ -1,432 +1,507 @@
--- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: qlbhshopee
--- ------------------------------------------------------
--- Server version	8.0.41
+-- Máy chủ: 127.0.0.1:3307
+-- Thời gian đã tạo: Th10 28, 2025 lúc 03:35 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.0.30
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `color`
+-- Cơ sở dữ liệu: `qlbhshopee`
+--
+CREATE DATABASE IF NOT EXISTS `qlbhshopee` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `qlbhshopee`;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `color`
 --
 
 DROP TABLE IF EXISTS `color`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `color` (
-  `color_id` int NOT NULL AUTO_INCREMENT,
-  `color_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `color_mota` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `color` (
+  `color_id` int(11) NOT NULL AUTO_INCREMENT,
+  `color_name` varchar(100) NOT NULL,
+  `color_mota` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`color_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `color`
+-- Đang đổ dữ liệu cho bảng `color`
 --
 
-LOCK TABLES `color` WRITE;
-/*!40000 ALTER TABLE `color` DISABLE KEYS */;
-/*!40000 ALTER TABLE `color` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `color` (`color_id`, `color_name`, `color_mota`) VALUES
+(1, 'Đỏ', 'Màu đỏ tươi'),
+(2, 'Xanh', 'Màu xanh dương'),
+(3, 'Đen', 'Màu đen bóng'),
+(4, 'Trắng', 'Màu trắng ngọc');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `diachi`
+-- Cấu trúc bảng cho bảng `cuahang`
+--
+
+DROP TABLE IF EXISTS `cuahang`;
+CREATE TABLE IF NOT EXISTS `cuahang` (
+  `cuahang_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cuahang_name` varchar(255) NOT NULL,
+  `cuahang_diachi` varchar(255) DEFAULT NULL,
+  `cuahang_sdt` varchar(20) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`cuahang_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cuahang`
+--
+
+INSERT INTO `cuahang` (`cuahang_id`, `cuahang_name`, `cuahang_diachi`, `cuahang_sdt`, `created_at`) VALUES
+(1, 'Shopee Mart', 'Hà Nội', '0901002001', '2025-11-28 14:09:53'),
+(2, 'Shopee Fashion', 'HCM', '0902003002', '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `diachi`
 --
 
 DROP TABLE IF EXISTS `diachi`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `diachi` (
-  `diachi_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `diachi` (
+  `diachi_id` int(11) NOT NULL AUTO_INCREMENT,
   `diachi_duong` varchar(255) DEFAULT NULL,
   `diachi_xa` varchar(255) DEFAULT NULL,
   `diachi_tinh` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`diachi_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `diachi`
+-- Đang đổ dữ liệu cho bảng `diachi`
 --
 
-LOCK TABLES `diachi` WRITE;
-/*!40000 ALTER TABLE `diachi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `diachi` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `diachi` (`diachi_id`, `diachi_duong`, `diachi_xa`, `diachi_tinh`) VALUES
+(1, '123 Lê Lợi', 'P1', 'Gia Lai'),
+(2, '45 Trần Phú', 'P2', 'HCM');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `khachhang`
+-- Cấu trúc bảng cho bảng `giohang`
+--
+
+DROP TABLE IF EXISTS `giohang`;
+CREATE TABLE IF NOT EXISTS `giohang` (
+  `giohang_id` int(11) NOT NULL AUTO_INCREMENT,
+  `khachhang_id` int(11) NOT NULL,
+  `sanpham_id` int(11) NOT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `soluong` int(11) DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`giohang_id`),
+  UNIQUE KEY `unique_cart_item` (`khachhang_id`,`sanpham_id`,`type_id`),
+  KEY `khachhang_id` (`khachhang_id`),
+  KEY `sanpham_id` (`sanpham_id`),
+  KEY `type_id` (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `giohang`
+--
+
+INSERT INTO `giohang` (`giohang_id`, `khachhang_id`, `sanpham_id`, `type_id`, `soluong`, `created_at`) VALUES
+(1, 1, 1, 1, 2, '2025-11-28 14:09:53'),
+(2, 1, 2, 3, 1, '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hoadon`
+--
+
+DROP TABLE IF EXISTS `hoadon`;
+CREATE TABLE IF NOT EXISTS `hoadon` (
+  `hoadon_id` int(11) NOT NULL AUTO_INCREMENT,
+  `khachhang_id` int(11) NOT NULL,
+  `nhanvien_id` int(11) DEFAULT NULL,
+  `cuahang_id` int(11) DEFAULT NULL,
+  `tongtien` decimal(15,2) DEFAULT 0.00,
+  `trangthai` varchar(50) DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`hoadon_id`),
+  KEY `khachhang_id` (`khachhang_id`),
+  KEY `nhanvien_id` (`nhanvien_id`),
+  KEY `cuahang_id` (`cuahang_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon`
+--
+
+INSERT INTO `hoadon` (`hoadon_id`, `khachhang_id`, `nhanvien_id`, `cuahang_id`, `tongtien`, `trangthai`, `created_at`) VALUES
+(1, 1, 1, 1, 240000.00, 'completed', '2025-11-28 14:09:53'),
+(2, 2, 2, 2, 250000.00, 'pending', '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hoadon_chitiet`
+--
+
+DROP TABLE IF EXISTS `hoadon_chitiet`;
+CREATE TABLE IF NOT EXISTS `hoadon_chitiet` (
+  `cthd_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hoadon_id` int(11) NOT NULL,
+  `sanpham_id` int(11) NOT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `soluong` int(11) NOT NULL DEFAULT 1,
+  `gia` decimal(15,2) NOT NULL,
+  PRIMARY KEY (`cthd_id`),
+  KEY `hoadon_id` (`hoadon_id`),
+  KEY `sanpham_id` (`sanpham_id`),
+  KEY `type_id` (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoadon_chitiet`
+--
+
+INSERT INTO `hoadon_chitiet` (`cthd_id`, `hoadon_id`, `sanpham_id`, `type_id`, `soluong`, `gia`) VALUES
+(1, 1, 1, 1, 2, 120000.00),
+(2, 2, 2, 3, 1, 250000.00);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `khachhang`
 --
 
 DROP TABLE IF EXISTS `khachhang`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khachhang` (
-  `khachhang_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `khachhang` (
+  `khachhang_id` int(11) NOT NULL AUTO_INCREMENT,
   `khachhang_name` varchar(255) NOT NULL,
   `khachhang_email` varchar(255) DEFAULT NULL,
   `khachhang_sdt` varchar(20) DEFAULT NULL,
   `khachhang_gioitinh` varchar(10) DEFAULT NULL,
   `khachhang_ngaysinh` date DEFAULT NULL,
   `khachhang_profilename` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`khachhang_id`),
   UNIQUE KEY `khachhang_email` (`khachhang_email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `khachhang`
+-- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
-LOCK TABLES `khachhang` WRITE;
-/*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `khachhang` (`khachhang_id`, `khachhang_name`, `khachhang_email`, `khachhang_sdt`, `khachhang_gioitinh`, `khachhang_ngaysinh`, `khachhang_profilename`, `created_at`) VALUES
+(1, 'Siu San', 'san@example.com', '0901234567', 'Nam', NULL, NULL, '2025-11-28 14:09:53'),
+(2, 'Minh Anh', 'anh@example.com', '0909876543', 'Nữ', NULL, NULL, '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `khachhang_bank`
+-- Cấu trúc bảng cho bảng `khachhang_bank`
 --
 
 DROP TABLE IF EXISTS `khachhang_bank`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khachhang_bank` (
-  `bank_item_id` int NOT NULL AUTO_INCREMENT,
-  `khachhang_id` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `khachhang_bank` (
+  `bank_item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `khachhang_id` int(11) NOT NULL,
   `bank_id` varchar(20) NOT NULL,
   `bank_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`bank_item_id`),
-  UNIQUE KEY `unique_kh_bank` (`khachhang_id`,`bank_id`),
-  CONSTRAINT `khachhang_bank_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`)
+  UNIQUE KEY `unique_kh_bank` (`khachhang_id`,`bank_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `khachhang_bank`
---
-
-LOCK TABLES `khachhang_bank` WRITE;
-/*!40000 ALTER TABLE `khachhang_bank` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhang_bank` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `khachhang_diachi`
+-- Cấu trúc bảng cho bảng `khachhang_diachi`
 --
 
 DROP TABLE IF EXISTS `khachhang_diachi`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khachhang_diachi` (
-  `khdc_id` int NOT NULL AUTO_INCREMENT,
-  `khachhang_id` int NOT NULL,
-  `diachi_id` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `khachhang_diachi` (
+  `khdc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `khachhang_id` int(11) NOT NULL,
+  `diachi_id` int(11) NOT NULL,
   `khachhang_namedc` varchar(255) DEFAULT NULL,
   `khachhang_sdtdc` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`khdc_id`),
   UNIQUE KEY `unique_kh_dc` (`khachhang_id`,`diachi_id`),
-  KEY `diachi_id` (`diachi_id`),
-  CONSTRAINT `khachhang_diachi_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
-  CONSTRAINT `khachhang_diachi_ibfk_2` FOREIGN KEY (`diachi_id`) REFERENCES `diachi` (`diachi_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `diachi_id` (`diachi_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `khachhang_diachi`
+-- Đang đổ dữ liệu cho bảng `khachhang_diachi`
 --
 
-LOCK TABLES `khachhang_diachi` WRITE;
-/*!40000 ALTER TABLE `khachhang_diachi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhang_diachi` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `khachhang_diachi` (`khdc_id`, `khachhang_id`, `diachi_id`, `khachhang_namedc`, `khachhang_sdtdc`) VALUES
+(1, 1, 1, 'Nhà riêng', '0901234567'),
+(2, 2, 2, 'Chỗ làm', '0909876543');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `khachhang_taikhoan`
+-- Cấu trúc bảng cho bảng `khachhang_taikhoan`
 --
 
 DROP TABLE IF EXISTS `khachhang_taikhoan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `khachhang_taikhoan` (
-  `taikhoan_id` int NOT NULL AUTO_INCREMENT,
-  `khachhang_id` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `khachhang_taikhoan` (
+  `taikhoan_id` int(11) NOT NULL AUTO_INCREMENT,
+  `khachhang_id` int(11) NOT NULL,
   `password` varchar(255) NOT NULL,
   `vaitro` varchar(50) DEFAULT 'user',
   PRIMARY KEY (`taikhoan_id`),
-  UNIQUE KEY `unique_kh_taikhoan` (`khachhang_id`),
-  CONSTRAINT `khachhang_taikhoan_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  UNIQUE KEY `unique_kh_taikhoan` (`khachhang_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `khachhang_taikhoan`
+-- Đang đổ dữ liệu cho bảng `khachhang_taikhoan`
 --
 
-LOCK TABLES `khachhang_taikhoan` WRITE;
-/*!40000 ALTER TABLE `khachhang_taikhoan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `khachhang_taikhoan` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `khachhang_taikhoan` (`taikhoan_id`, `khachhang_id`, `password`, `vaitro`) VALUES
+(1, 1, '123456', 'user'),
+(2, 2, '123456', 'user');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `phanloai`
+-- Cấu trúc bảng cho bảng `nhanvien`
+--
+
+DROP TABLE IF EXISTS `nhanvien`;
+CREATE TABLE IF NOT EXISTS `nhanvien` (
+  `nhanvien_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nhanvien_name` varchar(255) NOT NULL,
+  `nhanvien_email` varchar(255) DEFAULT NULL,
+  `nhanvien_sdt` varchar(20) DEFAULT NULL,
+  `nhanvien_role` varchar(50) DEFAULT 'staff',
+  `nhanvien_avatar` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`nhanvien_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nhanvien`
+--
+
+INSERT INTO `nhanvien` (`nhanvien_id`, `nhanvien_name`, `nhanvien_email`, `nhanvien_sdt`, `nhanvien_role`, `nhanvien_avatar`, `created_at`) VALUES
+(1, 'Nguyễn Văn A', 'a@s.com', '0901111000', 'staff', NULL, '2025-11-28 14:09:53'),
+(2, 'Trần Thị B', 'b@s.com', '0902222000', 'manager', NULL, '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `phanloai`
 --
 
 DROP TABLE IF EXISTS `phanloai`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `phanloai` (
-  `phanloai_id` int NOT NULL AUTO_INCREMENT,
-  `phanloai_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phanloai_mota` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `phanloai` (
+  `phanloai_id` int(11) NOT NULL AUTO_INCREMENT,
+  `phanloai_name` varchar(255) NOT NULL,
+  `phanloai_mota` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`phanloai_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `phanloai`
+-- Đang đổ dữ liệu cho bảng `phanloai`
 --
 
-LOCK TABLES `phanloai` WRITE;
-/*!40000 ALTER TABLE `phanloai` DISABLE KEYS */;
-/*!40000 ALTER TABLE `phanloai` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `phanloai` (`phanloai_id`, `phanloai_name`, `phanloai_mota`) VALUES
+(1, 'Thời trang nam', 'Sản phẩm cho nam'),
+(2, 'Thời trang nữ', 'Sản phẩm cho nữ'),
+(3, 'Phụ kiện', 'Các loại phụ kiện');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 DROP TABLE IF EXISTS `sanpham`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sanpham` (
-  `sanpham_id` int NOT NULL AUTO_INCREMENT,
-  `sanpham_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sanpham_tag` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sanpham_tagsale` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `sanpham` (
+  `sanpham_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sanpham_name` varchar(255) NOT NULL,
+  `sanpham_tag` varchar(255) DEFAULT NULL,
+  `sanpham_tagsale` varchar(255) DEFAULT NULL,
   `sanpham_gia` decimal(15,2) NOT NULL,
-  `sanpham_sale` int DEFAULT '0',
-  `sanpham_mainimg` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sanpham_storeview` int DEFAULT '0',
-  `sanpham_category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sanpham_kieu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sanpham_loai` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sanpham_mota` text COLLATE utf8mb4_unicode_ci,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `sanpham_sale` int(11) DEFAULT 0,
+  `sanpham_mainimg` varchar(500) DEFAULT NULL,
+  `sanpham_storeview` int(11) DEFAULT 0,
+  `sanpham_category` varchar(255) DEFAULT NULL,
+  `sanpham_kieu` varchar(255) DEFAULT NULL,
+  `sanpham_loai` varchar(255) DEFAULT NULL,
+  `sanpham_mota` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`sanpham_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-LOCK TABLES `sanpham` WRITE;
-/*!40000 ALTER TABLE `sanpham` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sanpham` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `sanpham` (`sanpham_id`, `sanpham_name`, `sanpham_tag`, `sanpham_tagsale`, `sanpham_gia`, `sanpham_sale`, `sanpham_mainimg`, `sanpham_storeview`, `sanpham_category`, `sanpham_kieu`, `sanpham_loai`, `sanpham_mota`, `created_at`) VALUES
+(1, 'Gấu bông Jellycat Thỏ tai dài 65cm, chất liệu mềm mịn an toàn', 'Yêu thích', 'Đang bán chạy', 120000.00, 10, '/assets/img/products/sp1.png', 100, 'Thời trang nam', 'Kiểu dáng rộng', 'Áo thun', 'Áo thoáng mát', '2025-11-28 14:09:53'),
+(2, 'Váy nữ công sở', 'new', 'sale15', 250000.00, 15, '/assets/img/products/sp2.png', 200, 'Thời trang nữ', 'Ôm body', 'Váy', 'Váy thanh lịch', '2025-11-28 14:09:53');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham_img`
+-- Cấu trúc bảng cho bảng `sanpham_img`
 --
 
 DROP TABLE IF EXISTS `sanpham_img`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sanpham_img` (
-  `img_id` int NOT NULL AUTO_INCREMENT,
-  `sanpham_id` int NOT NULL,
-  `img_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `img_url` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_mota` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `sanpham_img` (
+  `img_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sanpham_id` int(11) NOT NULL,
+  `img_name` varchar(255) DEFAULT NULL,
+  `img_url` varchar(500) NOT NULL,
+  `img_mota` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`img_id`),
-  KEY `sanpham_id` (`sanpham_id`),
-  CONSTRAINT `sanpham_img_ibfk_1` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `sanpham_id` (`sanpham_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sanpham_img`
+-- Đang đổ dữ liệu cho bảng `sanpham_img`
 --
 
-LOCK TABLES `sanpham_img` WRITE;
-/*!40000 ALTER TABLE `sanpham_img` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sanpham_img` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `sanpham_img` (`img_id`, `sanpham_id`, `img_name`, `img_url`, `img_mota`) VALUES
+(1, 1, 'Ảnh 1', 'ao1_1.jpg', NULL),
+(2, 1, 'Ảnh 2', 'ao1_2.jpg', NULL),
+(3, 2, 'Ảnh 1', 'vay1_1.jpg', NULL);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham_type`
+-- Cấu trúc bảng cho bảng `sanpham_type`
 --
 
 DROP TABLE IF EXISTS `sanpham_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sanpham_type` (
-  `type_id` int NOT NULL AUTO_INCREMENT,
-  `sanpham_id` int NOT NULL,
-  `size_id` int NOT NULL,
-  `phanloai_id` int NOT NULL,
-  `color_id` int NOT NULL,
-  `soluong` int DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `sanpham_type` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sanpham_id` int(11) NOT NULL,
+  `size_id` int(11) NOT NULL,
+  `phanloai_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL,
+  `soluong` int(11) DEFAULT 0,
   `gia` decimal(15,2) DEFAULT NULL,
-  `sale` int DEFAULT '0',
+  `sale` int(11) DEFAULT 0,
   PRIMARY KEY (`type_id`),
   KEY `sanpham_id` (`sanpham_id`),
   KEY `size_id` (`size_id`),
   KEY `phanloai_id` (`phanloai_id`),
-  KEY `color_id` (`color_id`),
-  CONSTRAINT `sanpham_type_ibfk_1` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
-  CONSTRAINT `sanpham_type_ibfk_2` FOREIGN KEY (`size_id`) REFERENCES `size` (`size_id`),
-  CONSTRAINT `sanpham_type_ibfk_3` FOREIGN KEY (`phanloai_id`) REFERENCES `phanloai` (`phanloai_id`),
-  CONSTRAINT `sanpham_type_ibfk_4` FOREIGN KEY (`color_id`) REFERENCES `color` (`color_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `color_id` (`color_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sanpham_type`
+-- Đang đổ dữ liệu cho bảng `sanpham_type`
 --
 
-LOCK TABLES `sanpham_type` WRITE;
-/*!40000 ALTER TABLE `sanpham_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sanpham_type` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `sanpham_type` (`type_id`, `sanpham_id`, `size_id`, `phanloai_id`, `color_id`, `soluong`, `gia`, `sale`) VALUES
+(1, 1, 1, 1, 1, 50, 120000.00, 10),
+(2, 1, 2, 1, 3, 30, 120000.00, 10),
+(3, 2, 2, 2, 2, 40, 250000.00, 15);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `size`
+-- Cấu trúc bảng cho bảng `size`
 --
 
 DROP TABLE IF EXISTS `size`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `size` (
-  `size_id` int NOT NULL AUTO_INCREMENT,
-  `size_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `size_mota` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `size` (
+  `size_id` int(11) NOT NULL AUTO_INCREMENT,
+  `size_name` varchar(50) NOT NULL,
+  `size_mota` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`size_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `size`
+-- Đang đổ dữ liệu cho bảng `size`
 --
 
-/* ===========================
-   BẢNG NHÂN VIÊN
-   =========================== */
-DROP TABLE IF EXISTS `nhanvien`;
-CREATE TABLE `nhanvien` (
-  `nhanvien_id` INT NOT NULL AUTO_INCREMENT,
-  `nhanvien_name` VARCHAR(255) NOT NULL,
-  `nhanvien_email` VARCHAR(255) DEFAULT NULL,
-  `nhanvien_sdt` VARCHAR(20) DEFAULT NULL,
-  `nhanvien_role` VARCHAR(50) DEFAULT 'staff',
-  `nhanvien_avatar` VARCHAR(255) DEFAULT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`nhanvien_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `size` (`size_id`, `size_name`, `size_mota`) VALUES
+(1, 'S', 'Size nhỏ'),
+(2, 'M', 'Size trung bình'),
+(3, 'L', 'Size lớn'),
+(4, 'XL', 'Siêu lớn');
 
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
 
-/* ===========================
-   BẢNG CỬA HÀNG
-   =========================== */
-DROP TABLE IF EXISTS `cuahang`;
-CREATE TABLE `cuahang` (
-  `cuahang_id` INT NOT NULL AUTO_INCREMENT,
-  `cuahang_name` VARCHAR(255) NOT NULL,
-  `cuahang_diachi` VARCHAR(255) DEFAULT NULL,
-  `cuahang_sdt` VARCHAR(20) DEFAULT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`cuahang_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Các ràng buộc cho bảng `giohang`
+--
+ALTER TABLE `giohang`
+  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
+  ADD CONSTRAINT `giohang_ibfk_2` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
+  ADD CONSTRAINT `giohang_ibfk_3` FOREIGN KEY (`type_id`) REFERENCES `sanpham_type` (`type_id`);
 
+--
+-- Các ràng buộc cho bảng `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`nhanvien_id`) REFERENCES `nhanvien` (`nhanvien_id`),
+  ADD CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`cuahang_id`) REFERENCES `cuahang` (`cuahang_id`);
 
-/* ===========================
-   BẢNG HÓA ĐƠN
-   =========================== */
-DROP TABLE IF EXISTS `hoadon`;
-CREATE TABLE `hoadon` (
-  `hoadon_id` INT NOT NULL AUTO_INCREMENT,
-  `khachhang_id` INT NOT NULL,
-  `nhanvien_id` INT DEFAULT NULL,
-  `cuahang_id` INT DEFAULT NULL,
-  `tongtien` DECIMAL(15,2) DEFAULT 0,
-  `trangthai` VARCHAR(50) DEFAULT 'pending',   -- pending, paid, canceled
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`hoadon_id`),
-  KEY `khachhang_id` (`khachhang_id`),
-  KEY `nhanvien_id` (`nhanvien_id`),
-  KEY `cuahang_id` (`cuahang_id`),
-  CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
-  CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`nhanvien_id`) REFERENCES `nhanvien` (`nhanvien_id`),
-  CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`cuahang_id`) REFERENCES `cuahang` (`cuahang_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Các ràng buộc cho bảng `hoadon_chitiet`
+--
+ALTER TABLE `hoadon_chitiet`
+  ADD CONSTRAINT `hoadon_ct_ibfk_1` FOREIGN KEY (`hoadon_id`) REFERENCES `hoadon` (`hoadon_id`),
+  ADD CONSTRAINT `hoadon_ct_ibfk_2` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
+  ADD CONSTRAINT `hoadon_ct_ibfk_3` FOREIGN KEY (`type_id`) REFERENCES `sanpham_type` (`type_id`);
 
+--
+-- Các ràng buộc cho bảng `khachhang_bank`
+--
+ALTER TABLE `khachhang_bank`
+  ADD CONSTRAINT `khachhang_bank_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`);
 
-/* ===========================
-   BẢNG CHI TIẾT HÓA ĐƠN
-   =========================== */
-DROP TABLE IF EXISTS `hoadon_chitiet`;
-CREATE TABLE `hoadon_chitiet` (
-  `cthd_id` INT NOT NULL AUTO_INCREMENT,
-  `hoadon_id` INT NOT NULL,
-  `sanpham_id` INT NOT NULL,
-  `type_id` INT DEFAULT NULL,    -- loại sản phẩm (size, màu…)
-  `soluong` INT NOT NULL DEFAULT 1,
-  `gia` DECIMAL(15,2) NOT NULL,  -- giá lúc bán
-  PRIMARY KEY (`cthd_id`),
-  KEY `hoadon_id` (`hoadon_id`),
-  KEY `sanpham_id` (`sanpham_id`),
-  KEY `type_id` (`type_id`),
-  CONSTRAINT `hoadon_ct_ibfk_1` FOREIGN KEY (`hoadon_id`) REFERENCES `hoadon` (`hoadon_id`),
-  CONSTRAINT `hoadon_ct_ibfk_2` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
-  CONSTRAINT `hoadon_ct_ibfk_3` FOREIGN KEY (`type_id`) REFERENCES `sanpham_type` (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Các ràng buộc cho bảng `khachhang_diachi`
+--
+ALTER TABLE `khachhang_diachi`
+  ADD CONSTRAINT `khachhang_diachi_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
+  ADD CONSTRAINT `khachhang_diachi_ibfk_2` FOREIGN KEY (`diachi_id`) REFERENCES `diachi` (`diachi_id`);
 
+--
+-- Các ràng buộc cho bảng `khachhang_taikhoan`
+--
+ALTER TABLE `khachhang_taikhoan`
+  ADD CONSTRAINT `khachhang_taikhoan_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`);
 
-/* ===========================
-   BẢNG GIỎ HÀNG
-   =========================== */
-DROP TABLE IF EXISTS `giohang`;
-CREATE TABLE `giohang` (
-  `giohang_id` INT NOT NULL AUTO_INCREMENT,
-  `khachhang_id` INT NOT NULL,
-  `sanpham_id` INT NOT NULL,
-  `type_id` INT DEFAULT NULL,
-  `soluong` INT DEFAULT 1,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`giohang_id`),
-  KEY `khachhang_id` (`khachhang_id`),
-  KEY `sanpham_id` (`sanpham_id`),
-  KEY `type_id` (`type_id`),
-  UNIQUE KEY `unique_cart_item` (`khachhang_id`,`sanpham_id`,`type_id`),
-  CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`khachhang_id`) REFERENCES `khachhang` (`khachhang_id`),
-  CONSTRAINT `giohang_ibfk_2` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
-  CONSTRAINT `giohang_ibfk_3` FOREIGN KEY (`type_id`) REFERENCES `sanpham_type` (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- Các ràng buộc cho bảng `sanpham_img`
+--
+ALTER TABLE `sanpham_img`
+  ADD CONSTRAINT `sanpham_img_ibfk_1` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`);
 
+--
+-- Các ràng buộc cho bảng `sanpham_type`
+--
+ALTER TABLE `sanpham_type`
+  ADD CONSTRAINT `sanpham_type_ibfk_1` FOREIGN KEY (`sanpham_id`) REFERENCES `sanpham` (`sanpham_id`),
+  ADD CONSTRAINT `sanpham_type_ibfk_2` FOREIGN KEY (`size_id`) REFERENCES `size` (`size_id`),
+  ADD CONSTRAINT `sanpham_type_ibfk_3` FOREIGN KEY (`phanloai_id`) REFERENCES `phanloai` (`phanloai_id`),
+  ADD CONSTRAINT `sanpham_type_ibfk_4` FOREIGN KEY (`color_id`) REFERENCES `color` (`color_id`);
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
 
-LOCK TABLES `size` WRITE;
-/*!40000 ALTER TABLE `size` DISABLE KEYS */;
-/*!40000 ALTER TABLE `size` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2025-11-28 20:11:01
