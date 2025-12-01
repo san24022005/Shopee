@@ -796,6 +796,7 @@
 .top-products {
     padding-top: 2rem;
     position: relative;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .top-products__header {

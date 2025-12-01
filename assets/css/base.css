@@ -44,7 +44,8 @@ ul {
 }
 
 .main {
-    min-width: 124rem;
+    width: 100%;
+    height: auto;
 }
 /*  */
 .grid {

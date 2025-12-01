@@ -1,43 +1,69 @@
 <?php
-// register.php
-$host = "localhost";
-$user = "root";
-$pass = "123456";
-$dbname = "banhang";
+require 'connect.php';
+session_start();
 
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
+$error = '';
+$step = 1;
 
-$error = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $sdt = trim($_POST["sdt"] ?? "");
-    $matkhau_raw = $_POST["matkhau"] ?? "";
+    if (isset($_POST['step']) && $_POST['step'] == 2) {
+        // BƯỚC 2: TẠO TÀI KHOẢN
+        $sdt = trim($_POST['sdt']);
+        $matkhau = $_POST['matkhau'] ?? '';
+        $matkhau2 = $_POST['matkhau2'] ?? '';
 
-    if ($sdt === "" || $matkhau_raw === "") {
-        $error = "Vui lòng nhập số điện thoại và mật khẩu.";
-    } else {
-        // kiểm tra tồn tại
-        $stmt = $conn->prepare("SELECT MaTK FROM taikhoan WHERE TenDangNhap = ?");
-        $stmt->bind_param("s", $sdt);
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-            $error = "Số điện thoại đã được đăng ký.";
+        if ($matkhau !== $matkhau2) {
+            $error = "Mật khẩu nhập lại không khớp!";
+        } elseif (strlen($matkhau) < 6) {
+            $error = "Mật khẩu phải từ 6 ký tự trở lên!";
         } else {
-            // chèn mới
-            $matkhau = password_hash($matkhau_raw, PASSWORD_BCRYPT);
-            $ins = $conn->prepare("INSERT INTO taikhoan (TenDangNhap, MatKhau) VALUES (?, ?)");
-            $ins->bind_param("ss", $sdt, $matkhau);
-            if ($ins->execute()) {
-                echo "<script>alert('Đăng ký thành công!'); window.location='login.php';</script>";
-                exit;
+            mysqli_begin_transaction($conn);
+
+            // DÙNG KIỂM TRA LỖI THỦ CÔNG, KHÔNG DÙNG try-catch
+            $stmt1 = $conn->prepare("INSERT INTO khachhang (khachhang_sdt, created_at) VALUES (?, NOW())");
+            $stmt1->bind_param("s", $sdt);
+            $success1 = $stmt1->execute();
+
+            if (!$success1) {
+                mysqli_rollback($conn);
+                $error = "Lỗi hệ thống (khachhang): " . $stmt1->error;
             } else {
-                $error = "Lỗi khi lưu: " . $conn->error;
+                $khachhang_id = $conn->insert_id;
+
+                $hash = password_hash($matkhau, PASSWORD_BCRYPT);
+                $stmt2 = $conn->prepare("INSERT INTO khachhang_taikhoan (khachhang_id, password, vaitro) VALUES (?, ?, 'user')");
+                $stmt2->bind_param("is", $khachhang_id, $hash);
+                $success2 = $stmt2->execute();
+
+                if (!$success2) {
+                    mysqli_rollback($conn);
+                    $error = "Lỗi hệ thống (taikhoan): " . $stmt2->error;
+                } else {
+                    mysqli_commit($conn);
+                    echo "<script>alert('Đăng ký thành công!'); window.location='login.php';</script>";
+                    exit;
+                }
             }
         }
-        $stmt->close();
+    } else {
+        // BƯỚC 1: KIỂM TRA SỐ ĐIỆN THOẠI
+        $sdt = trim($_POST['sdt'] ?? '');
+
+        if (!preg_match('/^0[3|5|7|8|9][0-9]{8}$/', $sdt)) {
+            $error = "Số điện thoại không hợp lệ!";
+        } else {
+            $check = $conn->prepare("SELECT khachhang_id FROM khachhang WHERE khachhang_sdt = ?");
+            $check->bind_param("s", $sdt);
+            $check->execute();
+            $check->store_result();
+
+            if ($check->num_rows > 0) {
+                $error = "Số điện thoại đã được đăng ký!";
+            } else {
+                $step = 2;
+            }
+            $check->close();
+        }
     }
 }
 ?>
@@ -45,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký Shopee (Mô phỏng 10+10)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký Shopee</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/register.css">
 </head>
@@ -58,93 +85,75 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <a href="#" class="help-link">Bạn cần giúp đỡ?</a>
         </header>
+
         <main class="content-area grid">
             <div class="promotion-area">
-                <div class="promo-image-mock" 
-                     style="background-image: url('./assets/img/background.png');">
-                </div>
+                <div class="promo-image-mock" style="background-image: url('./assets/img/background.png');"></div>
             </div>
+
             <div class="registration-form-wrapper">
                 <div class="registration-form">
                     <h2>Đăng ký</h2>
-                  <form id="registerForm">
-    <div class="input-container">
-         <!-- Đặt ID để JavaScript có thể lấy giá trị -->
-         <input type="text" id="phone_number" placeholder="Số điện thoại" required>
-    </div>
-    <button type="submit" class="next-button">TIẾP THEO</button>
-</form>
-                    <div class="divider">
-                        <span>HOẶC</span>
-                    </div>
+
+                    <?php if ($error): ?>
+                        <div class="error"><?= htmlspecialchars($error) ?></div>
+                    <?php endif; ?>
+
+                    <!-- BƯỚC 1: NHẬP SỐ ĐIỆN THOẠI -->
+                    <?php if ($step == 1): ?>
+                    <form method="POST">
+                        <div class="input-container">
+                            <input type="text" name="sdt" placeholder="Số điện thoại" 
+                                   value="<?= htmlspecialchars($_POST['sdt'] ?? '') ?>" 
+                                   maxlength="10" required autofocus>
+                        </div>
+                        <button type="submit" class="next-button">TIẾP THEO</button>
+                    </form>
+                    <?php endif; ?>
+
+                    <!-- BƯỚC 2: NHẬP MẬT KHẨU -->
+                    <?php if ($step == 2): ?>
+                    <form method="POST">
+                        <input type="hidden" name="sdt" value="<?= htmlspecialchars($sdt) ?>">
+                        <input type="hidden" name="step" value="2">
+
+                        <div class="input-container">
+                            <input type="password" name="matkhau" placeholder="Mật khẩu" required>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="matkhau2" placeholder="Nhập lại mật khẩu" required>
+                        </div>
+
+                        <button type="submit" class="next-button">ĐĂNG KÝ</button>
+
+                        <p style="text-align:center; margin-top:15px;">
+                            <a href="register.php">← Quay lại</a>
+                        </p>
+                    </form>
+                    <?php endif; ?>
+
+                    <div class="divider"><span>HOẶC</span></div>
 
                     <div class="social-login">
                         <button class="social-button facebook-button">
-                            <!-- ĐÃ THAY THẾ ICON FB BẰNG THẺ <img> -->
-                            <!-- CHÚ Ý: CẦN THAY THẾ ĐƯỜNG DẪN BẰNG ICON FB THỰC TẾ CỦA BẠN -->
-                            <img src="./assets/img/fb.png" alt="Facebook Icon" class="social-icon">
-                            Facebook
+                            <img src="./assets/img/fb.png" alt="Facebook" class="social-icon"> Facebook
                         </button>
                         <button class="social-button google-button">
-                            <!-- ĐÃ THAY THẾ ICON GG BẰNG THẺ <img> -->
-                            <img src="./assets/img/gg.png" alt="Google Icon" class="social-icon">
-                            Google
+                            <img src="./assets/img/gg.png" alt="Google" class="social-icon"> Google
                         </button>
                     </div>
 
                     <p class="terms-text">
                         Bằng việc đăng ký, bạn đã đồng ý với Shopee về 
-                        <a href="#">Điều khoản dịch vụ</a> & 
-                        <a href="#">Chính sách bảo mật</a>
+                        <a href="#">Điều khoản dịch vụ</a> & <a href="#">Chính sách bảo mật</a>
                     </p>
                     
                     <p class="login-prompt">
-                        Bạn đã có tài khoản? <a href="#" class="login-link">Đăng nhập</a>
+                        Bạn đã có tài khoản? <a href="login.php" class="login-link">Đăng nhập</a>
                     </p>
                 </div>
             </div>
         </main>
     </div>
-    <script>
-    document.getElementById('registerForm').addEventListener('submit', async function(event) {
-        event.preventDefault(); // Ngăn chặn form submit theo cách truyền thống
-
-        const phoneNumber = document.getElementById('phone_number').value;
-
-        // Dữ liệu cần gửi đến Backend
-        const dataToSend = {
-            TenDangNhap: phoneNumber, // Sử dụng SĐT làm Tên đăng nhập
-            VaiTro: 'khachhang',
-            // Lưu ý: Mật khẩu (MatKhau) sẽ được nhập ở bước sau, 
-            // hoặc phải được tạo ngẫu nhiên và mã hóa nếu đây là bước đầu tiên.
-            // Ví dụ này chỉ gửi SĐT.
-        };
-
-        const backendApiUrl = 'URL_CỦA_API_SERVER_CỦA_BẠN'; // ⭐ THAY THẾ BẰNG URL API THỰC TẾ ⭐
-
-        try {
-            const response = await fetch(backendApiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataToSend)
-            });
-
-            if (response.ok) {
-                // Xử lý thành công
-                console.log('Đăng ký thành công!');
-                // Chuyển hướng người dùng hoặc hiển thị bước tiếp theo
-                // Ví dụ: alert('Vui lòng nhập mã xác minh!');
-            } else {
-                // Xử lý lỗi từ server (ví dụ: số điện thoại đã tồn tại)
-                const errorData = await response.json();
-                console.error('Đăng ký thất bại:', errorData.message);
-            }
-        } catch (error) {
-            console.error('Lỗi kết nối:', error);
-        }
-    });
-</script>
 </body>
 </html>
