@@ -1,15 +1,4 @@
 /* Thiết lập cơ bản */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif; 
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-}
 
 /* ------------------------------------------- */
 /* NỀN TRANG WEB & CĂN CHỈNH TỶ LỆ HÌNH ẢNH */
@@ -128,7 +117,8 @@ html, body {
 }
 
 /* Input và Buttons */
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     width: 100%;
     /* Tăng padding và cỡ chữ cho input */
     padding: 12px 15px;

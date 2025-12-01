@@ -99,36 +99,30 @@ $result = $stmt->get_result();
             <div class="daily-discover__list">
                 <?php while ($product = $result->fetch_assoc()): ?>
                     <div class="product-item">
+                        <div class="product-item__wrapper">
+                            <div class="product__img">
+                                <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
+                                <span class="product__sale">-<?php echo $product['sanpham_sale']; ?>%</span>
+                            </div>
 
-                        <div class="product__img">
-                            <img src="<?= htmlspecialchars($product['sanpham_mainimg']) ?>" 
-                                alt="<?= htmlspecialchars($product['sanpham_name']) ?>">
-                            <?php if (!empty($product['sanpham_sale']) && $product['sanpham_sale'] > 0): ?>
-                                <span class="product__sale">-<?= (int)$product['sanpham_sale'] ?>%</span>
-                            <?php endif; ?>
-                        </div>
+                            <div class="product__info">
+                                <p class="product__name">
+                                    <?php echo $product['sanpham_name']; ?>
+                                </p>
 
-                        <div class="product__info">
-                            <p class="product__name">
-                                <?= htmlspecialchars($product['sanpham_name']) ?>
-                            </p>
-
-                            <?php if (!empty(trim($product['sanpham_tagsale']))): ?>
                                 <div class="product__tagsale">
-                                    <p class="tagsale"><?= htmlspecialchars($product['sanpham_tagsale']) ?></p>
+                                    <p class="tagsale"><?php echo $product['sanpham_tagsale']; ?></p>
                                 </div>
-                            <?php endif; ?>
 
-                            <div class="product__price">
-                                <span class="current-price">
-                                    <?= number_format($product['sanpham_gia'], 0, ',', '.') ?>₫
-                                </span>
-                                <span class="product__daBan">40k+ đã bán</span>
+                                <div class="product__price">
+                                    <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
+                                    <span class="product__daBan">40k+ đã bán</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="sreach-product">
-                            <p class="sreach-product__title">Tìm sản phẩm tương tự</p>
+                        <div class="search-product">
+                                <p class="search-product__title">Tìm sản phẩm tương tự</p>
                         </div>
                     </div>
                 <?php endwhile; ?>

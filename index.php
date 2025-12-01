@@ -230,33 +230,38 @@ $totalPages = ceil($total / $limit);
                 <div class="daily-discover__list">
                     <?php foreach ($products as $product): ?>
                         <div class="product-item">
-
-                            <div class="product__img">
-                                <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
-                                <span class="product__sale">-<?php echo $product['sanpham_sale']; ?>%</span>
-                            </div>
-
-                            <div class="product__info">
-                                <p class="product__name">
-                                    <?php echo $product['sanpham_name']; ?>
-                                </p>
-
-                                <div class="product__tagsale">
-                                    <p class="tagsale"><?php echo $product['sanpham_tagsale']; ?></p>
+                            <div class="product-item__wrapper">
+                                <div class="product__img">
+                                    <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
+                                    <span class="product__sale">-<?php echo $product['sanpham_sale']; ?>%</span>
                                 </div>
 
-                                <div class="product__price">
-                                    <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
-                                    <span class="product__daBan">40k+ đã bán</span>
+                                <div class="product__info">
+                                    <p class="product__name">
+                                        <?php echo $product['sanpham_name']; ?>
+                                    </p>
+
+                                    <div class="product__tagsale">
+                                        <p class="tagsale"><?php echo $product['sanpham_tagsale']; ?></p>
+                                    </div>
+
+                                    <div class="product__price">
+                                        <span class="current-price"><?php echo number_format($product['sanpham_gia'], 0, ',', '.'); ?>₫</span>
+                                        <span class="product__daBan">40k+ đã bán</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="sreach-product">
-                                <p class="sreach-product__title">Tìm sản phẩm tương tự</p>
+                            <div class="search-product">
+                                    <p class="search-product__title">Tìm sản phẩm tương tự</p>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
+            </div>
+
+            <div class="daily-discover__seemore">
+                <a href="./daily-discover.php?pageNumber=2" class="seemore__title">Xem Thêm</a>
             </div>
         </div>
     </div>
