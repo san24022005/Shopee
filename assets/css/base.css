@@ -46,6 +46,7 @@ ul {
 .main {
     width: 100%;
     height: auto;
+    border-bottom: 0.35rem solid var(--text-color-red);
 }
 /*  */
 .grid {

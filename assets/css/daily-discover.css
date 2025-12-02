@@ -1,7 +1,6 @@
 .daily-discover {
     margin-top: 2rem;
     background: #fff;
-    border-bottom: 0.35rem solid var(--text-color-red);
 }
 
 .daily-discover__title {
