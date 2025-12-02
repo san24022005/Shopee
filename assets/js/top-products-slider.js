@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }      
     
      function goToSlide(slideIndex) {
-        topProducstWrapper.style.transform = `translateX(-${topProductsWidth * slideIndex}px)`; 
+        topProducstWrapper.style.transform = `translateX(-${(topProductsWidth * slideIndex)/10}rem)`; 
         currentSlide = slideIndex;
         updateButtons();
     }
