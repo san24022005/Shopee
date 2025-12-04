@@ -49,9 +49,13 @@ $totalPages = ceil($total / $limit);
 </head>
 <body>
     <div class="main">
-        <?php
-            require './widget/top.php';
-        ?>
+        <div class="shopee__top shopee__top--sticky">
+            <?php
+                require './widget/top.php';
+                require './widget/header.php';
+            ?>
+        </div>
+        
         <div class="banner">
             <div class="banner__wrapper grid">
                 <div class="slider">
