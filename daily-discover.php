@@ -87,12 +87,9 @@ $result = $stmt->get_result();
     }
 </style>
 <body>
-    <div class="shopee__top shopee__top--sticky">
-        <?php
-            require './widget/top.php';
-            require './widget/header.php';
-        ?>
-    </div>
+    <?php
+    require './widget/top.php';
+    ?>
     <div class="daily-discover grid">
         <div class="daily-discover__header">
             <h1 class="daily-discover__title">GỢI Ý HÔM NAY</h1>
