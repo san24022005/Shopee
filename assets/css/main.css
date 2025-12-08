@@ -144,16 +144,12 @@
 /* HEADER */
 .header {
     padding: 0.8rem 0;
-<<<<<<< HEAD
     position: fixed;
     top: 3.4rem;
     left: 0;
     right: 0;
     height: 8.5rem;
     z-index: 888;
-    background-image: linear-gradient(0, );
-=======
->>>>>>> parent of fd48f44 (tách header và top)
 }
 
 .header__wrapper {

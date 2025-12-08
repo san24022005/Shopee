@@ -51,6 +51,7 @@ $totalPages = ceil($total / $limit);
 <body>
     <div class="main">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="shopee__top">
             <div class="shopee__navbar shopee__navbar--sticky">
                 <?php
@@ -62,6 +63,11 @@ $totalPages = ceil($total / $limit);
             ?>
         </div>
         
+=======
+        <?php
+            require './widget/top.php';
+        ?>
+>>>>>>> parent of fd48f44 (tách header và top)
 =======
         <?php
             require './widget/top.php';

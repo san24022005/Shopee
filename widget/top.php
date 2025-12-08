@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="grid navbar">
     <div class="navbar__wrapper">
         <a href="https://accounts.shopee.vn/seller/login?next=https%3A%2F%2Fbanhang.shopee.vn%2F" class="navbar__item">
@@ -76,7 +75,6 @@
         <?php endif; ?>
     </div>
 </div>
-=======
 <div class="shopee__top shopee__top--sticky">
     <div class="grid navbar">
         <div class="navbar__wrapper">
@@ -167,4 +165,3 @@
     </div>
 </div>
 <script src="../assets/js/items-search.js"></script>
->>>>>>> parent of fd48f44 (tách header và top)
