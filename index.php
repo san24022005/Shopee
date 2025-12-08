@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './connect.php';
 
 $limit  = 24;
@@ -49,9 +50,13 @@ $totalPages = ceil($total / $limit);
 </head>
 <body>
     <div class="main">
-        <div class="shopee__top shopee__top--sticky">
-            <?php
-                require './widget/top.php';
+        <div class="shopee__top">
+            <div class="shopee__navbar shopee__navbar--sticky">
+                <?php
+                    require './widget/top.php';
+                ?>
+            </div>
+            <?php 
                 require './widget/header.php';
             ?>
         </div>

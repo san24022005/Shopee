@@ -2,8 +2,8 @@
 .shopee__top {
     background: linear-gradient(-180deg, #f53d2d, #f63);
     box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    height: 11.9rem;
+    z-index: 999;
+    height: 3.4rem;
     color: var(--white);
 }
 
@@ -153,6 +153,8 @@
     left: 0;
     right: 0;
     height: 8.5rem;
+    z-index: 888;
+    background-image: linear-gradient(0, );
 }
 
 .header__wrapper {
@@ -250,6 +252,70 @@
     font-size: 2.6rem;
 }
 
+/* 1. Cha lớn nhất – cố định và có z-index cao nhất */
+.shopee__top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;                    /* Cao nhất toàn trang */
+    background: linear-gradient(-180deg, #f53d2d, #f63);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+/* 2. Navbar trên cùng (có submenu) – sticky + kế thừa z-index từ cha */
+.shopee__navbar--sticky {
+    position: sticky;
+    top: 0;
+    height: 3.4rem;                   /* Chiều cao navbar nhỏ */
+    background: inherit;              /* Kế thừa gradient từ .shopee__top */
+    z-index: inherit;                 /* Quan trọng: kế thừa z-index 1100 */
+}
+
+/* 3. Thanh tìm kiếm chính (header.php) – nằm dưới navbar, z-index thấp hơn */
+.grid.header {
+    position: relative;               /* hoặc fixed nếu bạn muốn */
+    top: 3.4rem;                      /* Đẩy xuống dưới navbar */
+    left: 0;
+    right: 0;
+    height: 8.5rem;
+    background: white;
+    z-index: 1000;                    /* Thấp hơn 1100 → không bao giờ đè submenu */
+    box-shadow: 0 0.1rem 0.1rem rgba(0,0,0,0.05);
+}
+
+/* 4. Đảm bảo submenu luôn hiện trên cùng (dù chỉ cần 1 là đủ) */
+.sub-navbar,
+.sub-navbar-dw,
+.sub-navbar-user {
+    position: absolute;
+    top: 100%;
+    z-index: 9999;                    /* Rất cao – phòng hờ */
+    background: white;
+    color: #333;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.15);
+    border-radius: 0.4rem;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+/* Hiện submenu khi hover */
+.navbar__item:hover > .sub-navbar,
+.navbar__link-item:hover > .sub-navbar,
+.sub-navbar:hover {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 5. Nếu bạn vẫn muốn header fixed (giống Shopee thật khi cuộn) */
+.shopee__top--scrolled .grid.header {
+    position: fixed;
+    top: 3.4rem;    /* hoặc 0 nếu chỉ muốn navbar nhỏ sticky */
+}
 /* BANNER HOMEPAGE */
 .slider {
     position: relative;
