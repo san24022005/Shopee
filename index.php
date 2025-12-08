@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './connect.php';
 
 $limit  = 24;

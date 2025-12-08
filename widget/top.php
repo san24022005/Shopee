@@ -50,13 +50,29 @@
             <span>Tiếng Việt</span>
             <i class="navbar__icon ti-angle-down .angle-down-icon"></i>
         </a>
-        <div class="navbar__authentication navbar__link-item not-hover">
-            <a href="./register.php" class="navbar__link-item navbar__sign-in">
-                <span>Đăng Ký</span>
-            </a>
-            <a href="./login.php" class="navbar__link-item navbar__log-in">
-                <span>Đăng Nhập</span>
-            </a>
-        </div>
+        <?php if (!isset($_SESSION['khachhang_name'])): ?>
+            <div class="navbar__authentication navbar__link-item not-hover">
+                <a href="./register.php" class="navbar__link-item navbar__sign-in">
+                    <span>Đăng Ký</span>
+                </a>
+                <a href="./login.php" class="navbar__link-item navbar__log-in">
+                    <span>Đăng Nhập</span>
+                </a>
+            </div>
+        <?php else: ?>
+            <div class="navbar__link-item">
+                <span class="navbar__user-phone">
+                    <i class="ti-user"></i>
+                    <span>
+                        <?= htmlspecialchars($_SESSION['khachhang_name']) ?>
+                    </span>
+                </span>
+                <div class="sub-navbar sub-navbar-user">
+                    <a href="./profile.php" class="sub-navbar__link">Trang Cá Nhân</a>
+                    <a href="./orders.php" class="sub-navbar__link">Đơn Mua</a>
+                    <a href="./logout.php" class="sub-navbar__link">Đăng Xuất</a>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </div>

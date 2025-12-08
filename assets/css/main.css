@@ -15,10 +15,6 @@
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,6 +63,14 @@
     opacity: 1;
 }
 
+.navbar__user-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
 .sub-navbar {
     width: 19rem;
     position: absolute;
@@ -77,7 +81,7 @@
     box-shadow: var(--shadow);
     display: none;
     border-radius: 0.4rem;
-    z-index: 1000;
+    z-index: 3000;
 }
 
 .sub-navbar__img {
@@ -96,6 +100,53 @@
 .sub-navbar-dw__item-app {
     height: 2.4rem;
 }
+
+.sub-navbar__link {
+    padding: 0.4rem 1rem;
+    font-size: 1.4rem;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hiện dropdown khi hover */
+/* Mặc định ẩn */
+.sub-navbar-user {
+    position: absolute;
+    top: 100%;
+    right: 0; 
+    left: -5rem;                /* bạn đặt nên mình giữ nguyên */
+    width: 15rem;
+
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);        /* từ 0 */
+    transform-origin: top right;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 9999;
+}
+
+/* Hiển thị khi hover */
+.navbar__link-item:hover .sub-navbar-user {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);        /* tới 1 */
+}
+
+/* Item trong dropdown */
+
+.sub-navbar__link:hover {
+    color: rgb(8, 158, 76);
+}
+
 
 .navbar__social {
     display: inline-block;
@@ -148,10 +199,6 @@
 /* HEADER */
 .header {
     padding: 0.8rem 0;
-    position: fixed;
-    top: 3.4rem;
-    left: 0;
-    right: 0;
     height: 8.5rem;
 }
 
