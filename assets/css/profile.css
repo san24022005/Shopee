@@ -1,0 +1,331 @@
+/* --- LAYOUT CHUNG (main-body-container) --- */
+.main-body-container {
+    /* Đảm bảo nó là Flexbox để chứa Sidebar và Content */
+    display: flex;
+    max-width: 1200px;
+    margin: 150px auto 50px auto; 
+    background-color: #f5f5f5; /* Nền xám nhạt */
+    border-radius: 2px;
+}
+
+/* --- 1. CSS CHO SIDEBAR (sidebar_menu.php) --- */
+.profile-sidebar-menu {
+    width: 180px;
+    flex-shrink: 0;
+    padding: 16px 0;
+}
+
+.profile-user-info-small {
+    display: flex;
+    align-items: center;
+    /* Tăng khoảng cách dưới để tách khỏi menu */
+    margin-bottom: 25px; 
+    padding-bottom: 15px; 
+    border-bottom: 1px solid #ededed;
+}
+
+.profile-user-avatar-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #eee;
+    margin-right: 12px;
+}
+
+.profile-user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-user-name-small {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-edit-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    margin-top: 4px;
+}
+
+.profile-edit-link:hover {
+    color: #ee4d2d;
+}
+
+/* Menu Navigation - Tối ưu khoảng cách */
+.profile-nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-group-header {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 0; /* Tăng padding */
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: default;
+}
+
+.menu-group-header i {
+    color: #ee4d2d;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.menu-sub-list {
+    list-style: none;
+    padding-left: 15px;
+    margin: 5px 0 15px 0; /* Tăng margin dưới */
+}
+
+.menu-item {
+    display: block;
+    padding: 7px 0; /* Tăng padding để giãn cách các mục con */
+    color: #555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.menu-item:hover {
+    color: #ee4d2d;
+}
+
+.menu-item.active {
+    color: #ee4d2d !important;
+    font-weight: 500;
+}
+
+.independent-item {
+    padding: 8px 0; /* Tăng padding cho mục độc lập */
+}
+
+.independent-item i {
+    color: #ee4d2d;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* --- 2. CSS CHO NỘI DUNG CHÍNH (profile_content.php) --- */
+
+.profile-content-area {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 24px 30px;
+    margin-left: 20px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+
+.profile-header {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+}
+
+.profile-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.profile-subtitle {
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Thông báo lỗi/thành công */
+.alert {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    font-size: 0.9rem;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+}
+
+/* Form Layout */
+.profile-form {
+    display: flex;
+    width: 100%;
+}
+
+.profile-form-main {
+    display: flex;
+    width: 100%;
+}
+
+.profile-info-fields {
+    flex: 2; 
+    padding-right: 50px;
+    border-right: 1px solid #eee;
+}
+
+.profile-avatar-area {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+/* Form Groups - Tinh chỉnh khoảng cách giữa các dòng */
+.form-group {
+    margin-bottom: 25px; /* TĂNG KHOẢNG CÁCH DƯỚI */
+    display: flex;
+    align-items: center;
+    min-height: 40px; 
+}
+
+.form-label {
+    width: 150px;
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    font-size: 0.875rem;
+    padding-right: 20px;
+    flex-shrink: 0; 
+}
+
+.form-input-display,
+.form-input-display-with-link {
+    flex: 1;
+    color: #333;
+    font-size: 0.875rem;
+    padding: 10px 0; /* Giúp căn đều với input */
+}
+
+.form-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 0.875rem;
+    max-width: 300px; 
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: #797979;
+    outline: none;
+}
+
+.form-note {
+    margin-left: 20px;
+    color: #999;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    white-space: nowrap; /* Giữ câu này trên một dòng */
+}
+
+.change-link, .add-link {
+    color: #05a;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+/* Giới tính Radio Group */
+.radio-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.radio-label {
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Ngày sinh input */
+.birthdate-field input[type="date"] {
+    padding: 10px 12px;
+}
+
+/* Ảnh đại diện */
+.profile-user-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff; 
+    box-shadow: 0 0 0 1px #eee; 
+}
+
+.avatar-upload-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-select-avatar {
+    background-color: white;
+    color: #555;
+    padding: 8px 15px;
+    border: 1px solid rgba(0,0,0,.09);
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.btn-select-avatar:hover {
+    background-color: #f9f9f9;
+}
+
+.avatar-note {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #999;
+    line-height: 1.4;
+}
+
+/* Nút Lưu */
+.btn-save {
+    background-color: #ee4d2d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    /* Căn chỉnh nút Save */
+    margin-left: 170px; /* Bằng chiều rộng label + padding */
+    margin-top: 5px;
+}
+
+.btn-save:hover {
+    opacity: 0.9;
+}
