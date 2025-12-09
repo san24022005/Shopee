@@ -11,10 +11,9 @@ $available_colors = [];
 $available_sizes = [];
 
 // --- LOGIC HEADER PHP ---
-$is_logged_in = isset($_SESSION['user_id']); 
-$default_avatar_path = './assets/img/default-avatar-small.png';
-$user_avatar = htmlspecialchars($_SESSION['avatar'] ?? $default_avatar_path); 
-$display_username = htmlspecialchars($_SESSION['username'] ?? 'Tài khoản');
+$is_logged_in = isset($_SESSION['khachhang_id']);
+$display_username = htmlspecialchars($_SESSION['khachhang_name'] ?? 'Tài khoản');
+
 // --- END LOGIC HEADER PHP ---
 
 if ($sanpham_id) {
@@ -84,15 +83,14 @@ if ($sanpham_id) {
     <title>CTSP - <?= $prd ? htmlspecialchars($prd['sanpham_name']) : 'Sản phẩm' ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/product_details.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/table.css">
-    <link rel="stylesheet" href="./assets/css/daily-discover.css">
-    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/daily-discover.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 <style>
     .product-page-container {
@@ -104,12 +102,13 @@ if ($sanpham_id) {
     }
 </style>
 <body>
-        <div class="shopee__top shopee__top--sticky">
-            <?php
-                require './widget/top.php';
-                require './widget/header.php';
-            ?>
-        </div>
+<div class="shopee__top shopee__top--sticky">
+        <?php
+            require './widget/top.php';
+            require './widget/header.php';
+        ?>
+    </div>
+<script src="./assets/js/items-search.js"></script>
 <?php if ($prd): ?>
     <div class="product-page-container grid wide">
         
@@ -200,26 +199,44 @@ if ($sanpham_id) {
                 </div>
                 <?php endif; ?>
 
-               
-                <div class="product-quantity-group">
-                    <label>Số lượng</label>
-                    <div class="quantity-control">
-                        <button id="quantity-minus" type="button">-</button>
-                        <input type="text" id="quantity-input" value="1" min="100" max="<?= $total_stock ?>" readonly>
-                        <button id="quantity-plus" type="button">+</button>
+                <?php $sizes_to_display = !empty($available_sizes) ? $available_sizes : ['S', 'M', 'L', 'XL']; ?>
+                <div class="product-option-group">
+                    <label>Size</label>
+                    <div class="option-items">
+                        <?php foreach ($sizes_to_display as $size): ?>
+                            <button class="option-item size-option"><?= htmlspecialchars($size) ?></button>
+                        <?php endforeach; ?>
                     </div>
-                    <span class="stock-info"><?= $total_stock ?> sản phẩm có sẵn</span>
                 </div>
-
-                <div class="actions product-actions">
-                    <button type="button" class="btn btn-add-to-cart js-gio-hang">
-                        <i class="fas fa-cart-plus"></i> Thêm Vào Giỏ Hàng
-                    </button>
-                    <button type="button" class="btn btn-buy-now js-mua-ngay">
-                        Mua ngay
-                    </button>
-                </div>
+                
+                            <div class="product-quantity-group">
+            <label>Số lượng</label>
+            <div class="quantity-control">
+                <button id="quantity-minus" type="button">-</button>
+                <input type="text" id="quantity-input" value="1" min="1" max="<?= $total_stock ?>" readonly>
+                <button id="quantity-plus" type="button">+</button>
             </div>
+            <span class="stock-info"><?= $total_stock ?> sản phẩm có sẵn</span>
+            </div>
+            <form action="add-to-cart.php" method="POST" id="productForm">
+            <input type="hidden" name="id" value="<?= (int)$prd['sanpham_id'] ?>">
+            <input type="hidden" name="size" id="selectedSize" value="">
+            <input type="hidden" name="color" id="selectedColor" value="">
+            <input type="hidden" name="quantity" id="selectedQuantity" value="1">
+
+            <div class="actions product-actions">
+                <!-- NÚT THÊM GIỎ: button (không submit) để chạy AJAX -->
+                 <button id="btnAddToCart" type="button" class="btn btn-add-to-cart">
+                        Thêm Vào Giỏ Hàng
+                        </button>
+
+                <!-- NÚT MUA NGAY: submit bình thường -->
+                <button type="submit" name="buy_now" class="btn btn-buy-now">
+                Mua ngay
+                </button>
+            </div>
+            </form>
+        </div>
         </div>
 
         <div class="product-detail-footer">
@@ -243,7 +260,28 @@ if ($sanpham_id) {
                     </div>
                 </div>
                 
-               
+                <div class="size-guide-section">
+                    <h3>HƯỚNG DẪN CHỌN SIZE</h3>
+                    <div class="size-suggestion">
+                        <p>✍️ Chưa có size đề xuất</p>
+                        <button class="btn btn-small">Nhập size ></button>
+                    </div>
+                    <table class="size-table">
+                        <thead>
+                            <tr><th>Size (Quốc Tế)</th><th>Cân nặng mẫu (kg)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>S</td><td>40-47</td></tr>
+                            <tr><td>M</td><td>48-52</td></tr>
+                            <tr><td>L</td><td>53-58</td></tr>
+                        </tbody>
+                    </table>
+                    <small>Số đo có thể thay đổi nhẹ</small>
+                </div>
+            </div>
+            
+        </div>
+        
     </div>
     <?php else: ?>
         <p style="text-align: center; font-size: 18px; color: #d63031; padding: 50px;">Không tìm thấy sản phẩm có ID: <?= $sanpham_id ?>.</p>
@@ -264,84 +302,67 @@ if ($sanpham_id) {
         </div>
     </footer>
     <script src="./assets/js/modal.js"></script>
+<script>
+function showToast(msg, type="success") {
+  alert(msg);
+}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const minusButton = document.getElementById('quantity-minus');
-            const plusButton = document.getElementById('quantity-plus');
-            const quantityInput = document.getElementById('quantity-input');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("productForm");
+  const btnAdd = document.getElementById("btnAddToCart");
+  if (!form || !btnAdd) return;
 
-            if (minusButton && plusButton && quantityInput) {
-                // Lấy giá trị min và max từ thuộc tính HTML
-                const minQuantity = parseInt(quantityInput.min) || 1; // Đảm bảo min = 1
-                const maxQuantity = parseInt(quantityInput.max) || 1;
-                
-                // --- Xử lý nút Giảm (-) ---
-                minusButton.addEventListener('click', function() {
-                    let currentValue = parseInt(quantityInput.value);
-                    // Dùng minQuantity thay vì giá trị cố định 1
-                    if (currentValue > minQuantity) { 
-                        quantityInput.value = currentValue - 1;
-                    }
-                });
+  let busy = false;
 
-                // --- Xử lý nút Tăng (+) ---
-                plusButton.addEventListener('click', function() {
-                    let currentValue = parseInt(quantityInput.value);
-                    if (currentValue < maxQuantity) {
-                        quantityInput.value = currentValue + 1;
-                    } else {
-                        // Tùy chọn: Thêm cảnh báo khi hết hàng
-                        alert("Đã đạt số lượng tối đa có sẵn (" + maxQuantity + " sản phẩm).");
-                    }
-                });
+  btnAdd.addEventListener("click", async () => {
+    if (busy) return;
+    busy = true;
+    btnAdd.disabled = true;
 
-                // --- Xử lý nhập giá trị trực tiếp (change event) ---
-                quantityInput.addEventListener('change', function() {
-                    let value = parseInt(this.value);
-                    
-                    // Kiểm tra và đặt lại giá trị nếu không hợp lệ
-                    if (isNaN(value) || value < minQuantity) {
-                        this.value = minQuantity;
-                    } else if (value > maxQuantity) {
-                        this.value = maxQuantity;
-                    }
-                });
-            }
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const minusButton = document.getElementById('quantity-minus');
-            const plusButton = document.getElementById('quantity-plus');
-            const quantityInput = document.getElementById('quantity-input');
+    try {
+      const fd = new FormData(form);
+      const res = await fetch("add-to-cart.php", { method: "POST", body: fd });
+      const data = await res.json();
 
-            if (minusButton && plusButton && quantityInput) {
-                const maxQuantity = parseInt(quantityInput.max) || 1;
+      // ❌ Nếu lỗi → thông báo + không redirect
+      if (data.status !== "success") {
+        showToast(data.message || "Thêm vào giỏ thất bại", "error");
+        return;
+      }
 
-                minusButton.addEventListener('click', function() {
-                    let currentValue = parseInt(quantityInput.value);
-                    if (currentValue > 1) {
-                        quantityInput.value = currentValue - 1;
-                    }
-                });
+      // 🔄 **Nếu server trả redirect → chuyển trang**
+      if (data.redirect) {
+        window.location.href = data.redirect;
+        return;   // dừng code tại đây
+      }
 
-                plusButton.addEventListener('click', function() {
-                    let currentValue = parseInt(quantityInput.value);
-                    if (currentValue < maxQuantity) {
-                        quantityInput.value = currentValue + 1;
-                    }
-                });
+      // ⛔ Nếu bạn vẫn muốn giữ lại animation → để dưới redirect
+      const cartCount = document.getElementById("cartCount");
+      if (cartCount) {
+        cartCount.textContent = data.cart_total;
+        cartCount.style.display = (data.cart_total > 0) ? "inline-flex" : "none";
+      }
 
-                // Ngăn người dùng nhập giá trị không hợp lệ
-                quantityInput.addEventListener('change', function() {
-                    let value = parseInt(this.value);
-                    if (isNaN(value) || value < 1) {
-                        this.value = 1;
-                    } else if (value > maxQuantity) {
-                        this.value = maxQuantity;
-                    }
-                });
-            }
-        });
-    </script>
+      const cartIcon = document.getElementById("cartIcon");
+      if (cartIcon) {
+        cartIcon.scrollIntoView({ behavior: "smooth", block: "center" });
+        cartIcon.classList.remove("cart-bounce");
+        void cartIcon.offsetWidth;
+        cartIcon.classList.add("cart-bounce");
+      }
+
+      showToast(data.message || "Đã thêm vào giỏ hàng!");
+
+    } catch (e) {
+      console.error(e);
+      showToast("Lỗi kết nối hoặc lỗi server!", "error");
+    } finally {
+      busy = false;
+      btnAdd.disabled = false;
+    }
+  });
+});
+</script>
+<script src="./assets/js/shopeecart.js"></script>
 </body>
 </html>

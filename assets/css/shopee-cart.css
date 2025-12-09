@@ -1,0 +1,304 @@
+/* Reset cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5; /* Màu nền xám đặc trưng */
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Container chính */
+.shopee-cart {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 0 50px 0;
+}
+
+.shopee-cart h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 500;
+}
+
+/* --- Layout Flexbox cho các cột --- */
+.cart-header,
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+
+/* Định nghĩa độ rộng các cột (giống Shopee) */
+.col-check { width: 5%; text-align: center; }
+.col-product { width: 45%; }
+.col-price { width: 15%; text-align: center; color: #888; }
+.col-qty { width: 15%; text-align: center; }
+.col-total { width: 12%; text-align: center; }
+.col-action { width: 8%; text-align: center; }
+
+/* HEADER GIỎ HÀNG */
+.cart-header {
+    height: 55px;
+    margin-bottom: 12px;
+    color: #888;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+/* ITEM SẢN PHẨM */
+.cart-item {
+    padding: 20px 0;
+    margin-bottom: 15px; /* Khoảng cách giữa các sản phẩm */
+    border: 1px solid rgba(0,0,0,.09);
+}
+
+/* Checkbox style */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #ee4d2d; /* Màu check cam */
+}
+
+/* Phần hiển thị ảnh và tên SP */
+.product-wrap {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 20px;
+}
+
+.product-wrap img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #e8e8e8;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    text-decoration: none;
+    color: rgba(0,0,0,.87);
+    line-height: 18px;
+    margin-bottom: 5px;
+    
+    /* Cắt dòng nếu tên quá dài */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-variation {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Đơn giá */
+.curr-price {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Nút tăng giảm số lượng (Chuẩn Shopee) */
+.shopee-input-qty {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,.09);
+    border-radius: 2px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.shopee-input-qty button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .1s cubic-bezier(.4,0,.6,1);
+    border: 1px solid rgba(0,0,0,.09);
+    background: transparent;
+    color: rgba(0,0,0,.8);
+    width: 32px;
+    height: 32px;
+}
+
+/* Xử lý viền trùng nhau */
+.shopee-input-qty .btn-decrease {
+    border-right: 0;
+    border-radius: 2px 0 0 2px;
+}
+.shopee-input-qty .btn-increase {
+    border-left: 0;
+    border-radius: 0 2px 2px 0;
+}
+
+.shopee-input-qty input {
+    width: 50px;
+    height: 32px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(0,0,0,.09);
+    border-bottom: 1px solid rgba(0,0,0,.09);
+    font-size: 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    outline: none;
+}
+
+/* Tổng tiền màu cam */
+.text-orange {
+    color: #ee4d2d;
+    font-weight: bold;
+}
+
+/* Nút xóa */
+.btn-delete {
+    color: #333;
+    font-size: 14px;
+}
+.btn-delete:hover {
+    color: #ee4d2d;
+    text-decoration: none;
+}
+
+/* FOOTER (Thanh thanh toán dính ở dưới hoặc cuối) */
+.cart-footer {
+    position: sticky; /* Hoặc fixed nếu muốn luôn nổi */
+    bottom: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 12px 20px; /* Padding trái 20px, phải 0 vì nút Mua Hàng full */
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,.09);
+    border-radius: 2px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,.05);
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #222;
+}
+
+.footer-left input {
+    margin-right: 10px;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #222;
+}
+.btn-text:hover {
+    color: #ee4d2d;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.total-info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.total-price {
+    color: #ee4d2d;
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.btn-checkout {
+    background: #ee4d2d;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    width: 210px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-checkout:hover {
+    background: #d73211; /* Cam đậm hơn khi hover */
+    opacity: 0.9;
+}
+
+/* Responsive cơ bản */
+@media (max-width: 768px) {
+    .shopee-cart { width: 100%; padding: 10px; }
+    .cart-header { display: none; } /* Ẩn header trên mobile */
+    .cart-item { flex-wrap: wrap; position: relative; }
+    .col-product { width: 100%; margin-bottom: 10px; }
+    .col-price, .col-qty, .col-total { width: 33%; }
+    .col-action { position: absolute; top: 10px; right: 10px; }
+}
+.btn-delete{
+  color:#333;
+  text-decoration:none;
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:0;
+  font: inherit;
+}
+.btn-delete:hover{ color:#ee4d2d; }
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff5722;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 18px;
+  text-align: center;
+}
+.cart-count.cart-bounce {
+  animation: cart-bounce .35s ease;
+}
+/* Animation bounce */
+@keyframes cart-bounce {
+  0%{transform:scale(1)}
+  30%{transform:scale(1.15)}
+  60%{transform:scale(.95)}
+  100%{transform:scale(1)}
+}
+
