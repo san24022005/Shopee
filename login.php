@@ -51,6 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập Shopee | 10.10 Đại Tiệc Thương Hiệu</title>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <link rel="stylesheet" href="./assets/css/login.css">
     <style>
         .error-msg { color: #ee4d2d; font-size: 1.4rem; text-align: center; margin: 10px 0; }

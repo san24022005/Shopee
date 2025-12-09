@@ -30,10 +30,12 @@ if ($keyword !== "") {
 <head>
     <meta charset="UTF-8">
     <title>Kết quả tìm kiếm: <?php echo $keyword; ?></title>
-
-    <!-- Giữ nguyên CSS của index -->
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <link rel="stylesheet" href="./assets/css/daily-discover.css">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 </head>
