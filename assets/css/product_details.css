@@ -1,0 +1,610 @@
+/* Thiết lập màu sắc chung (Shopee) */
+:root {
+    --shopee-orange: #ee4d2d;
+    --shopee-grey-light: #f5f5f5;
+    --shopee-border: #e8e8e8;
+    --shopee-text-dark: #333;
+    --shopee-text-light: #757575;
+}
+
+/* --- Layout Chung --- */
+.product-page-container {
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 0 15px;
+}
+
+.breadcrumb {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--shopee-text-light);
+}
+
+.breadcrumb i {
+    margin: 0 5px;
+    color: var(--shopee-border);
+}
+
+.shopee-product-main {
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05); /* Hiệu ứng box-shadow nhẹ */
+}
+
+.product-left-col {
+    width: 40%;
+}
+
+.product-right-col {
+    width: 60%;
+}
+
+/* --- Hình ảnh & Chia sẻ --- */
+.main-image-wrapper {
+    position: relative;
+    padding-top: 100%; /* Tạo khung vuông cho ảnh */
+    overflow: hidden;
+    border: 1px solid var(--shopee-border);
+    margin-bottom: 10px;
+}
+
+.main-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Giữ tỷ lệ ảnh trong khung */
+}
+
+.product-share-wishlist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--shopee-border);
+    padding-top: 10px;
+    font-size: 1.4rem;
+    color: var(--shopee-text-light);
+}
+
+.product-share-wishlist .share {
+    margin-right: 20px;
+    color: var(--shopee-text-dark);
+}
+
+.product-share-wishlist .fab, .product-share-wishlist .far {
+    color: var(--shopee-orange);
+    margin-left: 8px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* --- Chi tiết sản phẩm --- */
+.product-title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.product-rating-stats {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: var(--shopee-text-light);
+    margin-bottom: 20px;
+}
+
+.product-rating-stats .rating {
+    color: var(--shopee-orange);
+    font-weight: bold;
+    border-right: 1px solid var(--shopee-border);
+    padding-right: 15px;
+}
+
+.product-rating-stats .review-count,
+.product-rating-stats .sold-count {
+    padding: 0 15px;
+    border-right: 1px solid var(--shopee-border);
+}
+.product-rating-stats .sold-count {
+    border-right: none;
+}
+
+.divider-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--shopee-border);
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+/* Giá */
+.product-price-section {
+    background-color: var(--shopee-grey-light);
+    padding: 15px 20px;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.original-price {
+    font-size: 1.8rem;
+    color: var(--shopee-text-light);
+    text-decoration: line-through;
+    margin-right: 15px;
+}
+
+.current-price {
+    font-size: 3rem;
+    color: var(--shopee-orange);
+    font-weight: bold;
+}
+
+.current-price.no-sale {
+    font-size: 2.5rem;
+}
+
+.sale-tag {
+    margin-left: 10px;
+    background-color: var(--shopee-orange);
+    color: white;
+    font-size: 1.2rem;
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+/* Options */
+.product-option-group {
+    margin-bottom: 20px;
+}
+
+.option-row {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+.option-row label {
+    width: 120px;
+    color: var(--shopee-text-light);
+}
+
+.option-value {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.voucher-tag {
+    background-color: var(--shopee-orange);
+    color: white;
+    font-size: 1.2rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.shipping-info p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+.shipping-info i {
+    color: var(--shopee-orange);
+    margin-right: 5px;
+}
+
+/* Variants */
+.color-btn, .size-btn {
+    border: 1px solid var(--shopee-border);
+    background-color: white;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    min-width: 60px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.color-btn:hover, .size-btn:hover {
+    color: var(--shopee-orange);
+    border-color: var(--shopee-orange);
+}
+
+.color-btn.active, .size-btn.active {
+    color: var(--shopee-orange);
+    border-color: var(--shopee-orange);
+    position: relative;
+    box-shadow: 0 0 0 1px var(--shopee-orange) inset;
+}
+
+/* Quantity Control */
+.quantity-control button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--shopee-border);
+    background-color: white;
+    cursor: pointer;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+.quantity-control input {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid var(--shopee-border);
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.stock-info {
+    margin-left: 15px;
+    color: var(--shopee-text-light);
+}
+
+/* Actions */
+.product-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-add-to-cart {
+    background-color: rgba(238, 77, 45, 0.1);
+    color: var(--shopee-orange);
+    border: 1px solid var(--shopee-orange);
+    padding: 12px 30px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-add-to-cart i {
+    margin-right: 8px;
+}
+.btn-add-to-cart:hover {
+    background-color: rgba(238, 77, 45, 0.15);
+}
+
+.btn-buy-now {
+    background-color: var(--shopee-orange);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn-buy-now:hover {
+    opacity: 0.9;
+}
+
+.shopee-commitment {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: var(--shopee-text-light);
+}
+
+.shopee-commitment i {
+    color: var(--shopee-orange);
+    margin-right: 10px;
+}
+
+/* --- Mô tả & Chi tiết chân trang --- */
+.product-detail-footer {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.detail-description-section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+
+.detail-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 15px;
+    background-color: var(--shopee-grey-light);
+    margin: 0 -30px 20px; /* Kéo dài background ra sát lề */
+    color: var(--shopee-text-dark);
+}
+
+.prd-description-text {
+    font-size: 1.4rem;
+    white-space: pre-wrap; /* Giữ định dạng xuống dòng từ nl2br */
+    line-height: 2.2rem;
+    color: var(--shopee-text-dark);
+}
+
+/* Chi Tiết Sản Phẩm Grid */
+.detail-box {
+    margin-top: 40px;
+}
+
+.detail-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cột linh hoạt */
+    gap: 10px 0;
+    font-size: 1.4rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.detail-item label {
+    width: 150px;
+    color: var(--shopee-text-light);
+}
+
+.detail-item span {
+    font-weight: 500;
+    color: var(--shopee-text-dark);
+}
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 120px;
+        }
+        .quantity-control button {
+            background: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #555;
+            transition: background-color 0.2s;
+        }
+        .quantity-control button:hover {
+            background-color: #f0f0f0;
+        }
+        .quantity-control input {
+            border: none;
+            text-align: center;
+            width: 40px;
+            height: 34px;
+            font-size: 16px;
+            outline: none;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+        .product-quantity-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .product-quantity-group label, .product-option-group label {
+            width: 110px;
+            color: #757575;
+        }
+        .actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-right: 15px;
+            transition: opacity 0.2s;
+        }
+        .actions button:hover {
+            opacity: 0.9;
+        }
+        .btn-add-to-cart {
+            background: rgba(255, 87, 34, 0.1); /* Màu cam nhạt */
+            color: var(--primary-color, #ee4d2d);
+            border: 1px solid var(--primary-color, #ee4d2d);
+        }
+        .btn-buy-now {
+            background: var(--primary-color, #ee4d2d);
+            color: #fff;
+        }
+/* ... CSS cũ giữ nguyên ... */
+    
+    /* BỔ SUNG CÂN ĐỐI VÀ KIỂM SOÁT TRÀN NỘI DUNG */
+    
+    /* Đảm bảo Tiêu đề (H1) không tràn ra ngoài */
+    .product-title {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        color: #333;
+        /* RẤT QUAN TRỌNG: Ngăn chữ tràn ra ngoài */
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+    }
+
+    /* Kiểm soát khu vực mô tả sản phẩm */
+    .prd-description-text {
+        font-size: 14px;
+        color: #333;
+        line-height: 1.6;
+        white-space: pre-wrap; /* Quan trọng để giữ định dạng xuống dòng từ nl2br của PHP */
+        /* Đảm bảo nội dung không làm vỡ layout */
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        max-width: 100%; /* Đảm bảo nó không vượt quá container cha */
+    }
+
+    /* Căn chỉnh lại khối thông tin chi tiết (nếu bị tràn) */
+    .detail-item span {
+        flex: 1;
+        color: #333;
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        max-width: calc(100% - 150px); /* Đảm bảo không tràn khỏi phần dành cho nó */
+    }
+    
+    /* ... CSS cũ giữ nguyên ... */
+.prd-description-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+            max-width: 100%; 
+        }
+
+        .detail-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .detail-item {
+            display: flex;
+            font-size: 14px;
+        }
+        .detail-item label {
+            flex: 0 0 150px;
+            color: #757575;
+        }
+        .detail-item span {
+            flex: 1;
+            color: #333;
+            word-wrap: break-word; /* Cho phép giá trị thuộc tính xuống dòng */
+            overflow-wrap: break-word;
+        }
+        /* Bảng Size */
+        .size-table {
+            width: 400px;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .size-table th, .size-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .size-table th {
+            background-color: #f5f5f5;
+            font-weight: 500;
+        }
+    /* --- Cấu trúc chung cho các hàng thông tin bên phải (Vận chuyển, Voucher, Bảo hành) --- */
+.product-info-row {
+    display: flex;
+    align-items: flex-start; /* Căn chỉnh nội dung lên trên */
+    padding: 10px 0;
+    margin-bottom: 5px; /* Khoảng cách giữa các mục */
+}
+
+.info-label {
+    width: 110px; /* Chiều rộng cố định cho label (Vận Chuyển, Màu sắc,...) */
+    color: var(--label-color, #757575);
+    font-size: 0.85rem;
+    padding-right: 10px;
+    flex-shrink: 0;
+}
+
+.info-content {
+    flex-grow: 1;
+    font-size: 0.85rem;
+    color: var(--text-color, #333);
+}
+
+/* --- VOUCHER --- */
+.voucher-tag {
+    display: inline-block;
+    border: 1px solid var(--shopee-orange, #ee4d2d);
+    color: var(--shopee-orange, #ee4d2d);
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* --- VẬN CHUYỂN (Shipping Section) --- */
+.shipping-details {
+    padding-top: 2px;
+}
+
+.shipping-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Giả định Icon Vận chuyển là themify-icons */
+.shipping-icon-placeholder {
+    font-size: 0.9rem;
+    margin-right: 8px;
+    color: var(--shopee-orange, #ee4d2d); /* Màu cam cho icon */
+    width: 15px; /* Căn chỉnh icon */
+    text-align: center;
+}
+
+.shipping-fee-link {
+    color: var(--text-color, #333);
+    font-weight: 600;
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.shipping-promotion {
+    font-size: 0.75rem;
+    color: var(--label-color, #757575);
+    padding-left: 23px; /* Căn chỉnh với icon */
+}
+
+/* --- AN TÂM MUA SẮM (Shopee Assurance Section) --- */
+.assurance-details {
+    padding-top: 2px;
+}
+
+.assurance-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Icon Trả Hàng - Giả định dùng background image hoặc icon placeholder */
+.assurance-icon-placeholder {
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+
+/* Giả định bạn có file icon trả hàng */
+.assurance-return {
+    /* Thay placeholder này bằng đường dẫn đến file hình ảnh icon trả hàng của bạn */
+    /* Ví dụ: background-image: url('./assets/img/return-icon.png'); */
+    background-color: #f7a371; /* Màu placeholder tạm thời */
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.assurance-text {
+    color: var(--text-color, #333);
+    font-size: 0.85rem;
+}
+
+/* Thêm khoảng cách cho toàn bộ khu vực thông tin bên phải */
+.product-right-col {
+    padding: 10px 20px;
+    border-left: 1px solid var(--border-color, #f0f0f0);
+}
+
+.delprd-chitiet .product-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}

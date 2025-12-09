@@ -17,7 +17,7 @@
             <div class="header__search-items" id="searchItems"></div>
         </div>
         <div class="header__item header__cart__wrapper">
-            <a href="/cart" class="header__cart">
+            <a href="/cart.php" class="header__cart">
                 <i class="header__cart-icon ti-shopping-cart"></i>
             </a>
         </div>
