@@ -39,8 +39,20 @@ if ($keyword !== "") {
     <link rel="stylesheet" href="./assets/css/daily-discover.css">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 </head>
-<body>
+<style>
+    .daily-discover__wrapper {
+        min-height: 100vh;
+    }
 
+    .shopee__top--sticky {
+        position: relative;
+    }
+
+    .body {
+        background-color: #f5f5f5;
+    }
+</style>
+<body>
 <div class="main">
     <div class="shopee__top shopee__top--sticky">
             <?php
