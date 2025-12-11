@@ -101,7 +101,7 @@ $result = $stmt->get_result();
         <div class="daily-discover__wrapper">
             <div class="daily-discover__list">
                 <?php while ($product = $result->fetch_assoc()): ?>
-                    <div class="product-item">
+                    <a href="./detail.php?id=<?php echo $product['sanpham_id']?>" class="product-item">
                         <div class="product-item__wrapper">
                             <div class="product__img">
                                 <img src="<?php echo $product['sanpham_mainimg']; ?>" alt="">
@@ -125,9 +125,9 @@ $result = $stmt->get_result();
                         </div>
 
                         <div class="search-product">
-                                <p class="search-product__title">Tìm sản phẩm tương tự</p>
+                            <p class="search-product__title">Tìm sản phẩm tương tự</p>
                         </div>
-                    </div>
+                    </a>
                 <?php endwhile; ?>
 
                 <?php if ($result->num_rows === 0): ?>

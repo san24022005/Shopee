@@ -119,7 +119,7 @@
     width: 15rem;
 
     background: #fff;
-    border: 1px solid #e0e0e0;
+    border: .1rem solid #e0e0e0;
     display: flex;
     flex-direction: column;
 
@@ -970,4 +970,111 @@
     margin: 0.75rem 0;
     color: #000;
     font-size: 1.2rem;
+}
+
+.shopee-footer {
+    background-color: #fff;
+    padding: 4rem 0;
+    font-size: 1.4rem;
+    color: #555;
+    margin-top: 3rem;
+    background-color: #0000;
+}
+
+.footer__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 18.0rem;
+    margin-bottom: 3.0rem;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2.0rem;
+    text-transform: uppercase;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 1.0rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-col ul li a {
+    color: #555;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    color: #ee4d2d;
+}
+
+/* Logo thanh toán & vận chuyển */
+.payment-logos, .shipping-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.payment-logos img, .shipping-logos img {
+    width: 5.2rem;
+    object-fit: contain;
+}
+
+/* QR code & app stores */
+.download-app {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.0rem;
+}
+
+.footer__follow a {
+    font-size: 1.2rem;
+}
+
+.download-app img.qr {
+    width: 8.8rem;
+    height: 8.8rem;
+}
+
+.app-stores img {
+    width: 6.8rem;
+    margin-bottom: .8rem;
+}
+
+/* Nút chat cố định góc dưới phải */
+.chat-btn {
+    position: fixed;
+    bottom: 2.0rem;
+    right: 2.0rem;
+    background-color: #ee4d2d;
+    color: white;
+    width: 6.0rem;
+    height: 6.0rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 .4rem 1.2rem rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-size: 2.4rem;
+}
+
+.footer-icon {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
 }

@@ -82,7 +82,6 @@ if ($sanpham_id) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTSP - <?= $prd ? htmlspecialchars($prd['sanpham_name']) : 'Sản phẩm' ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/product_details.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/fonts/font-awesome/css/all.min.css">
@@ -90,24 +89,21 @@ if ($sanpham_id) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <link rel="stylesheet" href="./assets/css/daily-discover.css">
+    <link rel="stylesheet" href="./assets/css/product_details.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 <style>
     .product-page-container {
-        margin-top: 3rem;
-    }
-
-    .shopee__top--sticky {
-        position: relative;
+        margin-top: 150px;
     }
 </style>
 <body>
-<div class="shopee__top shopee__top--sticky">
-        <?php
-            require './widget/top.php';
-            require './widget/header.php';
-        ?>
-    </div>
+        <div class="shopee__top shopee__top--sticky">
+            <?php
+                require './widget/top.php';
+                require './widget/header.php';
+            ?>
+        </div>
 <script src="./assets/js/items-search.js"></script>
 <?php if ($prd): ?>
     <div class="product-page-container grid wide">
@@ -304,6 +300,7 @@ if ($sanpham_id) {
     <script src="./assets/js/modal.js"></script>
 <script>
 function showToast(msg, type="success") {
+  // bạn có thể thay bằng toast đẹp của bạn
   alert(msg);
 }
 
@@ -324,35 +321,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("add-to-cart.php", { method: "POST", body: fd });
       const data = await res.json();
 
-      // ❌ Nếu lỗi → thông báo + không redirect
       if (data.status !== "success") {
         showToast(data.message || "Thêm vào giỏ thất bại", "error");
         return;
       }
 
-      // 🔄 **Nếu server trả redirect → chuyển trang**
-      if (data.redirect) {
-        window.location.href = data.redirect;
-        return;   // dừng code tại đây
-      }
-
-      // ⛔ Nếu bạn vẫn muốn giữ lại animation → để dưới redirect
+      // ✅ cập nhật số trên icon giỏ
       const cartCount = document.getElementById("cartCount");
       if (cartCount) {
         cartCount.textContent = data.cart_total;
         cartCount.style.display = (data.cart_total > 0) ? "inline-flex" : "none";
       }
 
+      // ✅ scroll + bounce tới icon giỏ hàng (header)
       const cartIcon = document.getElementById("cartIcon");
       if (cartIcon) {
         cartIcon.scrollIntoView({ behavior: "smooth", block: "center" });
         cartIcon.classList.remove("cart-bounce");
-        void cartIcon.offsetWidth;
+        void cartIcon.offsetWidth; // reset animation
         cartIcon.classList.add("cart-bounce");
       }
 
       showToast(data.message || "Đã thêm vào giỏ hàng!");
-
     } catch (e) {
       console.error(e);
       showToast("Lỗi kết nối hoặc lỗi server!", "error");
@@ -363,6 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script src="./assets/js/shopeecart.js"></script>
+</script>
+<script src="./assets/js/shopecart.js"></script>
 </body>
 </html>
