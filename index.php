@@ -365,6 +365,9 @@ $totalPages = ceil($total / $limit);
             </p>
         </section>
     </div>
+    <?php 
+        require './widget/footer.php';
+    ?>
     <script src="./assets/js/banner-homepage.js"></script>
     <script src="./assets/js/danhmuc-homepage.js"></script>
     <script src="./assets/js/flash-sale.js"></script>
