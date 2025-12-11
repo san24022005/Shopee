@@ -182,6 +182,9 @@ $conn->close();
         </div>
         
     </div>
+    <?php 
+        require './widget/footer.php';
+    ?>
     
     <script>
         // Hàm xem trước ảnh khi chọn file

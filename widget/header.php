@@ -1,7 +1,7 @@
 <div class="grid header">
     <div class="header__wrapper">
         <div class="header__item shopee__top--logo">
-            <a href="/index.php" class="header__logo-link">
+            <a href="./index.php" class="header__logo-link">
                 <img src="./assets/img/logo.png" alt="Shopee Logo" class="header__logo">
             </a>
         </div>

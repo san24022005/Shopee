@@ -182,7 +182,9 @@ while($row = $result->fetch_assoc()){
 </div>
 
 <div id="toast"></div>
-
+	<?php 
+        require './widget/footer.php';
+    ?>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 const toastEl = document.getElementById("toast");

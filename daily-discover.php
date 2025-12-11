@@ -34,8 +34,21 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 // Không cần mảng $products nữa, dùng trực tiếp $result
-?>
+// Đếm tổng số sản phẩm
+$totalSql = "
+    SELECT COUNT(*) AS total 
+    FROM sanpham 
+    WHERE sanpham_mainimg IS NOT NULL 
+      AND sanpham_mainimg != ''
+";
+$totalResult = $conn->query($totalSql);
+$totalRow = $totalResult->fetch_assoc();
+$totalProducts = $totalRow['total'];
 
+$totalPages = ceil($totalProducts / $perPage);
+
+if ($page > $totalPages) $page = $totalPages;
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -85,6 +98,77 @@ $result = $stmt->get_result();
         border-radius: 1rem;
         font-weight: normal;
     }
+
+.page-btn:hover {
+    border-color: #ee4d2d;
+    color: #ee4d2d;
+}
+
+.page-btn.active {
+    background: #ee4d2d;
+    border-color: #ee4d2d;
+    color: white;
+}
+
+.page-btn, .page-dots {
+    padding: 8px 14px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size: 14px;
+}
+
+.page-btn:hover {
+    border-color: #ee4d2d;
+    color: #ee4d2d;
+}
+
+.page-btn.active {
+    background: #ee4d2d;
+    color: #fff;
+    border-color: #ee4d2d;
+}
+
+.page-dots {
+    cursor: default;
+    color: #777;
+}
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    gap: 12px;
+}
+
+.page-btn, .page-dots {
+    padding: 8px 14px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size: 14px;
+}
+
+.page-btn:hover {
+    border-color: #ee4d2d;
+    color: #ee4d2d;
+}
+
+.page-btn.active {
+    background: #ee4d2d;
+    color: #fff;
+    border-color: #ee4d2d;
+}
+
+.page-dots {
+    cursor: default;
+    color: #777;
+}
+
+
 </style>
 <body>
     <div class="shopee__top shopee__top--sticky">
@@ -133,11 +217,39 @@ $result = $stmt->get_result();
                 <?php if ($result->num_rows === 0): ?>
                     <p style="padding: 2rem; text-align: center; width: 100%;">Không có sản phẩm nào.</p>
                 <?php endif; ?>
+
+            </div>
+</div>
+                <div class="pagination">
+
+                    <?php if ($page > 1): ?>
+                        <a href="?pageNumber=<?php echo $page - 1; ?>" class="page-btn">‹</a>
+                    <?php else: ?>
+                        <span class="page-btn" style="opacity: 0.4; cursor: default;">‹</span>
+                    <?php endif; ?>
+
+                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                        <a href="?pageNumber=<?php echo $i; ?>"
+                        class="page-btn <?php echo ($page == $i ? 'active' : ''); ?>">
+                        <?php echo $i; ?>
+                        </a>
+                    <?php endfor; ?>
+
+                    <?php if ($page < 5): ?>
+                        <a href="?pageNumber=<?php echo $page + 1; ?>" class="page-btn">›</a>
+                    <?php else: ?>
+                        <span class="page-btn" style="opacity: 0.4; cursor: default;">›</span>
+                    <?php endif; ?>
+
+                </div>
             </div>
         </div>
     </div>
+    <?php 
+        require './widget/footer.php';
+    ?>
 <?php
-// Đóng statement và kết nối
+// Đóng statement và kết nối    
 $stmt->close();
 $conn->close();
 ?>
