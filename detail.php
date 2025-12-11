@@ -283,20 +283,9 @@ if ($sanpham_id) {
         <p style="text-align: center; font-size: 18px; color: #d63031; padding: 50px;">Không tìm thấy sản phẩm có ID: <?= $sanpham_id ?>.</p>
     <?php endif; ?>
 
-    <footer class="main-footer">
-        <div class="grid wide footer-content">
-            <div class="footer-col"><h4>CHĂM SÓC KHÁCH HÀNG</h4><ul class="footer-list"><li><a href="#">Trung Tâm Trợ Giúp</a></li></ul></div>
-            <div class="footer-col"><h4>VỀ SHOPEE</h4><ul class="footer-list"><li><a href="#">Giới Thiệu Về Shopee</a></li></ul></div>
-            <div class="footer-col"><h4>THANH TOÁN</h4></div>
-            <div class="footer-col"><h4>THEO DÕI CHÚNG TÔI</h4></div>
-            <div class="footer-col"><h4>TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h4></div>
-        </div>
-        <div class="footer-bottom">
-            <div class="grid wide">
-                <p>&copy; 2024 Shopee. Tất cả các quyền được bảo lưu.</p>
-            </div>
-        </div>
-    </footer>
+    <?php 
+        require './widget/footer.php';
+    ?>
     <script src="./assets/js/modal.js"></script>
 <script>
 function showToast(msg, type="success") {
@@ -354,6 +343,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 </script>
+<script>
+document.getElementById("btnAddToCart").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    let form = document.getElementById("productForm");
+    let formData = new FormData(form);
+
+    fetch("add-to-cart.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        // ⭐ HIỆN ALERT Ở ĐÂY
+        alert(data.message);
+
+        if (data.status === "success") {
+            // cập nhật số lượng giỏ hàng trên giao diện (nếu có)
+            const cartTotal = document.getElementById("cart_total");
+            if (cartTotal) cartTotal.textContent = data.total;
+        }
+    })
+    .catch(err => {
+        alert("Lỗi kết nối server!");
+    });
+});
+</script>
+
 <script src="./assets/js/shopecart.js"></script>
 </body>
 </html>

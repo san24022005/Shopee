@@ -111,7 +111,9 @@ if ($keyword !== "") {
             </div>
         </div>
     </div>
-
 </div>
+    <?php 
+        require './widget/footer.php';
+    ?>
 </body>
 </html>
